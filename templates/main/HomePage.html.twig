@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <div class="th-hero-wrapper hero-3" id="hero">
+        <div class="hero-slider-2 th-carousel" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-arrows="true">
+
+            {% for slider in sliders %}
+
+            <div class="th-hero-slide">
+                <div class="th-hero-bg" data-bg-src="{{ vich_uploader_asset(slider, 'imageFile') }}" data-overlay="black" data-opacity="7"></div>
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-9">
+                            <div class="hero-style3 text-center">
+                                <span class="hero-subtitle text-theme" data-ani="slideinup" data-ani-delay="0.1s">{{ slider.Description }}</span>
+                                <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.4s">{{ slider.Title }}</h1>
+                                <div class="btn-group justify-content-center" data-ani="slideinup" data-ani-delay="0.7s">
+                                    <a href="/{{ slider.Slug }}" class="th-btn style3">{{ slider.NameSlug }}<i class="fa-regular fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <section class="">
+        <div class="container">
+            <div class="row slider-shadow th-carousel service-slider3" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-3-1.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">Roof Plumbing</a></h3>
+                            <p class="service-box_text">Roof plumbing candescribed as any work that include renovate, altering, repairing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-3-2.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">Quality Material</a></h3>
+                            <p class="service-box_text">Roof plumbing is work involved in fixing, installing, Renovating, altering, repairing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-1-1.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">Expert Engineer</a></h3>
+                            <p class="service-box_text">The materials used for roof construction can vary widely anging roof plumbing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-1-5.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">24/7 Team Support</a></h3>
+                            <p class="service-box_text">The framework of a roof typically consists of rafters, ridge beams.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-3-1.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">Roof Plumbing</a></h3>
+                            <p class="service-box_text">Roof plumbing candescribed as any work that include renovate, altering, repairing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-3-2.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">Quality Material</a></h3>
+                            <p class="service-box_text">Roof plumbing is work involved in fixing, installing, Renovating, altering, repairing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-1-1.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">Expert Engineer</a></h3>
+                            <p class="service-box_text">The materials used for roof construction can vary widely anging roof plumbing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-box">
+                        <div class="service-bg-shape">
+                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                        </div>
+                        <div class="service-box_content">
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-1-5.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="service-details.html">24/7 Team Support</a></h3>
+                            <p class="service-box_text">The framework of a roof typically consists of rafters, ridge beams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

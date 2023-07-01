@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+            <div class="container-fluid pt-4 px-4">
+            <h1>User index</h1><a href="{{ path('app_admin_user_new') }}">Créer un nouvelle Utilisateur</a>
+                <div class="bg-light text-center rounded p-4">
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Pseudo</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Compte Actif</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.CreatedAt | date('d m y') }}</td>
+                                    <td>{{ user.profile.Pseudo }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" {% if user.IsVerified == false %} disabled disabled {% else %}checked disabled {% endif %}>
+                                            
+                                        </div>
+                                    </td>
+                                    
+                                    <td><a class="btn btn-sm btn-primary" href="{{ path('app_admin_user_show', {'id': user.id}) }}">Detail</a></td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+		<div class="container">
+			<div class="breadcumb-content text-center">
+				<h1 class="breadcumb-title">Checkout</h1>
+				<ul class="breadcumb-menu">
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>Checkout</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="th-checkout-wrapper space-top space-extra-bottom">
+		<div class="container">
+			<div class="row">
+                <div class="col-6 mx-auto">
+					<div class="woocommerce-form-login-toggle">
+						<div class="woocommerce-info">Créer un compte</div>
+					</div>
+					{% for flash_error in app.flashes('verify_email_error') %}
+						<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+					{% endfor %}
+					{{ form_errors(registrationForm) }}
+					{{ form_start(registrationForm, { 'attr' : {'class': 'woocommerce-form-login'} }) }}
+						
+						<div class="form-group">
+							<label>Username or email *</label>
+							{{ form_widget(registrationForm.email) }}
+						</div>
+						<div class="form-group">
+							<label>Password *</label>
+							{{ form_widget(registrationForm.plainPassword) }}
+						</div>
+						<div class="form-group">
+							<div class="custom-checkbox">
+								{{ form_widget(registrationForm.agreeTerms) }}
+								<label for="registration_form_agreeTerms">Condition général d'utilisation</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="th-btn">Enregistez vous</button>
+						</div>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

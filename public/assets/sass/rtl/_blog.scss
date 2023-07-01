@@ -1,0 +1,19 @@
+.blog-meta span, .blog-meta a {
+    margin-right: 0;
+    margin-left: 16px;
+    i {
+        margin-left: 10px;
+        margin-right: 0;
+    }
+    &:after {
+        margin-right: 20px;
+        margin-left: 0;
+    }
+}
+.blog-card .box-title a {
+    background-position: bottom right;
+}
+.blog-card .blog-content .blog-bg-shape {
+    left: 0;
+    right: auto;
+}

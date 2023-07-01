@@ -1,0 +1,88 @@
+.service-featured_content .service-bg-shape {
+    right: auto;
+    left: 0;
+}
+.wcu-box_icon {
+    margin-left: 20px;
+    margin-right: 0;
+}
+.wcu-img-half {
+    margin-left: 126px;
+    margin-right: 0;
+}
+.appointment-form-wrap {
+    margin-right: auto;
+    margin-left: 56px;
+    &:after {
+        left: 0;
+        right: auto;
+        border-right: solid 35px #B82110;
+        border-left: solid 35px transparent;
+    }
+}
+.team-card {
+    .team-social {
+        left: 30px;
+        right: auto;
+    }
+}
+.team-social-activate_btn {
+    left: 30px;
+    right: auto;
+}
+.accordion-card .accordion-button {
+    padding: 12px 30px 12px 45px;
+    &:after {
+        left: 30px;
+        right: auto;
+        padding-right: 10px;
+        padding-left: 0;
+        clip-path: none;
+        background-image: none;
+    }
+}
+.testi-slider1 {
+    margin-left: -220px;
+    margin-right: 0;
+}
+.testi-card_profile {
+    padding: 40px 30px;
+}
+.testi-card:after {
+    right: -36px;
+    left: auto;
+    transform: rotate(45deg);
+}
+.testimonial-slider-arrow1 .slick-arrow.slick-next {
+    margin-right: 6px;
+    margin-left: 0;
+}
+@media (max-width: 1600px) {
+    .faq-bg-img1 {
+        left: -8% !important;
+        right: auto !important;
+    }
+}
+@include xxl {
+    .hero-1 .th-hero-bg {
+        background-position: -310px center;
+    }
+}
+@include xl {
+    .hero-1 .th-hero-bg {
+        background-position: -356px center;
+    }
+}
+@include ml {
+    .faq-bg-img1 {
+        left: -24% !important;
+    }
+}
+@include lg {
+    .hero-1 .th-hero-bg {
+        background-position: -464px center;
+    }
+    .wcu-wrap1 {
+        margin-right: 45px;
+    }
+}

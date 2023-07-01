@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+		<div class="container">
+			<div class="breadcumb-content text-center">
+				<h1 class="breadcumb-title">Checkout</h1>
+				<ul class="breadcumb-menu">
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>Checkout</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="th-checkout-wrapper space-top space-extra-bottom">
+		<div class="container">
+			<div class="row">
+                <div class="col-6 mx-auto">
+					<div class="woocommerce-form-login-toggle">
+						<div class="woocommerce-info">{{ "auth_code"|trans({}, 'SchebTwoFactorBundle') }} {{ twoFactorProvider }}</div>
+
+						{% if authenticationError %}
+							<p>{{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</p>
+						{% endif %}
+							<form class="form" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post">
+								<p class="widget">
+									<input id="_auth_code" type="text" name="{{ authCodeParameterName }}" autocomplete="one-time-code" autofocus />
+								</p>
+
+								{% if displayTrustedOption %}
+									<p class="widget"><label for="_trusted"><input id="_trusted" type="checkbox" name="{{ trustedParameterName }}" /> {{ "trusted"|trans({}, 'SchebTwoFactorBundle') }}</label></p>
+								{% endif %}
+								{% if isCsrfProtectionEnabled %}
+									<input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">
+								{% endif %}
+								<p class="submit"><input type="submit" value="{{ "login"|trans({}, 'SchebTwoFactorBundle') }}" /></p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
