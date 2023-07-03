@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+    <h1>Product</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ product.Name }}</td>
+            </tr>
+            <tr>
+                <th>TVA</th>
+                <td>{{ product.TVA }}</td>
+            </tr>
+            <tr>
+                <th>PriceTTC</th>
+                <td>{{ product.PriceTTC }}</td>
+            </tr>
+            <tr>
+                <th>PriceHT</th>
+                <td>{{ product.PriceHT }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ product.IsActive ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_product_c_r_u_d_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_product_c_r_u_d_edit', {'id': product.id}) }}">edit</a>
+
+    
+{% endblock %}
