@@ -1,0 +1,41 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid pt-4 px-4">
+        <h1>Consultation Par Email</h1>
+        <div class="bg-light text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                    <tr class="text-dark">
+                        <th scope="col">Nom pu Pseudo</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Date d'envoie</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for consultation_email in consultation_emails %}
+                        <tr>
+                            <td>{{ consultation_email.User.Pseudo }}</td>
+                            <td>{{ consultation_email.Message }}</td>
+                            <td>{{ consultation_email.CreatedAt ? consultation_email.CreatedAt|date('d m Y') : '' }}</td>
+                            <td>
+                                <a href="{{ path('app_admin_consultation_email_edit', {'id': consultation_email.id}) }}">Répondre</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

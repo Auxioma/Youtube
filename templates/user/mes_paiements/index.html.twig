@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Blog Details</h1>
+                <ul class="breadcumb-menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>Blog Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="th-checkout-wrapper space-top space-extra-bottom">
+        <div class="container">
+            <div class="row">
+                {% include 'user/_partials/_navigation.html.twig' %}
+                <div class="col-9">
+                    <div class="container">
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="woocommerce-message">Shipping costs updated.</div>
+                        </div>
+                        <table class="tinvwl-table-manage-list">
+                            <thead>
+                            <tr>
+                                <th class="product-price">Numéro de facture</th>
+                                <th class="product-date">Nom du forfait</th>
+                                <th class="product-stock">Date d'achat</th>
+                                <th class="product-action">Prix</th>
+                                <th class="product-action"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for ticket in tickets %}
+                            <tr class="wishlist_item">
+                                <td class="product-price">
+                                   {{ ticket.InvoiceNumber }}
+                                </td>
+                                <td class="product-date">
+                                    {{ ticket.NameProduct }}
+                                </td>
+                                <td class="product-stock">
+                                    {{ ticket.CreatedAt | date('d M Y') }}
+                                </td>
+                                <td class="product-action">
+                                    {{ ticket.TotalPaidTTC }}
+                                </td>
+                                <td class="product-action">
+                                    <a href="#" class="button">Télécharger la facture</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

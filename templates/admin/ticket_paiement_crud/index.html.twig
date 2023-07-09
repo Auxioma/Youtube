@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}User index
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid pt-4 px-4">
+        <h1>Commande</h1>
+
+        <div class="bg-light text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                    <tr class="text-dark">
+                        <th scope="col">N° facture</th>
+                        <th scope="col">Nom du client</th>
+                        <th scope="col">Prix TTC</th>
+                        <th scope="col">Forfait</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ticket_paiement in ticket_paiements %}
+                        <tr>
+                            <td>{{ ticket_paiement.InvoiceNumber }}</td>
+                            <td>{{ ticket_paiement.customer.nom }}</td>
+                            <td>{{ ticket_paiement.TotalPaidTTC }}</td>
+                            <td>{{ ticket_paiement.NameProduct }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="{{ path('admin_ticket_paiement_show', {'id': ticket_paiement.id}) }}">Detail</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Blog Details</h1>
+                <ul class="breadcumb-menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>Blog Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="th-checkout-wrapper space-top space-extra-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container">
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="woocommerce-message">Shipping costs updated.</div>
+                        </div>
+                        <section class="space pt-0" id="service-sec">
+                            <div class="container">
+                                <div class="row gy-30">
+                                    {% for tarifConsultation in tarifConsultations %}
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="service-featured">
+                                            <div class="service-featured_img">
+                                                <img src="{{ asset('assets/img/service/service_box_1-1.jpg') }}" alt="service">
+                                            </div>
+                                            <div class="service-featured_content">
+                                                <div class="service-bg-shape">
+                                                    <img src="{{ asset('assets/img/service/service_box_shape1.jpg') }}" alt="img">
+                                                </div>
+                                                <div class="service-default-icon">
+                                                    <img src="{{ asset('assets/img/icon/service-icon-1-1.svg') }}" alt="Icon">
+                                                </div>
+                                                <h3 class="box-title">
+                                                    <a href="{{ path('user_consultation_email', {'Slug': tarifConsultation.Slug }) }}">
+                                                        {{ tarifConsultation.Price |format_currency('EUR', {rounding_mode: 'floor'}) }}
+                                                    </a>
+                                                </h3>
+                                                <p class="service-featured_text">{{ tarifConsultation.Description }}</p>
+                                                <a href="{{ path('user_consultation_email', {'Slug': tarifConsultation.Slug }) }}" class="link-btn">
+                                                    {{ tarifConsultation.Name }}<i class="fa-solid fa-arrow-up-right ms-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

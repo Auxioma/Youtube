@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+		<div class="container">
+			<div class="breadcumb-content text-center">
+				<h1 class="breadcumb-title">Checkout</h1>
+				<ul class="breadcumb-menu">
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>Checkout</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="th-checkout-wrapper space-top space-extra-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+
+					<section class="space pt-0">
+						<div class="container">
+							<div class="title-area text-center">
+								<span class="sub-title">Choisissez parmi nos packs</span>
+							</div>
+							<div class="row gy-4 justify-content-center">
+
+								{% for forfait in products %}
+								<div class="col-xl-2 col-md-6">
+									<div class="price-card ">
+										<div class="bg-shape-img">
+											<img src="{{ asset('assets/img/bg/pricing-bg-shape.png') }}" alt="img">
+										</div>
+										<div class="service-default-icon">
+											<img src="{{ asset('assets/img/icon/service-icon-1-1.svg') }}" alt="Icon">
+										</div>
+										<div class="price-card_top">
+											<h3 class="price-card_title">{{ forfait.Name }}</h3>
+											<h4 class="price-card_price">{{ forfait.PriceTTC|format_currency('EUR', {rounding_mode: 'floor'}) }}</h4>
+											{# <p class="price-card_text">Save 25% For all Roofing services</p> #}
+										</div>
+										<div class="price-card_content">
+
+											<a href="{{ path('user_panier', {'id': forfait.id}) }}" class="th-btn style3">Choisir<i class="fa-regular fa-arrow-right ms-2"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								{% endfor %}
+
+							</div>
+						</div>
+					</section>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

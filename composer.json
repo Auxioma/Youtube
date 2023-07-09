@@ -15,6 +15,7 @@
         "scheb/2fa-bundle": "^6.8",
         "scheb/2fa-email": "^6.8",
         "scheb/2fa-trusted-device": "^6.8",
+        "stripe/stripe-php": "^10.16",
         "symfony/asset": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/doctrine-messenger": "6.3.*",
@@ -44,6 +45,8 @@
         "symfonycasts/reset-password-bundle": "^1.17",
         "symfonycasts/verify-email-bundle": "^1.13",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/intl-extra": "^3.6",
+        "twig/string-extra": "^3.6",
         "twig/twig": "^2.12|^3.0",
         "vich/uploader-bundle": "^2.1"
     },

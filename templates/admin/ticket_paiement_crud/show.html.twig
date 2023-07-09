@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TicketPaiement{% endblock %}
+
+{% block body %}
+    <h1>TicketPaiement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ticket_paiement.id }}</td>
+            </tr>
+            <tr>
+                <th>SecureKey</th>
+                <td>{{ ticket_paiement.SecureKey }}</td>
+            </tr>
+            <tr>
+                <th>TotalPaidTTC</th>
+                <td>{{ ticket_paiement.TotalPaidTTC }}</td>
+            </tr>
+            <tr>
+                <th>InvoiceNumber</th>
+                <td>{{ ticket_paiement.InvoiceNumber }}</td>
+            </tr>
+            <tr>
+                <th>Discount</th>
+                <td>{{ ticket_paiement.Discount }}</td>
+            </tr>
+            <tr>
+                <th>NameProduct</th>
+                <td>{{ ticket_paiement.NameProduct }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_ticket_paiement_c_r_u_d_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_ticket_paiement_c_r_u_d_edit', {'id': ticket_paiement.id}) }}">edit</a>
+
+    {{ include('admin/ticket_paiement_crud/_delete_form.html.twig') }}
+{% endblock %}

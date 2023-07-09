@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New TarifConsultation{% endblock %}
+
+{% block body %}
+<div class="container-fluid pt-4 px-4">
+    <h1>Création du tarif Voyant</h1>
+    <div class="row g-4">
+
+    {{ include('admin/tarif_consultation_crud/_form.html.twig') }}
+    </div>
+</div>
+
+{% endblock %}

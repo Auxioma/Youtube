@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Blog Details</h1>
+                <ul class="breadcumb-menu">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>Blog Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="th-checkout-wrapper space-top space-extra-bottom">
+        <div class="container">
+            <div class="row">
+                {% include 'user/_partials/_navigation.html.twig' %}
+                <div class="col-9">
+                    <div class="container">
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="woocommerce-message">Shipping costs updated.</div>
+                        </div>
+                        {{ form_start(form) }}
+                        <div class="woocommerce-cart-form">
+                            <table class="cart_table">
+                                <tbody>
+
+                                        <tr class="cart_item">
+                                            <td data-title="Name">
+                                                {{ form_widget(form.Message) }}
+                                            </td>
+                                        </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="th-cart-coupon">
+                                <button type="submit" class="th-btn">Apply Coupon</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

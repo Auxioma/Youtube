@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+		<div class="container">
+			<div class="breadcumb-content text-center">
+				<h1 class="breadcumb-title">Blog Details</h1>
+				<ul class="breadcumb-menu">
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>Blog Details</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="th-checkout-wrapper space-top space-extra-bottom">
+		<div class="container">
+			<div class="row">
+				{% include 'user/_partials/_navigation.html.twig' %}
+				<div class="col-9">
+					<div class="container">
+						<div class="woocommerce-notices-wrapper">
+							<div class="woocommerce-message">Shipping costs updated.</div>
+						</div>
+
+                        {% if products |length > 0%}
+
+						<form action="#" class="woocommerce-cart-form">
+							<table class="cart_table">
+								<thead>
+									<tr>
+										<th class="cart-col-productname">Nom du forfait</th>
+										<th class="cart-col-price">DURÉE</th>
+										<th class="cart-col-total">Prix</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    {% for product in products %}
+									<tr class="cart_item">
+										<td data-title="Name">
+											<span class="amount">
+												<bdi>{{ product.product.Name }}</bdi>
+											</span>
+										</td>
+										<td data-title="Price">
+											<span class="amount">
+												<bdi>
+													<span>$</span>18</bdi>
+											</span>
+										</td>
+										<td data-title="Total">
+											<span class="amount">
+												<bdi>
+													<span>{{ product.product.PriceTTC|format_currency('EUR', {rounding_mode: 'floor'}) }}</span></bdi>
+											</span>
+										</td>
+									</tr>
+                                    {% endfor %}
+									<tr>
+										<td colspan="6" class="actions">
+											<div class="th-cart-coupon">
+												<input type="text" class="form-control" placeholder="Coupon Code...">
+												<button type="submit" class="th-btn">Apply Coupon</button>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+						<div class="row justify-content-end">
+							<div class="col-md-8 col-lg-7 col-xl-6">
+								<h2 class="h4 summary-title">Cart Totals</h2>
+								<table class="cart_totals">
+									<tbody>
+										<tr>
+											<td>TOTAL REMISE</td>
+											<td data-title="Cart Subtotal">
+												<span class="amount">
+													<bdi>
+														<span>$</span>0</bdi>
+												</span>
+											</td>
+										</tr>
+
+									</tbody>
+									<tfoot>
+										<tr class="order-total">
+											<td>Order Total</td>
+											<td data-title="Total">
+												<strong>
+													<span class="amount">
+														<bdi>
+															<span>{{total|format_currency('EUR', {rounding_mode: 'floor'})}}</span></bdi>
+													</span>
+												</strong>
+											</td>
+										</tr>
+									</tfoot>
+								</table>
+								<div class="wc-proceed-to-checkout mb-30">
+									<a href="{{ path('user_consultation_email') }}" class="th-btn">Paiement</a>
+								</div>
+							</div>
+						</div>
+
+                        {% else %}
+                            votre panier est vide
+                        {% endif %}
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

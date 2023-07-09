@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use App\Entity\Traits\CreatedAtTrait;
@@ -43,6 +45,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
 
     #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'])]
     private ?Profile $profile = null;
+
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: TarifConsultation::class)]
+    private Collection $tarifConsultations;
+
+    public function __construct()
+    {
+        $this->tarifConsultations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -168,6 +178,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         }
 
         $this->profile = $profile;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TarifConsultation>
+     */
+    public function getTarifConsultations(): Collection
+    {
+        return $this->tarifConsultations;
+    }
+
+    public function addTarifConsultation(TarifConsultation $tarifConsultation): static
+    {
+        if (!$this->tarifConsultations->contains($tarifConsultation)) {
+            $this->tarifConsultations->add($tarifConsultation);
+            $tarifConsultation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTarifConsultation(TarifConsultation $tarifConsultation): static
+    {
+        if ($this->tarifConsultations->removeElement($tarifConsultation)) {
+            // set the owning side to null (unless already changed)
+            if ($tarifConsultation->getUser() === $this) {
+                $tarifConsultation->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -15,10 +15,18 @@ trait CreatedAtTrait
         return $this->CreatedAt;
     }
 
+    #[ORM\PrePersist]
+    public function setCreatedAt(): void
+    {
+        $this->CreatedAt = new \DateTimeImmutable();
+    }
+
+    /*
     public function setCreatedAt(\DateTimeImmutable $CreatedAt): self
     {
         $this->CreatedAt = $CreatedAt;
 
         return $this;
     }
+    */
 }

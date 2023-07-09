@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit ConsultationEmail{% endblock %}
+
+{% block body %}
+<div class="container-fluid pt-4 px-4">
+    <h1>Réponse au consultant</h1>
+    <div class="row g-4">
+        <div class="bg-light text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered mb-0">
+                    <thead>
+                    <tr class="text-dark">
+                        <th scope="col">Message du consultant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ consultationemail.message }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive mt-5">
+                {{ form_start(form) }}
+                <table class="table text-start align-middle table-bordered mb-0">
+                    <thead>
+                    <tr class="text-dark">
+                        <th scope="col">Ecrire la réponse au consultant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ form_widget(form.Message, {'attr': {'class': 'w-100', 'rows': '10'}}) }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Enregistré</button>
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

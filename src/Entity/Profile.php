@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProfileRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -43,6 +45,22 @@ class Profile
 
     #[ORM\OneToOne(inversedBy: 'profile', cascade: ['persist', 'remove'])]
     private ?User $User = null;
+
+    #[ORM\OneToMany(mappedBy: 'Customer', targetEntity: TicketPaiement::class)]
+    private Collection $ticketPaiements;
+
+    #[ORM\OneToMany(mappedBy: 'Customer', targetEntity: SoldeCompteClient::class)]
+    private Collection $soldeCompteClients;
+
+    #[ORM\OneToMany(mappedBy: 'User', targetEntity: ConsultationEmail::class)]
+    private Collection $consultationEmails;
+
+    public function __construct()
+    {
+        $this->ticketPaiements = new ArrayCollection();
+        $this->soldeCompteClients = new ArrayCollection();
+        $this->consultationEmails = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -165,6 +183,96 @@ class Profile
     public function setUser(?User $User): static
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TicketPaiement>
+     */
+    public function getTicketPaiements(): Collection
+    {
+        return $this->ticketPaiements;
+    }
+
+    public function addTicketPaiement(TicketPaiement $ticketPaiement): static
+    {
+        if (!$this->ticketPaiements->contains($ticketPaiement)) {
+            $this->ticketPaiements->add($ticketPaiement);
+            $ticketPaiement->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTicketPaiement(TicketPaiement $ticketPaiement): static
+    {
+        if ($this->ticketPaiements->removeElement($ticketPaiement)) {
+            // set the owning side to null (unless already changed)
+            if ($ticketPaiement->getCustomer() === $this) {
+                $ticketPaiement->setCustomer(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SoldeCompteClient>
+     */
+    public function getSoldeCompteClients(): Collection
+    {
+        return $this->soldeCompteClients;
+    }
+
+    public function addSoldeCompteClient(SoldeCompteClient $soldeCompteClient): static
+    {
+        if (!$this->soldeCompteClients->contains($soldeCompteClient)) {
+            $this->soldeCompteClients->add($soldeCompteClient);
+            $soldeCompteClient->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSoldeCompteClient(SoldeCompteClient $soldeCompteClient): static
+    {
+        if ($this->soldeCompteClients->removeElement($soldeCompteClient)) {
+            // set the owning side to null (unless already changed)
+            if ($soldeCompteClient->getCustomer() === $this) {
+                $soldeCompteClient->setCustomer(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ConsultationEmail>
+     */
+    public function getConsultationEmails(): Collection
+    {
+        return $this->consultationEmails;
+    }
+
+    public function addConsultationEmail(ConsultationEmail $consultationEmail): static
+    {
+        if (!$this->consultationEmails->contains($consultationEmail)) {
+            $this->consultationEmails->add($consultationEmail);
+            $consultationEmail->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsultationEmail(ConsultationEmail $consultationEmail): static
+    {
+        if ($this->consultationEmails->removeElement($consultationEmail)) {
+            // set the owning side to null (unless already changed)
+            if ($consultationEmail->getUser() === $this) {
+                $consultationEmail->setUser(null);
+            }
+        }
 
         return $this;
     }
