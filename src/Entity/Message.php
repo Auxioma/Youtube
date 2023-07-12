@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Traits\CreatedAtTrait;
 use App\Repository\MessageRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 #[ORM\Entity(repositoryClass: MessageRepository::class)]
+#[ORM\Table(indexes: [new Index(name: 'created_at_index', columns: ['created_at'])])]
 #[ORM\HasLifecycleCallbacks]
 class Message
 {
@@ -14,16 +17,16 @@ class Message
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: "integer")]
-    private int $id;
+    #[ORM\Column(type: 'integer')]
+    private ?int $id;
 
-    #[ORM\Column(type: "text")]
-    private string $content;
+    #[ORM\Column(type: 'text')]
+    private ?string $content;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: "messages")]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'messages')]
     private ?User $user;
 
-    #[ORM\ManyToOne(targetEntity: Conversation::class, inversedBy: "messages")]
+    #[ORM\ManyToOne(targetEntity: Conversation::class, inversedBy: 'messages')]
     private ?Conversation $conversation;
 
     private $mine;
@@ -38,9 +41,10 @@ class Message
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
+
         return $this;
     }
 
@@ -52,6 +56,7 @@ class Message
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -63,6 +68,7 @@ class Message
     public function setConversation(?Conversation $conversation): self
     {
         $this->conversation = $conversation;
+
         return $this;
     }
 

@@ -3,23 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Youtube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Traits/CreatedAtTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Traits/CreatedAtTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.override.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Conversation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Conversation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ResetPasswordRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ResetPasswordRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/_partials/Header-wrapper.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_partials/Header-wrapper.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/_partials/Header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_partials/Header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/product_crud/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/product_crud/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/product_crud/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/product_crud/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/dashboard/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/product/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/AdminSubscriber.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ConversationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ConversationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MessageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MessageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ParticipantRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ParticipantRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +192,9 @@
       <path value="$PROJECT_DIR$/vendor/twig/intl-extra" />
       <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
       <path value="$PROJECT_DIR$/vendor/twig/string-extra" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mercure-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mercure" />
     </include_path>
   </component>
   <component name="ProjectId" id="2S1c0jW3LAO2ZUorK7JRUoGEUqj" />
@@ -204,7 +210,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="org.i18nally.jetbrainsideplugin.settings.AllyProjectConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -242,11 +248,29 @@
       <workItem from="1688897263238" duration="162000" />
       <workItem from="1688898864502" duration="83000" />
       <workItem from="1688911523163" duration="914000" />
+      <workItem from="1688986870963" duration="292000" />
+      <workItem from="1688994832051" duration="630000" />
+      <workItem from="1689054466781" duration="2224000" />
+      <workItem from="1689078666725" duration="50000" />
+      <workItem from="1689099233703" duration="1128000" />
+      <workItem from="1689167198222" duration="6103000" />
+      <workItem from="1689184348034" duration="3124000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

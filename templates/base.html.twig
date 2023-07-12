@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {{ encore_entry_script_tags('app') }}
     </head>
     <body>
         <div class="preloader ">
@@ -61,5 +62,6 @@
         <script src="{{ asset('assets/js/tilt.jquery.min.js') }}"></script>
         <script src="{{ asset('assets/js/tweenmax.min.js') }}"></script>
         <script src="{{ asset('assets/js/main.js') }}"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

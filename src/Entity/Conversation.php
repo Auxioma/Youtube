@@ -6,23 +6,25 @@ use App\Repository\ConversationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 
 #[ORM\Entity(repositoryClass: ConversationRepository::class)]
+#[ORM\Table(indexes: [new Index(name: 'last_message_id_index', columns: ['last_message_id'])])]
 class Conversation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: "integer")]
-    private ?int $id;
+    #[ORM\Column(type: 'integer')]
+    private int $id;
 
-    #[ORM\OneToMany(targetEntity: Participant::class, mappedBy: "conversation")]
+    #[ORM\OneToMany(targetEntity: Participant::class, mappedBy: 'conversation')]
     private Collection $participants;
 
     #[ORM\OneToOne(targetEntity: Message::class)]
-    #[ORM\JoinColumn(name: "last_message_id", referencedColumnName: "id")]
+    #[ORM\JoinColumn(name: 'last_message_id', referencedColumnName: 'id')]
     private ?Message $lastMessage;
 
-    #[ORM\OneToMany(targetEntity: Message::class, mappedBy: "conversation")]
+    #[ORM\OneToMany(targetEntity: Message::class, mappedBy: 'conversation')]
     private Collection $messages;
 
     public function __construct()
@@ -36,9 +38,6 @@ class Conversation
         return $this->id;
     }
 
-    /**
-     * @return Collection|Participant[]
-     */
     public function getParticipants(): Collection
     {
         return $this->participants;
@@ -79,9 +78,6 @@ class Conversation
         return $this;
     }
 
-    /**
-     * @return Collection|Message[]
-     */
     public function getMessages(): Collection
     {
         return $this->messages;

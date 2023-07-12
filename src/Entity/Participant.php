@@ -10,13 +10,13 @@ class Participant
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: "integer")]
-    private int $id;
+    #[ORM\Column(type: 'integer')]
+    private ?int $id;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: "participants")]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'participants')]
     private ?User $user;
 
-    #[ORM\ManyToOne(targetEntity: Conversation::class, inversedBy: "participants")]
+    #[ORM\ManyToOne(targetEntity: Conversation::class, inversedBy: 'participants')]
     private ?Conversation $conversation;
 
     public function getId(): ?int
