@@ -20,7 +20,6 @@ jobs:
 
     - name: Deploy over SSH
       run:
-        # ggcdqyct@node2-ca.n0c.com port 5022
         sshpass -e ssh -o StrictHostKeyChecking=no -p 5022 ${{ secrets.USER }}@${{ secrets.HOST }}
-        "cd public_html && git pull && php composer.phar install & php bin/console d:s:u --force && php bin/console c:c"
+        "cd public_html && git pull && php composer.phar install && php bin/console d:s:u --force && php bin/console c:c"
  
