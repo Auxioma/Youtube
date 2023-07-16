@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Slider{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid pt-4 px-4">
+    <h1>Edit Slider</h1>
+    <div class="row g-4">
+
+    {{ include('admin/slider/_form.html.twig', {'button_label': 'Update'}) }}
+
+    </div>
+</div>
+
+{% endblock %}
+ 

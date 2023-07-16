@@ -18,7 +18,7 @@
 							<th scope="col">Email</th>
 							<th scope="col">Compte Actif</th>
 
-						</tr>
+						</tr> 
 					</thead>
 					<tbody>
 						{% for user in users %}
@@ -32,7 +32,6 @@
 
 									</div>
 								</td>
-
 								<td>
 									<a class="btn btn-sm btn-primary" href="{{ path('app_admin_user_show', {'id': user.id}) }}">Detail</a>
 								</td>

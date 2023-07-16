@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Slider{% endblock %}
+
+{% block body %}
+    <h1>Slider</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ slider.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ slider.Title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ slider.Description }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ slider.Slug }}</td>
+            </tr>
+            <tr>
+                <th>NameSlug</th>
+                <td>{{ slider.NameSlug }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ slider.IsActive ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ slider.imageName }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ slider.CreatedAt ? slider.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ slider.UpdatedAt ? slider.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_slider_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_slider_edit', {'id': slider.id}) }}">edit</a>
+
+    {{ include('admin/slider/_delete_form.html.twig') }}
+{% endblock %}
