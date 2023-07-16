@@ -2,7 +2,7 @@
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/logo.svg" alt="Ruffer"></a>
+                <a href="{{ path('app_main') }}"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
@@ -69,37 +69,19 @@
                 <div class="container th-container">
                     <div class="row justify-content-center justify-content-lg-between align-items-center gy-2">
                         <div class="col-auto d-none d-lg-block">
-                            <div class="header-links">
-                                <ul>
-                                    <li><i class="far fa-phone"></i><a href="tel:+11156456825">+111 (564) 568 25</a></li>
-                                    <li><i class="far fa-envelope-open"></i><a href="mailto:info@Ruffer.com">needhelp.ruffer@gmail.com</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="col-auto">
                             <div class="header-links">
                                 <ul>
                                     <li class="d-none d-lg-inline-block">
-                                        <div class="dropdown-link">
-                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false"><img src="assets/img/icon/language-flag.svg" alt="img"> English</a>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                                                <li>
-                                                    <a href="#">German</a>
-                                                    <a href="#">French</a>
-                                                    <a href="#">Italian</a>
-                                                    <a href="#">Latvian</a>
-                                                    <a href="#">Spanish</a>
-                                                    <a href="#">Greek</a>
-                                                </li>
-                                            </ul>
+                                        <div class="header-button">
+                                            <a href="{{ path('app_login') }}" class="th-btn px-1 py-1">Connectez-vous<i class="fas fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="social-links">
-                                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        <div class="header-button">
+                                            <a href="{{ path('app_register') }}" class="th-btn px-1 py-1">Inscrivez-vous<i class="fas fa-arrow-right ms-2"></i></a>
                                         </div>
                                     </li>
                                 </ul>
@@ -114,74 +96,21 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.svg" alt="Ruffer"></a>
+                                <a href="{{ path('app_main') }}"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
-                                    <li class="menu-item-has-children">
-                                        <a href="index.html">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="home-2.html">Home Two</a></li>
-                                            <li><a href="home-3.html">Home Three</a></li>
-                                            <li><a href="home-4.html">Home Four <span class="new-label">New</span></a></li>
-                                            <li><a href="home-5.html">Home Five <span class="new-label">New</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Services</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="service.html">Services</a></li>
-                                            <li><a href="service-details.html">Services Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item-has-children">
-                                                <a href="#">Shop</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Cart Page</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="team-details.html">Team Details</a></li>
-                                            <li><a href="project.html">Project</a></li>
-                                            <li><a href="project-details.html">Project Details</a></li>
-                                            <li><a href="pricing.html">Pricing</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
-                                            <li><a href="error.html">Error Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">Contact</a>
-                                    </li>
+                                    <li><a href="{{ path('app_main') }}">Accueil</a>
+                                    <li><a href="about.html">Qui suis-je</a></li>
                                 </ul>
                             </nav>
                             <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <div class="header-button">
-                                <button type="button" class="simple-icon searchBoxToggler"><i class="far fa-search"></i></button>
-                                <button type="button" class="simple-icon sideMenuToggler">
-                                    <i class="far fa-shopping-cart"></i>
-                                    <span class="badge">5</span>
-                                </button>
-                                <a href="contact.html" class="th-btn">Get a Quote<i class="fas fa-arrow-right ms-2"></i></a>
+
                             </div>
                         </div>
                     </div>
