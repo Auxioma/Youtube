@@ -22,5 +22,5 @@ jobs:
       run:
         # ggcdqyct@node2-ca.n0c.com port 5022
         sshpass -e ssh -o StrictHostKeyChecking=no -p 5022 ${{ secrets.USER }}@${{ secrets.HOST }}
-        "cd public_html && git pull"
+        "cd public_html && git pull && composer install && php bin/console d:m:m -n"
  
