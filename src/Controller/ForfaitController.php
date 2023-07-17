@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Controller\User;
+namespace App\Controller;
 
 use App\Repository\ProductRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ProductController extends AbstractController
+class ForfaitController extends AbstractController
 {
-    #[Route('/user/forfait', name: 'user_forfait')]
+    #[Route('/forfait', name: 'app_forfait')]
     public function index(ProductRepository $product): Response
     {
-        return $this->render('user/forfait/index.html.twig', [
+        return $this->render('forfait/index.html.twig', [
             'products' => $product->findBy(['IsActive' => true])
         ]);
     }
-} 
+}
