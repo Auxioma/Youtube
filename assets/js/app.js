@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import React from 'react';
 import store from './store'
 import {Provider} from 'react-redux'
@@ -10,13 +10,10 @@ import App from './components/App';
 
 store.dispatch(actionCreators.setUsername(document.querySelector('#app').dataset.username));
 
-const container = document.getElementById('app');
-const root = createRoot(container);
-
-root.render((
+ReactDOM.render((
     <Provider store={store}>
         <MemoryRouter>
             <App/>
         </MemoryRouter>
     </Provider>
-));
+), document.getElementById('app'));

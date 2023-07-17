@@ -141,6 +141,7 @@ class MessageController extends AbstractController
         $this->publisher->__invoke($update);
 
         $message->setMine(true);
+        
         return $this->json($message, Response::HTTP_CREATED, [], [
             'attributes' => self::ATTRIBUTES_TO_SERIALIZE
         ]);

@@ -62,7 +62,8 @@ class TchatController extends AbstractController
                 false,
                 true,
                 false,
-                'strict'
+                'strict',
+
             )
         );
 
