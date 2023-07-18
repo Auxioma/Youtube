@@ -14,6 +14,15 @@ class HoroscopeController extends AbstractController
     )
     {}
 
+    #[Route('/horoscope', name: 'app_horoscope_list')]
+    public function list(): Response
+    {
+       return $this->render('horoscope/list.html.twig', [
+            'horoscopes' => $this->HoroscopeServices->list(),
+        ]);
+    }
+
+
     #[Route('/horoscope/{slug}', name: 'app_horoscope')]
     public function index($slug): Response
     {

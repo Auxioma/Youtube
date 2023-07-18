@@ -1,0 +1,270 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Services</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Services</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="space" id="service-sec">
+        <div class="container">
+            <div class="row gy-30">
+
+                {% for horoscopes in horoscopes %}
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-featured">
+                        <div class="service-featured_img">
+                            <img src="assets/img/service/service_box_1-1.jpg" alt="service">
+                        </div>
+                        <div class="service-featured_content">
+                            <div class="service-bg-shape">
+                                <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                            </div>
+                            <div class="service-default-icon">
+                                <img src="assets/img/icon/service-icon-1-1.svg" alt="Icon">
+                            </div>
+                            <h3 class="box-title"><a href="{{ path('app_horoscope', {'slug': horoscopes.link}) }}">{{ horoscopes.titre }}</a></h3>
+                            <p class="service-featured_text">...{{ horoscopes.description }}...</p>
+                            <a href="{{ path('app_horoscope', {'slug': horoscopes.link}) }}" class="link-btn">Consulter mon horoscope<i class="fa-solid fa-arrow-up-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div class="why-sec-v3 py-5 bg-smoke space-bottom">
+        <div class="container">
+            <div class="row justify-content-between flex-row-reverse">
+                <div class="col-xl-5 mb-50 mb-xl-0">
+                    <div class="img-box4">
+                        <div class="img1">
+                            <img src="assets/img/normal/wcu-thumb3_1.png" alt="Why">
+                        </div>
+                        <div class="customer-wrap">
+                            <div class="customer-wrap-icon"><img src="assets/img/icon/customer-check-icon.svg" alt="icon"></div>
+                            <h2 class="customer-wrap-title"><span class="counter-number">96</span>%</h2>
+                            <p class="customer-wrap-text">Customers <br> Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 text-lg-start text-center">
+                    <div class="title-area mb-35">
+                        <span class="sub-title">WHY CHOOSE US</span>
+                        <h2 class="sec-title">Quality roofing for every Structure.</h2>
+                    </div>
+                    <p class="mt-n2 mb-35">Quality roofing for every structure is essential for durability and cost-effectiveness. Choose from asphalt composite shingles, wood shingles, slate shingles, metal roofing, metal shingles, stone-coated steel,</p>
+                    <div class="wcu-card-slider th-carousel" data-slide-show="3" data-ml-slide-show="2" data-md-slide-show="3" data-sm-slide-show="2" data-dots="false">
+                        <div class="col-sm-6">
+                            <div class="wcu-card style2">
+                                <div class="wcu-card_icon">
+                                    <img src=assets/img/icon/wcu-icon-3-1.svg alt="img">
+                                </div>
+                                <div class="wcu-card_details">
+                                    <h3 class="h5 wcu-card_title"><a href="service-details.html">High Quality Materials</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wcu-card style2">
+                                <div class="wcu-card_icon">
+                                    <img src=assets/img/icon/wcu-icon-3-2.svg alt="img">
+                                </div>
+                                <div class="wcu-card_details">
+                                    <h3 class="h5 wcu-card_title"><a href="service-details.html">Professional Workers</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wcu-card style2">
+                                <div class="wcu-card_icon">
+                                    <img src=assets/img/icon/wcu-icon-3-3.svg alt="img">
+                                </div>
+                                <div class="wcu-card_details">
+                                    <h3 class="h5 wcu-card_title"><a href="service-details.html">Complete Inpection</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wcu-card style2">
+                                <div class="wcu-card_icon">
+                                    <img src=assets/img/icon/wcu-icon-3-1.svg alt="img">
+                                </div>
+                                <div class="wcu-card_details">
+                                    <h3 class="h5 wcu-card_title"><a href="service-details.html">High Quality Materials</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wcu-card style2">
+                                <div class="wcu-card_icon">
+                                    <img src=assets/img/icon/wcu-icon-3-2.svg alt="img">
+                                </div>
+                                <div class="wcu-card_details">
+                                    <h3 class="h5 wcu-card_title"><a href="service-details.html">Professional Workers</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wcu-card style2">
+                                <div class="wcu-card_icon">
+                                    <img src=assets/img/icon/wcu-icon-3-3.svg alt="img">
+                                </div>
+                                <div class="wcu-card_details">
+                                    <h3 class="h5 wcu-card_title"><a href="service-details.html">Complete Inpection</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="testi-area-2 space">
+        <div class="container">
+            <div class="title-area text-center">
+                <span class="sub-title">Testimonial</span>
+                <h2 class="sec-title">What Clients Say About Us</h2>
+            </div>
+            <div class="row slider-shadow th-carousel arrow-style2" data-slide-show="2" data-lg-slide-show="2" data-md-slide-show="1" data-arrows="true">
+                <div class="col-lg-6">
+                    <div class="testi-card style2">
+                        <div class="testi-card_profile">
+                            <div class="media-left">
+                                <div class="testi-card_avater">
+                                    <img src="assets/img/testimonial/testi_2_1.jpg" alt="testimonial">
+                                </div>
+                                <div class="testi-box_review">
+                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <p class="testi-card_text">They took the time to thoroughly inspect my roof and identify all of the issues, and then came up with a comprehensive plan to address them. The team was skilled and efficient, and completed the job.</p>
+                                <div class="media">
+                                    <div class="testi-box_quote">
+                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
+                                    </div>
+                                    <div class="media-body">
+                                        <h3 class="testi-card_name">Ronald Richards</h3>
+                                        <span class="testi-card_desig">Founder CEO</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testi-card style2">
+                        <div class="testi-card_profile">
+                            <div class="media-left">
+                                <div class="testi-card_avater">
+                                    <img src="assets/img/testimonial/testi_2_2.jpg" alt="testimonial">
+                                </div>
+                                <div class="testi-box_review">
+                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <p class="testi-card_text">The team was professional & efficient. The quality of work was outstanding & I would to recommend them to anyone in need of roofing services. Highly recommend this company for any roofing needs.</p>
+                                <div class="media">
+                                    <div class="testi-box_quote">
+                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
+                                    </div>
+                                    <div class="media-body">
+                                        <h3 class="testi-card_name">Ralph Edwards</h3>
+                                        <span class="testi-card_desig">Regular Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testi-card style2">
+                        <div class="testi-card_profile">
+                            <div class="media-left">
+                                <div class="testi-card_avater">
+                                    <img src="assets/img/testimonial/testi_2_1.jpg" alt="testimonial">
+                                </div>
+                                <div class="testi-box_review">
+                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <p class="testi-card_text">They took the time to thoroughly inspect my roof and identify all of the issues, and then came up with a comprehensive plan to address them. The team was skilled and efficient, and completed the job.</p>
+                                <div class="media">
+                                    <div class="testi-box_quote">
+                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
+                                    </div>
+                                    <div class="media-body">
+                                        <h3 class="testi-card_name">Ronald Richards</h3>
+                                        <span class="testi-card_desig">Founder CEO</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testi-card style2">
+                        <div class="testi-card_profile">
+                            <div class="media-left">
+                                <div class="testi-card_avater">
+                                    <img src="assets/img/testimonial/testi_2_2.jpg" alt="testimonial">
+                                </div>
+                                <div class="testi-box_review">
+                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <p class="testi-card_text">The team was professional & efficient. The quality of work was outstanding & I would to recommend them to anyone in need of roofing services. Highly recommend this company for any roofing needs.</p>
+                                <div class="media">
+                                    <div class="testi-box_quote">
+                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
+                                    </div>
+                                    <div class="media-body">
+                                        <h3 class="testi-card_name">Ralph Edwards</h3>
+                                        <span class="testi-card_desig">Regular Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-area-3 bg-theme" data-bg-src="assets/img/bg/newsletter-bg.png">
+        <div class="cta-thumb3 shape-mockup d-lg-block d-none" data-top="0" data-left="0"><img src="assets/img/bg/cta-bg3.png" alt="img"></div>
+        <div class="container">
+            <div class="row justify-content-end align-items-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="title-area mb-0 me-xl-5 text-md-start text-center">
+                        <h2 class="sec-title h3 text-white">The mission is to provide Best Roofing</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mt-40 mt-md-0 text-md-end text-center">
+                    <a href="contact.html" class="th-btn style2">Contact Us<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
