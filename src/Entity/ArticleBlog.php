@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\CreatedAtTrait;
+use App\Entity\Traits\UpdatedAtTrait;
 use App\Repository\ArticleBlogRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,6 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ArticleBlogRepository::class)]
 class ArticleBlog
 {
+    use CreatedAtTrait;
+    use UpdatedAtTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -22,6 +27,12 @@ class ArticleBlog
 
     #[ORM\ManyToOne(inversedBy: 'articleBlogs')]
     private ?CategoryBlog $Categorie = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Titre = null;
+
+    #[ORM\Column]
+    private ?bool $IsActive = null;
 
     public function getId(): ?int
     {
@@ -60,6 +71,30 @@ class ArticleBlog
     public function setCategorie(?CategoryBlog $Categorie): static
     {
         $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->Titre;
+    }
+
+    public function setTitre(string $Titre): static
+    {
+        $this->Titre = $Titre;
+
+        return $this;
+    }
+
+    public function isIsActive(): ?bool
+    {
+        return $this->IsActive;
+    }
+
+    public function setIsActive(bool $IsActive): static
+    {
+        $this->IsActive = $IsActive;
 
         return $this;
     }

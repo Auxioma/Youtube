@@ -1,0 +1,49 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid pt-4 px-4">
+        <h1>Liste des Articles</h1>
+        <a href="{{ path('app_admin_article_blog_new') }}">Creér un nouvelle article</a>
+        <div class="bg-light text-center rounded p-4">
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                    <tr class="text-dark">
+                        <th scope="col">Titre</th>
+                        <th scope="col">Categorie</th>
+                        <th scope="col">Modification</th>
+                        <th scope="col">Activation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article_blog in article_blogs %}
+                        <tr>
+                            <td>{{ article_blog.Titre }}</td>
+                            <td>{{ article_blog.Categorie.Titre }}</td>
+                            <td>{{ article_blog.UpdatedAt | date('d-m-Y h:i:s') }}</td>
+                            <td>
+                               	<div class="form-check form-switch">
+								    <input class="form-check-input" type="checkbox" role="switch" {% if article_blog.IsActive == false %} disabled disabled {% else %} checked disabled {% endif %}>
+								</div> 
+                            </td>
+                            <td>
+                                <a href="{{ path('app_admin_article_blog_edit', {'id': article_blog.id}) }}">edit</a>
+                            </td>
+                            <td>
+                                {{ include('admin/article_blog/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

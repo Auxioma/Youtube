@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\CreatedAtTrait;
+use App\Entity\Traits\UpdatedAtTrait;
 use App\Repository\CategoryBlogRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CategoryBlogRepository::class)]
 class CategoryBlog
 {
+    use CreatedAtTrait;
+    use UpdatedAtTrait;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -23,6 +28,9 @@ class CategoryBlog
 
     #[ORM\OneToMany(mappedBy: 'Categorie', targetEntity: ArticleBlog::class)]
     private Collection $articleBlogs;
+
+    #[ORM\Column]
+    private ?bool $IsVerified = null;
 
     public function __construct()
     {
@@ -84,6 +92,18 @@ class CategoryBlog
                 $articleBlog->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isIsVerified(): ?bool
+    {
+        return $this->IsVerified;
+    }
+
+    public function setIsVerified(bool $IsVerified): static
+    {
+        $this->IsVerified = $IsVerified;
 
         return $this;
     }
