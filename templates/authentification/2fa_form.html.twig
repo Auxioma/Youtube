@@ -4,12 +4,12 @@
 	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
 		<div class="container">
 			<div class="breadcumb-content text-center">
-				<h1 class="breadcumb-title">Checkout</h1>
+				<h1 class="breadcumb-title">Authentification à 2 facteurs</h1>
 				<ul class="breadcumb-menu">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="index.html">Accueil</a>
 					</li>
-					<li>Checkout</li>
+					<li>Authentification à 2 facteurs</li>
 				</ul>
 			</div>
 		</div>
@@ -24,18 +24,26 @@
 						{% if authenticationError %}
 							<p>{{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</p>
 						{% endif %}
-							<form class="form" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post">
-								<p class="widget">
+							<form  class="woocommerce-form-login" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post">
+								<div class="form-group">
 									<input id="_auth_code" type="text" name="{{ authCodeParameterName }}" autocomplete="one-time-code" autofocus />
-								</p>
+								</div>
 
 								{% if displayTrustedOption %}
-									<p class="widget"><label for="_trusted"><input id="_trusted" type="checkbox" name="{{ trustedParameterName }}" /> {{ "trusted"|trans({}, 'SchebTwoFactorBundle') }}</label></p>
+								<div class="form-group">
+									<div class="custom-checkbox">
+										<input id="_trusted" type="checkbox" name="{{ trustedParameterName }}" />
+										<label for="_trusted">{{ "trusted"|trans({}, 'SchebTwoFactorBundle') }}</label>
+									</div>
+								</div>
 								{% endif %}
-								{% if isCsrfProtectionEnabled %}
-									<input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">
-								{% endif %}
-								<p class="submit"><input type="submit" value="{{ "login"|trans({}, 'SchebTwoFactorBundle') }}" /></p>
+
+								<div class="form-group">
+									<button type="submit" class="th-btn">{{ "login"|trans({}, 'SchebTwoFactorBundle') }}</button>
+								</div>
+
+								{% if isCsrfProtectionEnabled %}<input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">{% endif %}
+
 							</form>
 						</div>
 					</div>

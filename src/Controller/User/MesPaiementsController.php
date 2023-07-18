@@ -12,8 +12,6 @@ class MesPaiementsController extends AbstractController
     #[Route('/user/paiements', name: 'app_mes_paiements')]
     public function index(TicketPaiementRepository $ticket): Response
     {
-
-
         return $this->render('user/mes_paiements/index.html.twig', [
             'tickets' => $ticket->findAll(['Customer' => $this->getUser()]),
         ]);

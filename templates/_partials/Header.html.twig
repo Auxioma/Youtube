@@ -73,6 +73,28 @@
                         </div>
                         <div class="col-auto">
                             <div class="header-links">
+                                {% if app.user %}
+                                <ul>
+                                    <li>
+                                        Bonjour {% if app.user.profile.Pseudo is not null %}{{ app.user.profile.Pseudo }}{% else %}visiteur{% endif %}
+                                    </li>
+                                    <li class="d-none d-lg-inline-block">
+                                        <div class="dropdown-link">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Mon compte</a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                                <li>
+                                                    <a href="{{ path('user_profile_new') }}">Mon profile</a>
+                                                    <a href="{{ path('user_forfait') }}">Achat de minutes</a>
+                                                    <a href="{{ path('app_mes_paiements') }}">Mes paiement</a>
+                                                    <a href="{{ path('user_consultation_email_list') }}">Consultation par E-mail</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                {% else %}
                                 <ul>
                                     <li class="d-none d-lg-inline-block">
                                         <div class="header-button">
@@ -85,6 +107,7 @@
                                         </div>
                                     </li>
                                 </ul>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
