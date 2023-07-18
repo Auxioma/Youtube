@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Services Details</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Services Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="space-top space-extra2-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-8 col-lg-8">
+                    <div class="page-single">
+                        <div class="page-img mb-30">
+                            <img src="{{ asset('assets/img/service/service-details.png') }}" alt="Service Image">
+                        </div>
+                        <div class="page-content">
+                            <h2 class="h3 page-title" style="line-height: 1;">{{ horoscope.titre | replace({'(': '<br><span style="font-size: 16px;">', ')': "</span>"}) | raw }}</h2>
+                            <p class="mb-30">{{ horoscope.description[0] | replace({'Amour': '<strong>Amour</strong>'}) | raw }}</p>
+                            <p class="mb-30">{{ horoscope.description[1] | replace({'Argent': '<strong>Argent</strong>'}) | raw }}</p>
+                            <p class="mb-30">{{ horoscope.description[2] | replace({'Santé': '<strong>Santé</strong>'}) | raw }}</p>
+                            <p class="mb-30">{{ horoscope.description[3] | replace({'Travail': '<strong>Travail</strong>'}) | raw }}</p>
+                            <p class="mb-30">{{ horoscope.description[4] | replace({'Famille': '<strong>Famille</strong>'}) | raw }}</p>
+                            <p class="mb-30">{{ horoscope.description[5] | replace({'Citation': '<strong>Citation</strong>'}) | raw }}</p>
+                            <p class="mb-30">Votre horoscope est fournis par <a href="{{ horoscope.link }}">asiaflash</a></p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-lg-4">
+                    <aside class="sidebar-area">
+                        <div class="widget widget_categories  ">
+                            <h3 class="widget_title">Signe du zodiac</h3>
+                            <ul>
+                                {% for horoscope in zodiac %}
+                                    <li><a href="{{ path('app_horoscope', {'slug': horoscope}) }}">{{ horoscope }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="widget widget_banner  " data-bg-src="assets/img/widget/widget-banner-bg.png">
+                            <div class="widget-banner">
+                                <div class="icon-btn"><img src="assets/img/icon/widget-banner-icon.svg" alt="img"></div>
+                                <h5 class="title">Need an Consulting</h5>
+                                <a href="tel:+11156456825" class="link">+111 (564) 568 25</a>
+                                <a href="mailto:quick.help@gmail.com" class="link">quick.help@gmail.com</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-area-3 bg-theme" data-bg-src="assets/img/bg/newsletter-bg.png">
+        <div class="cta-thumb3 shape-mockup d-lg-block d-none" data-top="0" data-left="0"><img src="assets/img/bg/cta-bg3.png" alt="img"></div>
+        <div class="container">
+            <div class="row justify-content-end align-items-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="title-area mb-0 me-xl-5 text-md-start text-center">
+                        <h2 class="sec-title h3 text-white">The mission is to provide Best Roofing</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mt-40 mt-md-0 text-md-end text-center">
+                    <a href="contact.html" class="th-btn style2">Contact Us<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -4,44 +4,42 @@ namespace App\Services;
 
 class HoroscopeServices 
 {
-    public function main(){
-        $belier = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_belier.xml';
-        $taureau = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_taureau.xml';
-        $gemeaux = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_gemeaux.xml';
-        $cancer = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_cancer.xml';
-        $lion = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_lion.xml';
-        $vierge = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_vierge.xml';
-        $balance = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_balance.xml';
-        $scorpion = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_scorpion.xml';
-        $sagittaire = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_sagittaire.xml';
-        $capricorne = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_capricorne.xml';
-        $verseau = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_verseau.xml';
-        $poissons = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_poissons.xml';
+    public function getHoroscope($slug){
 
+        $url = 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_'.$slug.'.xml';
+
+        $xml = simplexml_load_file($url);
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+
+        // je créer un tableau avec les données que je veux
+        // je veux recuperer le titre, la description
+        // et la date de publication
+        $titre = $array['channel']['item']['title'];
+        $date = $array['channel']['item']['pubDate'];
+        $link = $array['channel']['item']['link'];
+        
+        // Je ne veux pas affiché le HTML dans la description
+        // je vais donc utiliser la fonction strip_tags
+        // qui va supprimer les balises HTML
+        $description = $array['channel']['item']['description'];
+        $description = strip_tags($description);
+
+        // mettre dans un tableau les paragraphes des descriptions
+        $description = explode("\n", $description);
+        $description = array_filter($description);
+        $description = array_values($description);
+
+
+        // je vais maintenant créer un tableau avec les données
+        // que je veux afficher
         $array = [
-            '0' => $belier,
-            '1' => $taureau,
-            '2' => $gemeaux,
-            '3' => $cancer,
-            '4' => $lion,
-            '5' => $vierge,
-            '6' => $balance,
-            '7' => $scorpion,
-            '8' => $sagittaire,
-            '9' => $capricorne,
-            '10' => $verseau,
-            '11' => $poissons
+            'titre' => $titre,
+            'date' => $date,
+            'description' => $description,
+            'link' => $link
         ];
 
-        $horoscope = [];
-
-        foreach($array as $key => $value){
-            $xml = simplexml_load_file($value);
-            $json = json_encode($xml);
-            $array = json_decode($json,TRUE);
-            $horoscope[$key] = $array;
-        }
-
-        return $horoscope;
+        return $array;
     }
 }

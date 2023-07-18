@@ -33,23 +33,23 @@
     <section class="">
         <div class="container">
             <div class="row slider-shadow th-carousel service-slider3" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1">
-              
-                {% for i in 0..11 %}
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-box">
-                        <div class="service-bg-shape">
-                            <img src="assets/img/service/service_box_shape1.jpg" alt="img">
-                        </div>
-                        <div class="service-box_content">
-                            <div class="service-default-icon">
-                                <img src="assets/img/icon/service-icon-3-1.svg" alt="Icon">
+                {% for horoscope in horoscopes %}
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-box">
+                            <div class="service-bg-shape">
+                                <img src="assets/img/service/service_box_shape1.jpg" alt="img">
                             </div>
-                            <h3 class="box-title"><a href="service-details.html">{{horoscope[i].channel.item.title}}</a></h3>
-                            
+                            <div class="service-box_content">
+                                <div class="service-default-icon">
+                                    <img src="assets/img/icon/service-icon-3-1.svg" alt="Icon">
+                                </div>
+                                <p>signe astrologique</p>
+                                <h3 class="box-title"><a href="{{ path('app_horoscope', {'slug': horoscope}) }}">{{ horoscope }}</a></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 {% endfor %}
 
