@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/MesPaiementsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/MesPaiementsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/_partials/Header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_partials/Header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authentification/2fa_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentification/2fa_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authentification/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentification/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_partials/_navigation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_partials/_navigation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/profile/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/profile/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/profile/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Left.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MercureChat/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MercureChat/MessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,6 +247,10 @@
       <workItem from="1689594571659" duration="3119000" />
       <workItem from="1689665911513" duration="6310000" />
       <workItem from="1689691234297" duration="4512000" />
+      <workItem from="1689770475805" duration="19000" />
+      <workItem from="1689773828003" duration="355000" />
+      <workItem from="1689849219693" duration="134000" />
+      <workItem from="1689888332849" duration="3000" />
     </task>
     <servers />
   </component>

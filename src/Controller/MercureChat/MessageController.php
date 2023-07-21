@@ -127,6 +127,8 @@ class MessageController extends AbstractController
         $messageSerialized = $serializer->serialize($message, 'json', [
             'attributes' => ['id', 'content', 'createdAt', 'mine', 'conversation' => ['id']]
         ]);
+        
+        /*
         $update = new Update(
             [
                 sprintf("/conversations/%s", $conversation->getId()),
@@ -139,7 +141,8 @@ class MessageController extends AbstractController
         );
 
         $this->publisher->__invoke($update);
-
+        */
+        
         $message->setMine(true);
         
         return $this->json($message, Response::HTTP_CREATED, [], [

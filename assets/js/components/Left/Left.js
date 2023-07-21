@@ -13,7 +13,7 @@ class Left extends React.Component {
 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const _t = this;
         this.props.fetchConversations()
             .then(() => {
