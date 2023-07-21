@@ -113,12 +113,12 @@
                             <div class="service-default-icon">
                                 <img src="assets/img/icon/service-icon-1-3.svg" alt="Icon">
                             </div>
-                            <h3 class="box-title"><a href="/{{ consultation.Slug }}">{{ consultation.Titre }}</a></h3>
+                            <h3 class="box-title"><a href="{{ path('app_voyance_immediate', {'Slug': consultation.Slug}) }}">{{ consultation.Titre }}</a></h3>
                             <p class="service-box_text">{{ consultation.Description }}</p>
                         </div>
                         <div class="thumb">
                             <img src="assets/img/service/service_box_2-1.jpg" alt="img">
-                            <a href="/{{ consultation.Slug }}" class="icon">
+                            <a href="{{ path('app_voyance_immediate', {'Slug': consultation.Slug}) }}" class="icon">
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
