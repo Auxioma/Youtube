@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Traits\CreatedAtTrait;
 use App\Entity\Traits\UpdatedAtTrait;
 use App\Repository\ArticleBlogRepository;
-use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -40,11 +41,17 @@ class ArticleBlog
     #[ORM\Column(type: Types::TEXT)]
     private ?string $LongDescription = null;
 
-    #[Vich\UploadableField(mapping: 'slider', fileNameProperty: 'imageName')]
+    #[Vich\UploadableField(mapping: 'article', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
     
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
+
+    public function __construct()
+    {
+        $this->CreatedAt = new DateTimeImmutable();
+        $this->UpdatedAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
