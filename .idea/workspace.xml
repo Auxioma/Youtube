@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Youtube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Left.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MercureChat/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MercureChat/MessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authentification/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentification/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/HomePage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/HomePage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/forfait/cart.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/forfait/cart.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/forfait/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/forfait/success.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +31,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/assets/js/actions/conversation.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -183,6 +187,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mercure-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/mercure" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="2S1c0jW3LAO2ZUorK7JRUoGEUqj" />
@@ -251,6 +256,7 @@
       <workItem from="1689773828003" duration="355000" />
       <workItem from="1689849219693" duration="134000" />
       <workItem from="1689888332849" duration="3000" />
+      <workItem from="1690004499957" duration="2796000" />
     </task>
     <servers />
   </component>

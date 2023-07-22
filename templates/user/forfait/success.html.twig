@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Error 404</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Error 404</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="space">
+        <div class="container">
+            <div class="error-content">
+                <h2 class="error-title">Paiement Confirmé</h2>
+                <p class="error-text">It looks like nothing was found at this location. Maybe try one of the  links below or a search?</p>
+                <a href="{{ path('user_dashboard') }}" class="th-btn">Retour sur votre dashboard <i class="far fa-paper-plane ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

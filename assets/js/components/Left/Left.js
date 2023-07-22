@@ -17,11 +17,14 @@ class Left extends React.Component {
         const _t = this;
         this.props.fetchConversations()
             .then(() => {
+                
                 let url = new URL(this.props.hubUrl);
                 url.searchParams.append('topic', `/conversations/${this.props.username}`);
+
                 const eventSource = new EventSource(url, {
                     withCredentials: true
                 });
+
                 eventSource.onmessage = function (event) {
                     debugger
                     const data = JSON.parse(event.data);

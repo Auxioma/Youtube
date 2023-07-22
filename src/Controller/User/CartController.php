@@ -95,6 +95,7 @@ class CartController extends AbstractController
         $TicketPaiement->setDiscount('0.00');
         $TicketPaiement->setNameProduct($name[0]->getName());
         $TicketPaiement->setCustomer($this->getUser()->getProfile()); // $this->getUser() is the current user
+        $TicketPaiement->setCreatedAt(new \DateTimeImmutable());
         $ticketPaiementRepository->save($TicketPaiement, true);
 
         // prevoir un system de calcul sur le prix restant
@@ -108,21 +109,19 @@ class CartController extends AbstractController
             ->from($_ENV['EMAIL_FROM'])
             ->to($this->getUser()->getEmail())
             ->subject('Votre paiement à été confirmé')
-            ->htmlTemplate('email/confirmation_de_paiement.html.twig')
+            ->htmlTemplate('email/email/confirmation_de_paiement.html.twig')
             ->context([
-                'name' => $this->getUser()->getProfile()->getFirstName(),
-                'address' => $this->getUser()->getProfile()->getAddress(),
-                'city' => $this->getUser()->getProfile()->getCity(),
-                'postalCode' => $this->getUser()->getProfile()->getPostalCode(),
-                'country' => $this->getUser()->getProfile()->getCountry(),
+                'name' => $this->getUser()->getProfile()->getNom(),
+                'address' => $this->getUser()->getProfile()->getAdresse(),
+                'city' => $this->getUser()->getProfile()->getVille(),
+                'postalCode' => $this->getUser()->getProfile()->getCodePostal(),
+                'country' => $this->getUser()->getProfile()->getPays(),
                 'invoiceNumber' => $customer->invoice_prefix,
                 'forfait' => $name[0]->getName(),
                 'total' => $paymentIntent->amount_received / 100,
                 'discount' => '0.00',
             ]);
         $this->mailer->send($email);
-
-
 
         $this->cartServices->removeAll();
 
