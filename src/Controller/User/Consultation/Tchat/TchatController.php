@@ -24,17 +24,14 @@ class TchatController extends AbstractController
         $username = $this->getUser()->getProfile()->getPseudo();
 
         // je suis passer à "lcobucci/jwt": "^5.0", pour pouvoir utiliser le Token
-        $sha = new Sha256();
-        $key = InMemory::plainText($this->getParameter('mercure_secret_key'));
-        $claim = ['subscribe' => [sprintf("/%s", $username)]];
-
-        $builder = new Builder(new JoseEncoder(), new ChainedFormatter([]));
-        $token = $builder
-            ->withClaim('mercure', $claim)
-            ->getToken($sha, $key);
+        $token = (new Builder(new JoseEncoder(), new ChainedFormatter()))
+            ->withClaim('mercure', ['subscribe' => [sprintf("/%s", $username)]])
+            ->getToken(
+                new Sha256(),
+                new Key($this->getParameter('mercure_secret_key'))
+            )
+        ;
         
-        dd($token);
-
         $response =  $this->render('user/consultation_tchat/index.html.twig');
 
         $response->headers->setCookie(
