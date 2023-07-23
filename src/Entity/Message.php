@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\Index;
 #[ORM\HasLifecycleCallbacks]
 class Message
 {
-    use CreatedAtTrait;
+    use CreatedAtTrait; 
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,8 +23,8 @@ class Message
     #[ORM\Column(type: 'text')]
     private ?string $content;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'messages')]
-    private ?User $user;
+    #[ORM\ManyToOne(targetEntity: Profile::class, inversedBy: 'messages')]
+    private ?Profile $profile;
 
     #[ORM\ManyToOne(targetEntity: Conversation::class, inversedBy: 'messages')]
     private ?Conversation $conversation;
@@ -44,18 +44,6 @@ class Message
     public function setContent(?string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }
@@ -80,5 +68,17 @@ class Message
     public function setMine($mine): void
     {
         $this->mine = $mine;
+    }
+
+    public function getProfile(): ?Profile
+    {
+        return $this->profile;
+    }
+
+    public function setProfile(?Profile $profile): static
+    {
+        $this->profile = $profile;
+
+        return $this;
     }
 }

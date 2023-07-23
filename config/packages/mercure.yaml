@@ -1,8 +1,24 @@
 mercure:
+    # This is the public URL of your Mercure hub.
+    # This URL is used by the browser to connect to the hub.
+    # It must be an absolute URL (so it must include the protocol, e.g. https://)
+    # and it must not contain a path (Mercure does not support Websocket paths).
+    # This value is optional if you're using the default hub (https://demo.mercure.rocks/).
+    # If you're using a self-hosted hub, you must provide it.
     hubs:
         default:
             url: '%env(MERCURE_URL)%'
-            public_url: '%env(MERCURE_PUBLIC_URL)%'
+            # public_url: '%env(MERCURE_PUBLIC_URL)%'
             jwt:
                 secret: '%env(MERCURE_JWT_SECRET)%'
-                publish: '*'
+                # publish: '*'
+                # subscribe: '*'
+                # extra_claims:
+                #     mercure:
+                #         subscribe:
+                #             - 'https://example.com/book/{id<\d+>}'
+                #             - 'https://example.com/**'
+                #         publish:
+                #             - 'https://example.com/book/{id<\d+>}'
+                #             - 'https://example.com/**'
+                

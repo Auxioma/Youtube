@@ -17,7 +17,7 @@ class ConsultationEmail
     use CreatedAtTrait;
 
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue] 
     #[ORM\Column]
     private ?int $id = null;
 

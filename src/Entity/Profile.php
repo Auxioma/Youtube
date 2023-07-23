@@ -55,11 +55,20 @@ class Profile
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: ConsultationEmail::class)]
     private Collection $consultationEmails;
 
+    #[ORM\OneToMany(mappedBy: 'profile', targetEntity: Participant::class)]
+    private $participants;
+
+    #[ORM\OneToMany(mappedBy: 'profile', targetEntity: Message::class)]
+    private $messages;
+
+
     public function __construct()
     {
         $this->ticketPaiements = new ArrayCollection();
         $this->soldeCompteClients = new ArrayCollection();
         $this->consultationEmails = new ArrayCollection();
+        $this->participants = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -271,6 +280,66 @@ class Profile
             // set the owning side to null (unless already changed)
             if ($consultationEmail->getUser() === $this) {
                 $consultationEmail->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Participant>
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Participant $participant): static
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants->add($participant);
+            $participant->setProfile($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participant $participant): static
+    {
+        if ($this->participants->removeElement($participant)) {
+            // set the owning side to null (unless already changed)
+            if ($participant->getProfile() === $this) {
+                $participant->setProfile(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Message>
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): static
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages->add($message);
+            $message->setProfile($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): static
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getProfile() === $this) {
+                $message->setProfile(null);
             }
         }
 

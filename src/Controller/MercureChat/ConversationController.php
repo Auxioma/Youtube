@@ -5,7 +5,7 @@ namespace App\Controller\MercureChat;
 use App\Entity\Conversation;
 use App\Entity\Participant;
 use App\Repository\ConversationRepository;
-use App\Repository\UserRepository;
+use App\Repository\ProfileRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,54 +17,55 @@ use Symfony\Component\WebLink\Link;
 #[Route('/conversations', name: 'conversations.')]
 class ConversationController extends AbstractController
 {
-    private UserRepository $userRepository;
+    private ProfileRepository $profileRepository;
     private EntityManagerInterface $entityManager;
     private ConversationRepository $conversationRepository;
 
     public function __construct(
-        UserRepository $userRepository,
+        ProfileRepository $profileRepository,
         EntityManagerInterface $entityManager,
         ConversationRepository $conversationRepository
     ) {
-        $this->userRepository = $userRepository;
+        $this->profileRepository = $profileRepository;
         $this->entityManager = $entityManager;
         $this->conversationRepository = $conversationRepository;
     }
 
-    #[Route('/', name: 'newConversations', methods: ['POST'])]
-    public function index(Request $request, $id): JsonResponse
+    #[Route('/{id}', name: 'newConversations', methods: ['POST'])]
+    public function index(Request $request): JsonResponse
     {
         $otherUser = $request->get('otherUser', 0);
-        $otherUser = $this->userRepository->find($otherUser);
+        $otherUser = $this->profileRepository->find($otherUser);
 
         if (is_null($otherUser)) {
             throw new \Exception("The user was not found");
         }
 
         // cannot create a conversation with myself
-        if ($otherUser->getId() === $this->getUser()->getId()) {
+        if ($otherUser->getId() === $this->getUser()->getProfile()->getId()) {
             throw new \Exception("That's deep but you cannot create a conversation with yourself");
         }
 
         // Check if conversation already exists
         $conversation = $this->conversationRepository->findConversationByParticipants(
             $otherUser->getId(),
-            $this->getUser()->getId()
+            $this->getUser()->getProfile()->getId()
         );
 
         if (count($conversation)) {
             throw new \Exception("The conversation already exists");
         }
 
+        // I create a new conveersation
         $conversation = new Conversation();
 
         $participant = new Participant();
-        $participant->setUser($this->getUser());
+        $participant->setProfile($this->getUser()->getProfile());
         $participant->setConversation($conversation);
 
 
         $otherParticipant = new Participant();
-        $otherParticipant->setUser($otherUser);
+        $otherParticipant->setProfile($otherUser);
         $otherParticipant->setConversation($conversation);
 
         $this->entityManager->beginTransaction();
@@ -89,12 +90,13 @@ class ConversationController extends AbstractController
     #[Route('/', name: 'getConversations', methods: ['GET'])]
     public function getConvs(Request $request): JsonResponse
     {
-        $conversations = $this->conversationRepository->findConversationsByUser($this->getUser()->getId());
+        $conversations = $this->conversationRepository->findConversationsByUser($this->getUser()->getProfile()->getId());
 
         $hubUrl = $this->getParameter('mercure.default_hub');
         $this->addLink($request, new Link('mercure', $hubUrl));
 
         return $this->json($conversations);
     }
+
 }
  

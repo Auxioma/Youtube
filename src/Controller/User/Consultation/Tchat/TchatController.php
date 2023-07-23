@@ -5,31 +5,35 @@ namespace App\Controller\User\Consultation\Tchat;
 
 
 use DateTimeImmutable;
+use Lcobucci\JWT\Signer\Key;
+use Lcobucci\JWT\Token\Builder;
+use Lcobucci\JWT\Signer\Hmac\Sha256;
+use Lcobucci\JWT\Signer\Key\InMemory;
+use Lcobucci\JWT\Encoding\JoseEncoder;
+use Lcobucci\JWT\Encoding\ChainedFormatter;
 use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Lcobucci\JWT\Encoding\ChainedFormatter;
-use Lcobucci\JWT\Encoding\JoseEncoder;
-use Lcobucci\JWT\Signer\Key\InMemory;
-use Lcobucci\JWT\Signer\Hmac\Sha256;
-use Lcobucci\JWT\Token\Builder;
 
 class TchatController extends AbstractController
 {
     #[Route('/user/tchat', name: 'tchat')]
-    public function index(): \Symfony\Component\HttpFoundation\Response
+    public function index(): Response
     {
-        $username = $this->getUser()->getId();
+        $username = $this->getUser()->getProfile()->getPseudo();
 
-        $tokenBuilder = (new Builder(new JoseEncoder(), ChainedFormatter::default()));
-        $algorithm    = new Sha256();
-        $signingKey   = InMemory::plainText(random_bytes(32));
+        // je suis passer à "lcobucci/jwt": "^5.0", pour pouvoir utiliser le Token
+        $sha = new Sha256();
+        $key = InMemory::plainText($this->getParameter('mercure_secret_key'));
+        $claim = ['subscribe' => [sprintf("/%s", $username)]];
 
-        $token = $tokenBuilder
-            ->withClaim('uid', 1)
-            ->getToken($algorithm, $signingKey);
-
-        $token = $token->toString();
+        $builder = new Builder(new JoseEncoder(), new ChainedFormatter([]));
+        $token = $builder
+            ->withClaim('mercure', $claim)
+            ->getToken($sha, $key);
+        
+        dd($token);
 
         $response =  $this->render('user/consultation_tchat/index.html.twig');
 

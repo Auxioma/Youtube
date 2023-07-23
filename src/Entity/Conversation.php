@@ -14,7 +14,7 @@ class Conversation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer')] 
     private int $id;
 
     #[ORM\OneToMany(targetEntity: Participant::class, mappedBy: 'conversation')]

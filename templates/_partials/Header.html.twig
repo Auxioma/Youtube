@@ -52,12 +52,6 @@
 						<div class="header-links">
 							{% if app.user %}
 								<ul>
-									<li>
-										Bonjour
-										{% if app.user.profile.Pseudo is not null %}
-											{{ app.user.profile.Pseudo }}{% else %}visiteur
-										{% endif %}
-									</li>
 									<li class="d-none d-lg-inline-block">
 										<div class="dropdown-link">
 											<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">

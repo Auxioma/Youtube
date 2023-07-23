@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use App\Entity\Traits\CreatedAtTrait;
 use App\Entity\Traits\UpdatedAtTrait;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -15,6 +16,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[ORM\HasLifecycleCallbacks]
 class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFactorInterface
 {
     use CreatedAtTrait;
@@ -34,12 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $authCode;
 
-    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Participant::class)]
-    private $participants;
-
-    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Message::class)]
-    private $messages;
-
     /**
      * @var string The hashed password
      */
@@ -56,13 +52,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     private Collection $tarifConsultations;
 
     #[ORM\Column(length: 255)]
-    private ?string $username = null;
+    private ?string $username = 't';
 
     public function __construct()
     {
         $this->tarifConsultations = new ArrayCollection();
-        $this->participants = new ArrayCollection();
-        $this->messages = new ArrayCollection();
+        $this->CreatedAt = new DateTimeImmutable();
+        $this->UpdatedAt = new DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -238,66 +234,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     public function isIsVerified(): ?bool
     {
         return $this->isVerified;
-    }
-
-    /**
-     * @return Collection<int, Participant>
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participant $participant): static
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
-            $participant->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participant $participant): static
-    {
-        if ($this->participants->removeElement($participant)) {
-            // set the owning side to null (unless already changed)
-            if ($participant->getUser() === $this) {
-                $participant->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Message>
-     */
-    public function getMessages(): Collection
-    {
-        return $this->messages;
-    }
-
-    public function addMessage(Message $message): static
-    {
-        if (!$this->messages->contains($message)) {
-            $this->messages->add($message);
-            $message->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMessage(Message $message): static
-    {
-        if ($this->messages->removeElement($message)) {
-            // set the owning side to null (unless already changed)
-            if ($message->getUser() === $this) {
-                $message->setUser(null);
-            }
-        }
-
-        return $this;
     }
 
     public function getUsername(): ?string

@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Youtube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Left.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/authentification/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentification/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/HomePage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/HomePage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/forfait/cart.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/forfait/cart.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/forfait/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/forfait/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ConsultationEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ConsultationEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Conversation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Conversation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ConversationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ConversationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_partials/Header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_partials/Header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +258,7 @@
       <workItem from="1689849219693" duration="134000" />
       <workItem from="1689888332849" duration="3000" />
       <workItem from="1690004499957" duration="2796000" />
+      <workItem from="1690012039237" duration="4600000" />
     </task>
     <servers />
   </component>
