@@ -19,17 +19,16 @@ class TchatController extends AbstractController
     {
         $username = $this->getUser()->getProfile()->getPseudo();
 
-        $token = (new Builder(new JoseEncoder(), new ChainedFormatter()))
-            ->withClaim('mercure', [
-                                        'subscribe' => [
-                                            sprintf("/%s", $username)
-                                        ]
-                                    ])
-            ->getToken(
-                new Sha256(),
-                new Key($this->getParameter('mercure_secret_key'))
-            )
-        ;
+        // lcobucci / jwt 5.0.0
+        // https://lcobucci-jwt.readthedocs.io/en/latest/
+        $signer = new Sha256();
+        $encoder = new JoseEncoder();
+
+        $
+
+
+
+
         
         $response =  $this->render('user/consultation_tchat/index.html.twig');
 
