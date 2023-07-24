@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MercureChat/ConversationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ConsultationEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ConsultationEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Conversation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Conversation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ConversationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ConversationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/_partials/Header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_partials/Header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/email/email/confirmation_de_paiement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/email/confirmation_de_paiement.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +252,7 @@
       <workItem from="1689888332849" duration="3000" />
       <workItem from="1690004499957" duration="2796000" />
       <workItem from="1690012039237" duration="4600000" />
+      <workItem from="1690210582004" duration="2248000" />
     </task>
     <servers />
   </component>
