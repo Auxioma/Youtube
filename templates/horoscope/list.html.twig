@@ -23,7 +23,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service-featured">
                         <div class="service-featured_img">
-                            <img src="{{ asset('assets/img/horoscope/verseau.png') }}" alt="service">
+                            <img src="{{ asset('assets/img/horoscope/' ~ horoscopes.link | replace({'é':'e'}) ~ '.png') }}" alt="service">
                         </div>
                         <div class="service-featured_content">
                             <div class="service-bg-shape">
