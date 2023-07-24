@@ -23,14 +23,14 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service-featured">
                         <div class="service-featured_img">
-                            <img src="assets/img/service/service_box_1-1.jpg" alt="service">
+                            <img src="{{ asset('assets/img/horoscope/verseau.png') }}" alt="service">
                         </div>
                         <div class="service-featured_content">
                             <div class="service-bg-shape">
                                 <img src="assets/img/service/service_box_shape1.jpg" alt="img">
                             </div>
                             <div class="service-default-icon">
-                                <img src="assets/img/icon/service-icon-1-1.svg" alt="Icon">
+                                <img src="{{ asset('assets/img/horoscope/svg/' ~ horoscopes.link ~ '.svg') }}" height="50" width="50" alt="Icon">
                             </div>
                             <h3 class="box-title"><a href="{{ path('app_horoscope', {'slug': horoscopes.link}) }}">{{ horoscopes.titre }}</a></h3>
                             <p class="service-featured_text">...{{ horoscopes.description }}...</p>

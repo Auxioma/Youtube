@@ -37,15 +37,14 @@
                 {% for horoscope in horoscopes %}
 
                     <div class="col-md-6 col-lg-4">
-                        <div class="service-box">
+                        <div class="service-box" style="height:200px">
                             <div class="service-bg-shape">
                                 <img src="assets/img/service/service_box_shape1.jpg" alt="img">
                             </div>
                             <div class="service-box_content">
                                 <div class="service-default-icon">
-                                    <img src="assets/img/icon/service-icon-3-1.svg" alt="Icon">
+                                    <img src="{{ asset('assets/img/horoscope/svg/' ~ horoscope ~ '.svg') }}" height="50" width="50" alt="Icon">
                                 </div>
-                                <p>signe astrologique</p>
                                 <h3 class="box-title"><a href="{{ path('app_horoscope', {'slug': horoscope}) }}">{{ horoscope }}</a></h3>
                             </div>
                         </div>
