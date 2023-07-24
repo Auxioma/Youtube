@@ -30,9 +30,9 @@
                                 <img src="assets/img/service/service_box_shape1.jpg" alt="img">
                             </div>
                             <div class="service-default-icon">
-                                <img src="{{ asset('assets/img/horoscope/svg/' ~ horoscopes.link ~ '.svg') }}" height="50" width="50" alt="Icon">
+                                <img src="{{ asset('assets/img/horoscope/svg/' ~ horoscopes.link | replace({'é':'e'}) ~ '.svg') }}" height="50" width="50" alt="Icon">
                             </div>
-                            <h3 class="box-title"><a href="{{ path('app_horoscope', {'slug': horoscopes.link}) }}">{{ horoscopes.titre }}</a></h3>
+                            <h3 class="box-title"><a href="{{ path('app_horoscope', {'slug': horoscopes.link }) }}">{{ horoscopes.titre }}</a></h3>
                             <p class="service-featured_text">...{{ horoscopes.description }}...</p>
                             <a href="{{ path('app_horoscope', {'slug': horoscopes.link}) }}" class="link-btn">Consulter mon horoscope<i class="fa-solid fa-arrow-up-right ms-2"></i></a>
                         </div>
