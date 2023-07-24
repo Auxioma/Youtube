@@ -46,19 +46,21 @@ class HoroscopeServices
     public function list()
     {
         // Je met dans un tableau tous XML que je veux afficher
+        // ['belier', 'taureau','gemeaux', 'cancer', 'lion', 'vierge', 'balance','scorpion', 'sagittaire','capricorne',  'verseau', 'poissons'
+
         $horoscopes = [
-            '0' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_verseau.xml',
-            '1' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_poissons.xml',
-            '2' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_belier.xml',
-            '3' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_taureau.xml',
-            '4' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_gemeaux.xml',
-            '5' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_cancer.xml',
-            '6' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_lion.xml',
-            '7' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_vierge.xml',
-            '8' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_balance.xml',
-            '9' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_scorpion.xml',
-            '10' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_sagittaire.xml',
-            '11' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_capricorne.xml',
+            '0' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_belier.xml',
+            '1' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_taureau.xml',
+            '2' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_gemeaux.xml',
+            '3' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_cancer.xml',
+            '4' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_lion.xml',
+            '5' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_vierge.xml',
+            '6' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_balance.xml',
+            '7' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_scorpion.xml',
+            '8' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_sagittaire.xml',
+            '9' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_capricorne.xml',
+            '10' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_verseau.xml',
+            '12' => 'https://www.asiaflash.com/horoscope/rss_hebdotay_complet_poissons.xml',
         ];
 
         // Je récupere dans un tableau les données que je veux afficher
