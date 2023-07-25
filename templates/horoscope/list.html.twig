@@ -2,12 +2,12 @@
 
 {% block body %}
 
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+    <div class="breadcumb-wrapper" data-bg-src="{{ asset('assets/img/breadcrum/horoscopelist.png') }}" data-overlay="black" data-opacity="7">
         <div class="container">
             <div class="breadcumb-content text-center">
                 <h1 class="breadcumb-title">Horoscope</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="{{ path('app_main') }}">Accueil</a></li>
                     <li>Horoscope</li>
                 </ul>
             </div>
