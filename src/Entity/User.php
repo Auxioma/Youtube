@@ -51,9 +51,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: TarifConsultation::class)]
     private Collection $tarifConsultations;
 
-    #[ORM\Column(length: 255)]
-    private ?string $username = 't';
-
     public function __construct()
     {
         $this->tarifConsultations = new ArrayCollection();
@@ -234,17 +231,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     public function isIsVerified(): ?bool
     {
         return $this->isVerified;
-    }
-
-    public function getUsername(): ?string
-    {
-        return $this->username;
-    }
-
-    public function setUsername(string $username): static
-    {
-        $this->username = $username;
-
-        return $this;
     }
 }

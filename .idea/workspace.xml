@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Youtube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/Consultation/Tchat/TchatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/email/email/confirmation_de_paiement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/email/confirmation_de_paiement.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/service/service-details.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/img/service/service-details.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/horoscope/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horoscope/list.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +190,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mercure" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="2S1c0jW3LAO2ZUorK7JRUoGEUqj" />
@@ -253,6 +263,7 @@
       <workItem from="1690004499957" duration="2796000" />
       <workItem from="1690012039237" duration="4600000" />
       <workItem from="1690210582004" duration="2248000" />
+      <workItem from="1690276625442" duration="1368000" />
     </task>
     <servers />
   </component>

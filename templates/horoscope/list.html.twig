@@ -5,10 +5,10 @@
     <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
         <div class="container">
             <div class="breadcumb-content text-center">
-                <h1 class="breadcumb-title">Services</h1>
+                <h1 class="breadcumb-title">Horoscope</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Services</li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li>Horoscope</li>
                 </ul>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="service-featured_content">
                             <div class="service-bg-shape">
-                                <img src="assets/img/service/service_box_shape1.jpg" alt="img">
+                                <img src="{{ asset('assets/img/service/service_box_shape1.jpg') }}" alt="img">
                             </div>
                             <div class="service-default-icon">
                                 <img src="{{ asset('assets/img/horoscope/svg/' ~ horoscopes.link | replace({'é':'e'}) ~ '.svg') }}" height="50" width="50" alt="Icon">
