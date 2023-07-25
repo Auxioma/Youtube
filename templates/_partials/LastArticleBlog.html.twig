@@ -1,0 +1,18 @@
+							{% for recentPost in recentPost %}
+
+                            <div class="recent-post">
+								<div class="media-img">
+									<a href="blog-details.html"><img src="{{ asset('assets/img/widget/footer-widget_1_1.jpg') }}" alt="{{ recentPost.Titre }}"></a>
+								</div>
+								<div class="media-body">
+									<div class="recent-post-meta">
+										<a href="blog.html">
+											<i class="fal fa-calendar-days"></i>{{ recentPost.CreatedAt | date('d M Y') }}</a>
+									</div>
+									<h4 class="post-title">
+										<a class="text-inherit" href="blog-details.html">{{ recentPost.Titre }}</a>
+									</h4>
+								</div>
+							</div>
+
+                            {% endfor %}

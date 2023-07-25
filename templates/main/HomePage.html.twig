@@ -134,11 +134,11 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-auto">
                     <div class="title-area mb-lg-0 text-lg-start text-center">
-                        <h2 class="sec-title text-white mb-0">Consulter nos tarifs</h2>
+                        <h2 class="sec-title text-white mb-0">Nos forfaits prépayer</h2>
                     </div>
                 </div>
                 <div class="col-lg-auto text-center">
-                    <a href="contact.html" class="th-btn style2">inscription gratuite<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    <a href="{{ path('user_forfait') }}" class="th-btn style2">acheter des minutes<i class="fa-regular fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -263,13 +263,14 @@ Blog Area
             </div>
         </div>
     </section>
-    <section class="newsletter-area bg-theme" data-bg-src="assets/img/bg/newsletter-bg.png">
+{# integration avec Mailshimp #}
+    <section class="newsletter-area bg-theme" data-bg-src="{{ asset('assets/img/bg/newsletter-bg.png') }}">
         <div class="newsletter-thumb shape-mockup d-lg-block d-none" data-top="0" data-left="0"><img src="assets/img/bg/newsletter-bg1.png" alt="img"></div>
         <div class="container">
             <div class="row justify-content-end align-items-center">
                 <div class="col-lg-5 col-md-8">
                     <div class="title-area mb-0 me-xl-5 text-md-start text-center">
-                        <h2 class="sec-title h3 text-white">Get the latest update through The newsletter</h2>
+                        <h2 class="sec-title h3 text-white">Inscrivez-vous à notre newsletter pour ne rien rater</h2>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 mt-4 mt-md-0 text-md-end">
@@ -283,7 +284,4 @@ Blog Area
             </div>
         </div>
     </section>
-    <!--==============================
-	Footer Area
-==============================-->
 {% endblock %}

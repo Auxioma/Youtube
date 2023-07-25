@@ -23,6 +23,9 @@
 						<div class="woocommerce-info">Créer un compte</div>
 					</div>
 					<form method="post" class="woocommerce-form-login">
+					    {% if error %}
+							<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+						{% endif %}
 						<div class="form-group">
 							<label>email *</label>
 							<input type="email" value="{{ last_username }}" name="email" class="form-control" autocomplete="email" required autofocus>

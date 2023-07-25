@@ -37,5 +37,12 @@ class BlogController extends AbstractController
             'categories' => $categorie->findBy(['IsVerified' => true], ['id' => 'ASC'])
         ]);
     }
+
+    public function recentPost(ArticleBlogRepository $article): Response
+    {
+        return $this->render('_partials/LastArticleBlog.html.twig', [
+            'recentPost' => $article->findBy([], ['id' => 'DESC'], 2)
+        ]);
+    }
     
 }
