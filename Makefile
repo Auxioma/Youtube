@@ -1,2 +1,2 @@
 mercure:
-	./bin/mercure --jwt-key='konshensx' --addr='127.0.0.1:3000' --cors-allowed-origins='http://127.0.0.1:8000'
+	./bin/mercure run --jwt-key=jesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislem --addr=127.0.0.1:3000 --cors-allowed-origins=https://127.0.0.1:8000 --allow-anonymous
