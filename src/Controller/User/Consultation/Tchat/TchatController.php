@@ -2,9 +2,9 @@
 
 namespace App\Controller\User\Consultation\Tchat;
 
-use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Token\Builder;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
+use Lcobucci\JWT\Signer\Key\InMemory;
 use Lcobucci\JWT\Encoding\JoseEncoder;
 use Lcobucci\JWT\Encoding\ChainedFormatter;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -18,18 +18,16 @@ class TchatController extends AbstractController
     public function index(): Response
     {
         $username = $this->getUser()->getProfile()->getPseudo();
+        $tokenBuilder = (new Builder(new JoseEncoder(), ChainedFormatter::default()));
+        $algorithm    = new Sha256();
 
-        // lcobucci / jwt 5.0.0
-        // https://lcobucci-jwt.readthedocs.io/en/latest/
-        $signer = new Sha256();
-        $encoder = new JoseEncoder();
+        $providedKey = $this->getParameter('mercure_secret_key');
+        $signingKey = InMemory::plainText($providedKey);
 
-        $
+        $token = $tokenBuilder
+            ->withClaim('mercure', ['subscribe' => [sprintf("/%s", $username)]])
+            ->getToken($algorithm, $signingKey);
 
-
-
-
-        
         $response =  $this->render('user/consultation_tchat/index.html.twig');
 
         $response->headers->setCookie(
