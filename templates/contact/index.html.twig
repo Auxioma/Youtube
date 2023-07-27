@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Contact Us</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+Contact Area  
+==============================-->
+    <div class="space">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 pe-xxl-5 mb-30 mb-xl-0">
+                    <div class="title-area mb-25 text-xl-start text-center">
+                        <span class="sub-title">Saisissez votre message</span>
+                        <h2 class="sec-title">Envoyez votre message grâce à ce formulaire</h2>
+                    </div>
+                    <p class="mt-n2 mb-45 text-xl-start text-center">Ce service de messagerie est exclusivement destiné à transmettre des informations complémentaires à votre voyant pour vous assurer une consultation encore plus efficace.</p>
+                </div>
+                <div class="col-xl-6 ps-xl-4">
+
+                    {{ form_start(form, {'attr': {'class': 'th-contact-form bg-smoke'}}) }}    
+                        <div class="form-title">
+                            <h3 class="blog-inner-title h5">Demande d'information</h3>
+                        </div>
+                        {# messsage flash #}
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                               {{ form_widget(form.Nom) }}
+                            </div>
+                            <div class="col-md-6 form-group">
+                                {{ form_widget(form.Email) }}
+                            </div>
+                            <div class="col-md-12 form-group">
+                                {{ form_widget(form.Sujet) }}
+                            </div>
+                            <div class="col-12 form-group">
+                                {{ form_widget(form.Message) }}
+                            </div>
+                            <div class="col-12 form-group mb-0">
+                                <button type="submit" class="th-btn">Envoie du message <i class="fas fa-arrow-right ms-2"></i></button>
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
