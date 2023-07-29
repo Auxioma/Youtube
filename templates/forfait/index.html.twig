@@ -28,6 +28,8 @@
 							</div>
 							<div class="row gy-4 justify-content-center">
 
+							
+
 								{% for forfait in products %}
 								<div class="col-xl-3 col-md-6">
 									<div class="price-card ">
@@ -38,9 +40,13 @@
 											<img src="{{ asset('assets/img/icon/service-icon-1-1.svg') }}" alt="Icon">
 										</div>
 										<div class="price-card_top">
+										
 											<h3 class="price-card_title">{{ forfait.Name }}</h3>
 											<h4 class="price-card_price">{{ forfait.PriceTTC|format_currency('EUR', {rounding_mode: 'floor'}) }}</h4>
-											{# <p class="price-card_text">Save 25% For all Roofing services</p> #}
+											{% if forfait.bonusProduct.price | format_currency('EUR', {rounding_mode: 'floor'}) != 0 %}
+											<p class="price-card_text">Un bonus de {{ forfait.bonusProduct.Price|format_currency('EUR', {rounding_mode: 'floor'}) }} s'appliquera sur votre achat</p>
+											{% else %}<p class="price-card_text"></p>
+											{% endif %}
 										</div>
 										<div class="price-card_content">
 

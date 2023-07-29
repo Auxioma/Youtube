@@ -58,8 +58,10 @@ class CartController extends AbstractController
                     'currency' => 'eur',
                     'unit_amount' => $product['product']->getPriceTTC() * 100,
                     'product_data' => [
-                        'name' => $product['product']->getName()
+                        'name' => $product['product']->getName(),
+                        'description' => $product['product']->getBonusProduct()->getName() . ' ' . $product['product']->getBonusProduct()->getPrice(),
                         ],
+                        
                     ],
                 'quantity' => $product['quantity'],
             ];
@@ -100,9 +102,12 @@ class CartController extends AbstractController
 
         // prevoir un system de calcul sur le prix restant
 
+        // pour le solde du compte client, je vais faire paiement + bonus
+        $SoldeAvecBonus = $paymentIntent->amount_received / 100 + $name[0]->getBonusProduct()->getPrice();
+
         $soldeCompteClient = new SoldeCompteClient();
         $soldeCompteClient->setCustomer($this->getUser()->getProfile());
-        $soldeCompteClient->setPrixRestant($paymentIntent->amount_received / 100);
+        $soldeCompteClient->setPrixRestant($SoldeAvecBonus);
         $SoldeCompteClientRepository->save($soldeCompteClient, true);
 
         $email = (new TemplatedEmail())

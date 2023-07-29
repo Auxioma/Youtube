@@ -35,7 +35,7 @@
 								<thead>
 									<tr>
 										<th class="cart-col-productname">Nom du forfait</th>
-										<th class="cart-col-price">DURÉE</th>
+										<th class="cart-col-price">Bonus</th>
 										<th class="cart-col-total">Prix</th>
 									</tr>
 								</thead>
@@ -50,7 +50,15 @@
 										<td data-title="Price">
 											<span class="amount">
 												<bdi>
-													<span>$</span>18</bdi>
+													<span>
+													{% if product.product.bonusProduct.price | format_currency('EUR', {rounding_mode: 'floor'}) != 0 %}
+														{{ product.product.bonusProduct.price | format_currency('EUR', {rounding_mode: 'floor'}) }}
+													{% else %}
+														Aucun bonus
+													{% endif %}
+													
+													</span>
+												</bdi>
 											</span>
 										</td>
 										<td data-title="Total">
@@ -86,7 +94,6 @@
 												</span>
 											</td>
 										</tr>
-
 									</tbody>
 									<tfoot>
 										<tr class="order-total">

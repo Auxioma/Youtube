@@ -29,6 +29,9 @@ class Product
     #[ORM\Column]
     private ?bool $IsActive = false;
 
+    #[ORM\OneToOne(mappedBy: 'Product', cascade: ['persist', 'remove'])]
+    private ?BonusProduct $bonusProduct = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,28 @@ class Product
     public function setIsActive(bool $IsActive): static
     {
         $this->IsActive = $IsActive;
+
+        return $this;
+    }
+
+    public function getBonusProduct(): ?BonusProduct
+    {
+        return $this->bonusProduct;
+    }
+
+    public function setBonusProduct(?BonusProduct $bonusProduct): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($bonusProduct === null && $this->bonusProduct !== null) {
+            $this->bonusProduct->setProduct(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($bonusProduct !== null && $bonusProduct->getProduct() !== $this) {
+            $bonusProduct->setProduct($this);
+        }
+
+        $this->bonusProduct = $bonusProduct;
 
         return $this;
     }
