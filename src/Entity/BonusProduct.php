@@ -23,6 +23,9 @@ class BonusProduct
     #[ORM\OneToOne(inversedBy: 'bonusProduct', cascade: ['persist', 'remove'])]
     private ?Product $Product = null;
 
+    #[ORM\Column]
+    private ?bool $IsActive = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class BonusProduct
     public function setProduct(?Product $Product): static
     {
         $this->Product = $Product;
+
+        return $this;
+    }
+
+    public function isIsActive(): ?bool
+    {
+        return $this->IsActive;
+    }
+
+    public function setIsActive(bool $IsActive): static
+    {
+        $this->IsActive = $IsActive;
 
         return $this;
     }

@@ -1,0 +1,38 @@
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4"><a href="{{ path('app_admin_product_c_r_u_d_index') }}">Retournée a la liste des forfait</a></h6>
+        {{ form_start(form) }}
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Nom du forfait</label>
+            <div class="col-sm-10">
+                {{ form_widget(form.Product) }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="product_PriceHT" class="col-sm-2 col-form-label">Nom du bonus</label>
+            <div class="col-sm-10">
+                {{ form_widget(form.Name) }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="product_TVA" class="col-sm-2 col-form-label">Prix</label>
+            <div class="col-sm-10">
+                {{ form_widget(form.Price) }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Activation</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    {{ form_widget(form.IsActive) }}
+                    <label class="form-check-label" for="product_IsActive">
+                        Cliqué pour activé
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ button_label|default('Enregistré') }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>

@@ -32,6 +32,11 @@ class Product
     #[ORM\OneToOne(mappedBy: 'Product', cascade: ['persist', 'remove'])]
     private ?BonusProduct $bonusProduct = null;
 
+    public function __toString(): string
+    {
+        return $this->getName() ?? '';
+    }
+
     public function getId(): ?int
     {
         return $this->id;

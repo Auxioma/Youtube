@@ -16,6 +16,7 @@
 							<th scope="col">Prix HT</th>
 							<th scope="col">TVA</th>
 							<th scope="col">Prix TCC</th>
+							<th scope="col">Bonus</th>
 							<th scope="col">Is Active</th>
 							<th scope="col"></th>
 							<th scope="col"></th>
@@ -26,9 +27,14 @@
 						{% for product in products %}
 							<tr>
 								<td>{{ product.Name }}</td>
-								<td>{{ product.PriceHT }}</td>
+								<td>{{ product.PriceHT|format_currency('EUR', {rounding_mode: 'floor'}) }}</td>
 								<td>{{ product.TVA }}</td>
-								<td>{{ product.PriceTTC }}</td>
+								<td>{{ product.PriceTTC|format_currency('EUR', {rounding_mode: 'floor'}) }}</td>
+								<td>
+									<a href="{{ path('app_admin_bonus_product_edit', {'id': product.id}) }}">
+										{{ product.bonusProduct.price|format_currency('EUR', {rounding_mode: 'floor'}) }}
+									</a>
+								</td>
 								<td>
 									<div class="form-check form-switch">
 										<input class="form-check-input" type="checkbox" role="switch" {% if product.IsActive == false %} disabled disabled {% else %} checked disabled {% endif %}>
@@ -38,7 +44,7 @@
 									<a href="{{ path('app_admin_product_c_r_u_d_edit', {'id': product.id}) }}">Modification</a>
 								</td>
 								<td>
-									{{ include('admin/product_crud/_delete_form.html.twig') }}
+									
 								</td>
 
 							</tr>
