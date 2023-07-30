@@ -68,13 +68,12 @@
 	<script>
 		// Fonction qui envoie les données du formulaire au contrôleur Symfony via AJAX
 		function updateSettingsInDatabase() {
-			const isTelephoneActive = document.getElementById('telephone').checked;
-			const isEmailActive = document.getElementById('email').checked;
-			const isTchatActive = document.getElementById('tchat').checked;
 
-			// Utilisez ici une librairie AJAX, comme Axios ou la fonction fetch
-			// pour envoyer les données au contrôleur Symfony.
-			// Voici un exemple d'utilisation de la fonction fetch :
+			// transformer les constante true ou false en 1 ou 0
+			const isTelephoneActive = document.getElementById('telephone').checked ? 1 : 0;
+			const isEmailActive = document.getElementById('Email').checked ? 1 : 0;
+			const isTchatActive = document.getElementById('tchat').checked ? 1 : 0;
+
 
 			fetch('/api/bouton/update/settings', {
 			method: 'POST',
@@ -103,7 +102,7 @@
 
 		// Ajouter un gestionnaire d'événements à chaque case à cocher pour appeler la fonction d'envoi des données
 		document.getElementById('telephone').addEventListener('change', updateSettingsInDatabase);
-		document.getElementById('email').addEventListener('change', updateSettingsInDatabase);
+		document.getElementById('Email').addEventListener('change', updateSettingsInDatabase);
 		document.getElementById('tchat').addEventListener('change', updateSettingsInDatabase);
 	</script>
 {% endblock %}

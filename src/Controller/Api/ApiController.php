@@ -36,16 +36,15 @@ class ApiController extends AbstractController
     }
 
     #[Route('/api/bouton/update/settings', name: 'update_settings', methods: ['POST'])]
-    public function updateSettings(Request $request, EntityManagerInterface $entityManager)
+    public function updateSettings(Request $request, EntityManagerInterface $entityManager): JsonResponse
     {
         // Récupérer les données du formulaire envoyées via AJAX
-        $isTelephoneActive = $request->request->get('telephone');
-        $isEmailActive = $request->request->get('email');
-        $isTchatActive = $request->request->get('tchat');
+        $data = json_decode($request->getContent(), true);
 
-        // Effectuer la mise à jour en base de données en fonction des données reçues
-        // Mettez ici votre propre logique pour mettre à jour les données en base de données.
-        // Voici un exemple d'utilisation d'une entité Doctrine :
+        // Récupérer les données du formulaire envoyées via AJAX
+        $isEmailActive = $data['email'];
+        $isTelephoneActive = $data['telephone'];
+        $isTchatActive = $data['tchat'];
 
         $settings = $entityManager->getRepository(ModeDeConsultation::class)->findAll();
         $settings[0]->setIsOnline($isEmailActive);
