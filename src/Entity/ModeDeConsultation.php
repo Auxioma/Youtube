@@ -41,6 +41,9 @@ class ModeDeConsultation
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
 
+    #[ORM\Column(length: 1)]
+    private ?string $IsOnline = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,6 +130,18 @@ class ModeDeConsultation
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function getIsOnline(): ?string
+    {
+        return $this->IsOnline;
+    }
+
+    public function setIsOnline(string $IsOnline): static
+    {
+        $this->IsOnline = $IsOnline;
+
+        return $this;
     }
 
 }
