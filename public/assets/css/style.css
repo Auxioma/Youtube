@@ -16596,7 +16596,7 @@ span.select2-selection.select2-selection--single:focus {
   }
 }
 
-.th-btn_status-on-line, .th-btn_status-off-line  {
+.th-btn_status-on-line, .th-btn_status-off-line, .th-btn_status-on-Busy  {
   position: relative;
   z-index: 2;
   overflow: hidden;
@@ -16607,7 +16607,6 @@ span.select2-selection.select2-selection--single:focus {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   text-align: center;
-
   color: var(--white-color);
   font-family: var(--body-font);
   font-size: 16px;
@@ -16618,31 +16617,31 @@ span.select2-selection.select2-selection--single:focus {
   margin-left: 10px;
 }
 .th-btn_status-on-line {
-  background-color: var(--theme-color);
+  background-color: green;
 }
 
 .th-btn_status-off-line {
-  background-color: var(--white-color);
-  color: var(--theme-color);
+  background-color: gray;
 }
 
 .th-btn_status-on-Busy {
-  background-color: #fd0000;
+  background-color: orangered;
 }
 
-.th-btn_status-on-line::before {
+.th-btn_status-on-line::before, .th-btn_status-off-line::before, .th-btn_status-on-Busy::before  {
   left: -20px;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.th-btn_status-on-line::after {
+.th-btn_status-on-line::after, .th-btn_status-off-line::after, .th-btn_status-on-Busy::after {
   right: -20px;
   -webkit-transform: translate(50%, -50%);
   -ms-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
 }
-.th-btn_status-on-line::before, .th-btn_status-on-line::after {
+.th-btn_status-on-line::after, .th-btn_status-off-line::after, .th-btn_status-on-Busy::after , 
+.th-btn_status-on-line::before, .th-btn_status-off-line::before, .th-btn_status-on-Busy::before {
   content: "";
   position: absolute;
   background-color: var(--title-color);
@@ -16655,7 +16654,6 @@ span.select2-selection.select2-selection--single:focus {
   border-radius: 50%;
 }
 
-.th-btn_status-off-line {}
 
 /*=================================
     06. Update
