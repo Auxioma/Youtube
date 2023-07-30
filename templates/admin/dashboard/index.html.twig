@@ -49,17 +49,61 @@
 		<div class="bg-light rounded h-100 p-4">
 			<h6 class="mb-4">Visibilité des consultation</h6>
 			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-				<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+				<input class="form-check-input" type="checkbox" role="switch" id="telephone">
+				<label class="form-check-label" for="telephone">Active / Desavtive Téléphone</label>
 			</div>
 			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-				<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+				<input class="form-check-input" type="checkbox" role="switch" id="Email">
+				<label class="form-check-label" for="Email">Active / Desavtive Email </label>
 			</div>
 			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-				<label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+				<input class="form-check-input" type="checkbox" role="switch" id="tchat">
+				<label class="form-check-label" for="tchat">Active / Desavtive Tchat</label>
 			</div>
 		</div>
 	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script>
+		// Fonction qui envoie les données du formulaire au contrôleur Symfony via AJAX
+		function updateSettingsInDatabase() {
+			const isTelephoneActive = document.getElementById('telephone').checked;
+			const isEmailActive = document.getElementById('email').checked;
+			const isTchatActive = document.getElementById('tchat').checked;
+
+			// Utilisez ici une librairie AJAX, comme Axios ou la fonction fetch
+			// pour envoyer les données au contrôleur Symfony.
+			// Voici un exemple d'utilisation de la fonction fetch :
+
+			fetch('/api/bouton/update/settings', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				telephone: isTelephoneActive,
+				email: isEmailActive,
+				tchat: isTchatActive,
+			}),
+			})
+			.then(response => response.json())
+			.then(data => {
+				// Le contrôleur Symfony renverra une réponse JSON avec { success: true } en cas de succès
+				if (data.success) {
+				console.log('Mise à jour réussie en base de données.');
+				} else {
+				console.error('Erreur lors de la mise à jour en base de données.');
+				}
+			})
+			.catch(error => {
+				console.error('Une erreur s\'est produite :', error);
+			});
+		}
+
+		// Ajouter un gestionnaire d'événements à chaque case à cocher pour appeler la fonction d'envoi des données
+		document.getElementById('telephone').addEventListener('change', updateSettingsInDatabase);
+		document.getElementById('email').addEventListener('change', updateSettingsInDatabase);
+		document.getElementById('tchat').addEventListener('change', updateSettingsInDatabase);
+	</script>
 {% endblock %}

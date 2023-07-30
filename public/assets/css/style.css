@@ -16627,37 +16627,3 @@ span.select2-selection.select2-selection--single:focus {
 .th-btn_status-on-Busy {
   background-color: orangered;
 }
-
-.th-btn_status-on-line::before, .th-btn_status-off-line::before, .th-btn_status-on-Busy::before  {
-  left: -20px;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.th-btn_status-on-line::after, .th-btn_status-off-line::after, .th-btn_status-on-Busy::after {
-  right: -20px;
-  -webkit-transform: translate(50%, -50%);
-  -ms-transform: translate(50%, -50%);
-  transform: translate(50%, -50%);
-}
-.th-btn_status-on-line::after, .th-btn_status-off-line::after, .th-btn_status-on-Busy::after , 
-.th-btn_status-on-line::before, .th-btn_status-off-line::before, .th-btn_status-on-Busy::before {
-  content: "";
-  position: absolute;
-  background-color: var(--title-color);
-  z-index: -1;
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-  top: 50%;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-}
-
-
-/*=================================
-    06. Update
-==================================*/
-/*------------------- 6.01. Update 1 -------------------*/
-
-/*# sourceMappingURL=style.css.map */
