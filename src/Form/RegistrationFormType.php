@@ -55,8 +55,8 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Please enter a password',
                     ]),
                     new Regex([
-                        'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/',
-                        'message' => 'Votre mot de passe doit contenir au moins 14 caractères, une majuscule, une minuscule et un chiffre'
+                        'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@{}|_+!§$%^&*-]).{14,}$/',
+                        'message' => 'Votre mot de passe doit contenir au moins 14 caractères, une majuscule, une minuscule et un chiffre et un caractère spécial (parmi #?!@{}|_+!§$%^&*-))'
                     ]),
                 ],
             ])

@@ -6,16 +6,18 @@ use App\Entity\ConsultationEmail;
 use App\Entity\SoldeCompteClient;
 use App\Entity\TarifConsultation;
 use App\Form\ConsultationEmailType;
-use App\Repository\ConsultationEmailRepository;
-use App\Repository\SoldeCompteClientRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\ConsultationEmailRepository;
+use App\Repository\SoldeCompteClientRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ConsultationEmailController extends AbstractController
 {
     #[Route('/user/consultation-email/{Slug}', name: 'user_consultation_email')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function index(
         TarifConsultation $TarifConsultation,
         Request $request,

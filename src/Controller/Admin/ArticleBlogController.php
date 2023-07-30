@@ -4,14 +4,16 @@ namespace App\Controller\Admin;
 
 use App\Entity\ArticleBlog;
 use App\Form\ArticleBlogType;
-use App\Repository\ArticleBlogRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ArticleBlogRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/article/blog')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class ArticleBlogController extends AbstractController
 {
     #[Route('/', name: 'app_admin_article_blog_index', methods: ['GET'])]

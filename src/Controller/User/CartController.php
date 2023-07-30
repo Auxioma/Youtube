@@ -2,19 +2,20 @@
 
 namespace App\Controller\User;
 
-use App\Entity\SoldeCompteClient;
-use App\Entity\TicketPaiement;
-use App\Repository\SoldeCompteClientRepository;
-use App\Repository\TicketPaiementRepository;
-use App\Services\CartServices;
 use Stripe\Stripe;
+use App\Entity\TicketPaiement;
+use App\Services\CartServices;
+use App\Entity\SoldeCompteClient;
+use App\Repository\TicketPaiementRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\Response;
+use App\Repository\SoldeCompteClientRepository;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
 {
@@ -22,7 +23,9 @@ class CartController extends AbstractController
         private CartServices $cartServices,
         private MailerInterface $mailer
     ){}
+
     #[Route('/user/panier/{id}', name: 'user_panier')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function index(int $id)
     {
         $this->cartServices->add($id);
@@ -32,6 +35,7 @@ class CartController extends AbstractController
 
  
     #[Route('/user/panier', name: 'user_panier_show')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function show(): Response
     {
         $cardSData = $this->cartServices->getFullCart();
@@ -44,6 +48,7 @@ class CartController extends AbstractController
     }
 
     #[Route('/user/chekout', name: 'user_chekout')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function chekout()
     {
         $total = $this->cartServices->getTotal();
@@ -79,6 +84,7 @@ class CartController extends AbstractController
     }
 
     #[Route('/user/success', name: 'user_success')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function success(Request $request, TicketPaiementRepository $ticketPaiementRepository, SoldeCompteClientRepository $SoldeCompteClientRepository): Response
     {
         $cart = $this->cartServices->getFullCart();

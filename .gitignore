@@ -8,6 +8,8 @@
 /public/bundles/
 /var/
 /vendor/
+/Makefile
+Makefile
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

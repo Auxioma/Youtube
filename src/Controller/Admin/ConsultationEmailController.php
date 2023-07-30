@@ -4,13 +4,15 @@ namespace App\Controller\Admin;
 
 use App\Entity\ConsultationEmail;
 use App\Form\ConsultationEmailType;
-use App\Repository\ConsultationEmailRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\ConsultationEmailRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/consultation/email')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class ConsultationEmailController extends AbstractController
 {
     #[Route('/', name: 'app_admin_consultation_email_index', methods: ['GET'])]

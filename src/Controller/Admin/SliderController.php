@@ -6,12 +6,14 @@ use App\Entity\Slider;
 use App\Form\SliderType;
 use App\Repository\SliderRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/slider')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class SliderController extends AbstractController
 {
     #[Route('/', name: 'app_admin_slider_index', methods: ['GET'])]

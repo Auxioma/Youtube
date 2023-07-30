@@ -5,12 +5,14 @@ namespace App\Controller\Admin;
 use App\Entity\TicketPaiement;
 use App\Form\TicketPaiementType;
 use App\Repository\TicketPaiementRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/ticket')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class TicketPaiementCRUDController extends AbstractController
 {
     #[Route('/', name: 'admin_ticket_paiement_index', methods: ['GET'])]

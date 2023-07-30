@@ -5,12 +5,14 @@ namespace App\Controller\Admin;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/product')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class ProductCRUDController extends AbstractController
 {
     #[Route('/', name: 'app_admin_product_c_r_u_d_index', methods: ['GET'])]

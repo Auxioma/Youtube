@@ -4,14 +4,16 @@ namespace App\Controller\Admin;
 
 use App\Entity\CategoryBlog;
 use App\Form\CategoryBlogType;
-use App\Repository\CategoryBlogRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategoryBlogRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/category/blog')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class CategoryBlogController extends AbstractController
 {
     #[Route('/', name: 'app_admin_category_blog_index', methods: ['GET'])]

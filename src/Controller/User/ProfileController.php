@@ -9,11 +9,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProfileController extends AbstractController
 {
     #[Route('/user/profile/new', name: 'user_profile_new')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function index(Request $request, ProfileRepository $profileRepository): Response
     {
         // je vais fair une redirection si l'utilisateur a déjà un profil
@@ -42,6 +44,7 @@ class ProfileController extends AbstractController
     }
 
     #[Route('/user/profile', name: 'user_profile')]
+    #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function update(Request $request, ProfileRepository $profileRepository, EntityManagerInterface $em): Response
     {
         // je vais fair une redirection si l'utilisateur n'a pas de profil
@@ -79,6 +82,4 @@ class ProfileController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
 }

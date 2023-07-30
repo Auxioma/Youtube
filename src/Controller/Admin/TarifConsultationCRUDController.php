@@ -4,13 +4,15 @@ namespace App\Controller\Admin;
 
 use App\Entity\TarifConsultation;
 use App\Form\TarifConsultationType;
-use App\Repository\TarifConsultationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\TarifConsultationRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/tarif')]
+#[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class TarifConsultationCRUDController extends AbstractController
 {
     #[Route('/', name: 'app_admin_tarif_consultation_index', methods: ['GET'])]
