@@ -12,6 +12,11 @@
                 </ul>
             </li>
 
+            {#  si le role_admin alors connection au back office #}
+            {% if is_granted('ROLE_ADMIN') %}
+                <hr class="sidebar-divider">
+                <li><a href="{{ path('app_dashboard') }}">Back Office</a></li>
+            {% endif %}
         </ul>
     </div>
 </aside>
