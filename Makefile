@@ -1,2 +1,2 @@
 mercure:
-	./bin/mercure run --jwt-key=jesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislem --addr=127.0.0.1:3000 --cors-allowed-origins=https://127.0.0.1:8000 --allow-anonymous
+	./mercure/mercure run --jwt-key='jesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislemeilleurvoyantjesuislem' --addr='localhost:3000' --cors-allowed-origins='https://127.0.0.1:8000' --allow-anonymous=1
