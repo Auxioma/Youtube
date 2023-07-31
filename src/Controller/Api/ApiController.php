@@ -9,19 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ModeDeConsultationRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ApiController extends AbstractController
 {
-    private ModeDeConsultationRepository $consultation;
-
-    public function __construct(ModeDeConsultationRepository $consultation)
-    {
-        $this->consultation = $consultation;
-    }
-
-   #[Route('/api/bouton', name: 'api_bouton')]
+   #[Route('/api/bouton/show/setting', name: 'api_bouton')]
     public function index(ModeDeConsultationRepository $consultation): JsonResponse
     {
         $consultations = $consultation->findAll();
@@ -32,7 +24,7 @@ class ApiController extends AbstractController
                 'OnLine' => $consultation->getIsOnline(),
             ];
         }
-        return $this->json($data);
+        return new JsonResponse($data);
     }
 
     #[Route('/api/bouton/update/settings', name: 'update_settings', methods: ['POST'])]

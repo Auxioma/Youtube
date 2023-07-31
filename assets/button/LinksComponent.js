@@ -6,7 +6,7 @@ const LinksComponent = () => {
 
   const fetchDataFromDatabase = async () => {
     try {
-      const response = await fetch('/api/bouton');
+      const response = await fetch('/api/bouton/show/setting');
       const data = await response.json();
       setData(data);
     } catch (error) {
