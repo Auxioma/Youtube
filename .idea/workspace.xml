@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Youtube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Youtube.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/horoscope/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/horoscope/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_partials/Header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_partials/Header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +26,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/assets/js/actions/conversation.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -183,6 +182,8 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/rate-limiter" />
     </include_path>
   </component>
   <component name="ProjectId" id="2S1c0jW3LAO2ZUorK7JRUoGEUqj" />
@@ -256,6 +257,8 @@
       <workItem from="1690210582004" duration="2248000" />
       <workItem from="1690276625442" duration="1368000" />
       <workItem from="1690296390601" duration="898000" />
+      <workItem from="1690867351150" duration="83000" />
+      <workItem from="1690867451397" duration="4020000" />
     </task>
     <servers />
   </component>

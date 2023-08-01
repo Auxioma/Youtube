@@ -4892,7 +4892,7 @@ a.text-theme:hover,
 @media (max-width: 991px) {
   .header-layout1 .logo-bg {
     width: 50%;
-    height: calc(100% - 50px);
+    /*height: calc(100% - 50px);*/
     top: unset;
     bottom: 0;
   }
