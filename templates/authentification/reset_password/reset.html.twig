@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+		<div class="container">
+			<div class="breadcumb-content text-center">
+				<h1 class="breadcumb-title">Checkout</h1>
+				<ul class="breadcumb-menu">
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>Checkout</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="th-checkout-wrapper space-top space-extra-bottom">
+		<div class="container">
+			<div class="row">
+                <div class="col-6 mx-auto">
+					<div class="woocommerce-form-login-toggle">
+						<div class="woocommerce-info">Reset your password</div>
+					</div>
+                    {{ form_start(resetForm, {'attr': {'class': 'woocommerce-form-login'} }) }}
+						<div class="form-group">
+							{{ form_widget(resetForm.plainPassword) }}
+                            {{ form_errors(resetForm.plainPassword) }}
+						</div>
+						<div class="form-group">
+							<button type="submit" class="th-btn">Reset votre mot de passe</button>
+						</div>
+					 {{ form_end(resetForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

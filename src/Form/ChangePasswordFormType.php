@@ -21,6 +21,7 @@ class ChangePasswordFormType extends AbstractType
                 'options' => [
                     'attr' => [
                         'autocomplete' => 'new-password',
+                        'class' => 'form-control'
                     ],
                 ],
                 'first_options' => [
@@ -28,10 +29,10 @@ class ChangePasswordFormType extends AbstractType
                         new NotBlank([
                             'message' => 'Please enter a password',
                         ]),
-                        new Regex([
+                        /*new Regex([
                             'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/',
                             'message' => 'Votre mot de passe doit contenir au moins 14 caractères, une majuscule, une minuscule et un chiffre'
-                        ]),
+                        ]),*/
                     ],
                     'label' => 'New password',
                 ],
