@@ -6,4 +6,4 @@ when@test:
         strict_variables: true
     paths:
         # point this wherever your images live
-        '%kernel.project_dir%/assets/img': images
+        'assets/img': images

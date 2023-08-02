@@ -32,21 +32,12 @@ class Input extends React.Component {
 
     render() {
         return (
-            <form action="#" className="bg-light">
-                <div className="input-group">
-                    <input type="text" placeholder="Type a message"
-                           aria-describedby="button-addon2"
-                           onChange={this.handleChange}
-                           value={this.state.content}
-                           className="form-control rounded-0 border-0 py-4 bg-light"/>
-                    <div className="input-group-append">
-                        <button id="button-addon2" type="submit"
-                                onClick={this.sendMessage}
-                                className="btn btn-link">
-                            <i className="fa fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
+            <form action="#">
+                <input type="text" placeholder="Type a message" aria-describedby="button-addon2" onChange={this.handleChange} value={this.state.content} className="form-control"/>
+                <button type="submit" onClick={this.sendMessage}>
+                    <i className="fa fa-paper-plane"></i>
+                    Send
+                </button>
             </form>
         )
     }

@@ -7,8 +7,6 @@
 /config/secrets/prod/prod.decrypt.private.php
 /var/
 /vendor/
-/Makefile
-Makefile
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
