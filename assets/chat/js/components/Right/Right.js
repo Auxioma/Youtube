@@ -78,9 +78,7 @@ class Right extends React.Component {
         }
     }
 
-
     render() {
-
         return (
             <div className="chatbox showbox">
                 <div className="modal-dialog-scrollable" ref={this.bodyRef}>
@@ -93,10 +91,11 @@ class Right extends React.Component {
                                             <img className="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/arroleftt.svg" alt="image title" />
 
                                         </span>
-                                        <div class="flex-shrink-0">
-                                            <img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/user.png" alt="user img" />
+                                        <div className="flex-shrink-0">
+                                            <img className="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/user.png" alt="user img" />
                                         </div>
                                         <div className="flex-grow-1 ms-3">
+                                            
                                             <h3>Mehedi Hasan</h3>
                                             <p><Timer /></p>
                                         </div>
@@ -123,12 +122,12 @@ class Right extends React.Component {
                         </div>
                         <div className="send-box">
                             <Input id={this.props.match.params.id} />
-                            <div class="send-btns">
-                                <div class="attach">
-                                    <div class="button-wrapper">
-                                        <span class="label">
-                                        <img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/upload.svg" alt="image title"/> attached file
-                                        </span><input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" aria-label="Upload File"/>
+                            <div className="send-btns">
+                                <div className="attach">
+                                    <div className="button-wrapper">
+                                        <span className="label">
+                                        <img className="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/upload.svg" alt="image title"/> attached file
+                                        </span><input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" aria-label="Upload File"/>
                                     </div>
                                 </div>
                             </div>

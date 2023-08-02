@@ -13,7 +13,7 @@ class Conversation extends React.Component {
                 </div>
 
                 <div className="flex-grow-1 ms-3">
-                    <h3>{this.props.conversation.username}</h3>
+                    <h3>{this.props.conversation.Pseudo}</h3>
                     <p>{this.props.conversation.content}</p>
                 </div>
                 

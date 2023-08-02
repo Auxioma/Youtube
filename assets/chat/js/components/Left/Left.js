@@ -39,9 +39,21 @@ class Left extends React.Component {
                 <div className="bg-white">
                     <div className="modal-dialog-scrollable">
                         <div className="modal-content">
-                            <div className="chat-header">
-                                <h1>Conversation</h1>
-                            </div>
+                        <div className="chat-header">
+                  <div className="msg-search">
+                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" aria-label="search"/>
+                    <a className="add" href="#"><img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/add.svg" alt="add"/></a>
+                  </div>
+
+                  <ul className="nav nav-tabs" id="myTab" role="tablist">
+                    <li className="nav-item" role="presentation">
+                      <button className="nav-link active" id="Open-tab" data-bs-toggle="tab" data-bs-target="#Open" type="button" role="tab" aria-controls="Open" aria-selected="true">Open</button>
+                    </li>
+                    <li className="nav-item" role="presentation">
+                      <button className="nav-link" id="Closed-tab" data-bs-toggle="tab" data-bs-target="#Closed" type="button" role="tab" aria-controls="Closed" aria-selected="false">Closed</button>
+                    </li>
+                  </ul>
+                </div>
                             <div className="modal-body">
                                 <div className="chat-lists">
                                     <div className="tab-content" id="myTabContent">
