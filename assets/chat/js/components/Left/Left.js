@@ -41,8 +41,8 @@ class Left extends React.Component {
                         <div className="modal-content">
                         <div className="chat-header">
                   <div className="msg-search">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" aria-label="search"/>
-                    <a className="add" href="#"><img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/add.svg" alt="add"/></a>
+                    <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Search" aria-label="search"/>
+                    <a className="add" href="#"><img className="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/add.svg" alt="add"/></a>
                   </div>
 
                   <ul className="nav nav-tabs" id="myTab" role="tablist">
