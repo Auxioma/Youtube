@@ -4,6 +4,7 @@ import * as actionCreators from '../../actions/conversation'
 
 import Input from "./Input";
 import Message from "./Message";
+import Timer from './Timer';
 
 const mapStateToProps = (state) => {
     return state;
@@ -97,7 +98,7 @@ class Right extends React.Component {
                                         </div>
                                         <div className="flex-grow-1 ms-3">
                                             <h3>Mehedi Hasan</h3>
-                                            <p>front end developer</p>
+                                            <p><Timer /></p>
                                         </div>
                                     </div>
                                 </div>

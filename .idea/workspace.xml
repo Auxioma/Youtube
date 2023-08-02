@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1af012d-7896-42f1-8f28-a67e0bc1f5b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,6 +261,7 @@
       <workItem from="1690965480374" duration="466000" />
       <workItem from="1690970241275" duration="1419000" />
       <workItem from="1690972372565" duration="17000" />
+      <workItem from="1690991964113" duration="3000" />
     </task>
     <servers />
   </component>
