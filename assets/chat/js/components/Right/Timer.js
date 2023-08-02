@@ -33,8 +33,14 @@ const Timer = () => {
   const seconds = remainingTime % 60;
 
   return (
+    // Afficher le temps restant, et le le temps = 0, afficher le message
+    // "Temps écoulé"
     <div>
-      <p>Temps restant: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
+      {remainingTime === 0 ? (
+        <p>Temps écoulé !</p>
+      ) : (
+        <p>Temps restant: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
+      )}
     </div>
   );
 };

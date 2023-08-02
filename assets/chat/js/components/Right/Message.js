@@ -14,10 +14,10 @@ class Message extends React.Component {
         }
         return (
 
-                        <li className={`${this.props.message.mine ? `sender` : `repaly`}`} >
-                            <p>{this.props.message.content}</p>
-                            <span className="time">{new Date(this.props.message.CreatedAt).toLocaleString()}</span>
-                        </li>
+            <li className={`${this.props.message.mine ? `sender` : `repaly`}`} >
+                <p>{this.props.message.content}</p>
+                <span className="time">{new Date(this.props.message.CreatedAt).toLocaleString()}</span>
+            </li>
 
         );
     }
