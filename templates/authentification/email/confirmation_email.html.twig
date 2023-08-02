@@ -1,9 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTDHTML4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+{% apply inline_css %}
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<title>Hi! Please confirm your email!</title>
+		<title>Confirmer votre Email</title>
+
 		<style>
 			body {
 				background-color: #ffffff;
@@ -278,8 +280,8 @@
 					<table class="table" bgcolor="#ffffff" style="width: 100%;" width="100%">
 						<tr>
 							<td align="center" class="logo" style="border-bottom: 4px solid #333333">
-								<a title="PACAP DETAIL" href="#" test="" style="color: #337ff1;">
-									<img src="https://pacap-detail.fr/img/a-logo_mail-1617789813.jpg" alt="ursuliah">
+								<a title="Ursuliah" href="#" test="" style="color: #337ff1;">
+									<img src="{{ email.image('@images/logo.png') }}" alt="ursuliah">
 								</a>
 							</td>
 						</tr>
@@ -311,7 +313,6 @@
                                                             {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
                                                         </strong>
 													</span>
-													
 												</span>
 											</font>
 										</td>
@@ -339,4 +340,6 @@
 			</tr>
 		</table>
 	</body>
+
 </html>
+{% endapply %}

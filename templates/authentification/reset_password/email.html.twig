@@ -1,3 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTDHTML4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+{% apply inline_css %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Confirmer votre Email</title>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            width: 650px;
+            margin: auto;
+            font-family: "Open-sans", sans-serif;
+            color: #555454;
+            font-size: 13px;
+            line-height: 18px
+        }
+
+        table {
+            width: 100%;
+        }
+
+        .table tbody > tr > td {
+            padding: 7px 0
+        }
+
+        td.space {
+            width: 20px;
+        }
+        td.space_footer {
+            padding: 0 !important;
+        }
+
+        table.table-mail {
+            margin-top: 10px;
+            -moz-box-shadow: 0 0 5px #afafaf;
+            -webkit-box-shadow: 0 0 5px #afafaf;
+            -o-box-shadow: 0 0 5px #afafaf;
+            box-shadow: 0 0 5px #afafaf;
+            filter:progid:DXImageTransform.Microsoft.Shadow(color=#afafaf, Direction=134, Strength=5);
+        }
+
+        table.table-recap td {
+            color: #777777;
+        }
+        table.table-recap,
+        table.table-recap .table {
+            border-collapse: collapse;
+        }
+        table.table-recap .table td {
+            padding: 0;
+        }
+
+        .table .table-recap thead > tr > th {
+            background-color: #fbfbfb;
+            padding: 10px;
+            font-family: Arial;
+            color: #333333;
+            font-size: 13px
+        }
+
+        table.table-recap .conf_body td {
+            color: #333333;
+        }
+
+        table.table-recap .conf_body td.total {
+            color: #555454;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: "Open-sans", sans-serif;
+        }
+
+        table.table-recap .conf_body td.total_amount {
+            color: #333333;
+            font-size: 21px;
+            font-weight: 500;
+            font-family: "Open-sans", sans-serif;
+        }
+
+        a {
+            color: #337ff1
+        }
+
+        p {
+            margin: 3px 0 7px;
+        }
+
+        span.title {
+            font-weight: 500;
+            font-size: 28px;
+            text-transform: uppercase;
+            line-height: 33px;
+        }
+        span.subtitle {
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            line-height: 25px;
+        }
+
+        td.box {
+            background-color: #f8f8f8;
+        }
+
+        td.box p {
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 18px;
+            padding-bottom: 10px
+        }
+
+        td.box span {
+            color: #777777;
+        }
+
+        td.box span span {
+            color: #333333;
+        }
+
+        td.box ol {
+            margin-bottom: 0
+        }
+        @media only screen and(max-width: 300px) {
+            body {
+                width: 218px !important;
+                margin: auto !important;
+            }
+            .table {
+                width: 195px !important;
+                margin: auto !important;
+            }
+            .logo,
+            .titleblock,
+            .linkbelow,
+            .box,
+            .footer,
+            .space_footer {
+                width: auto !important;
+                display: block !important;
+            }
+            span.title {
+                font-size: 20px !important;
+                line-height: 23px !important
+            }
+            span.subtitle {
+                font-size: 14px !important;
+                line-height: 18px !important;
+                padding-top: 10px !important;
+                display: block !important;
+            }
+            td.box p {
+                font-size: 12px !important;
+                font-weight: bold !important;
+            }
+            .table-recap table,
+            .table-recap thead,
+            .table-recap tbody,
+            .table-recap th,
+            .table-recap td,
+            .table-recap tr {
+                display: block !important;
+            }
+            .table-recap {
+                width: 200px !important;
+            }
+            .table-recap tr td,
+            .conf_body td {
+                text-align: center !important;
+            }
+            .address {
+                display: block !important;
+                margin-bottom: 10px !important;
+            }
+            .space_address {
+                display: none !important;
+            }
+        }
+
+        @media only screen and(min-width: 301px) and(max-width: 500px) {
+            body {
+                width: 308px !important;
+                margin: auto !important;
+            }
+            .table {
+                width: 285px !important;
+                margin: auto !important;
+            }
+            .logo,
+            .titleblock,
+            .linkbelow,
+            .box,
+            .footer,
+            .space_footer {
+                width: auto !important;
+                display: block !important;
+            }
+            .table-recap table,
+            .table-recap thead,
+            .table-recap tbody,
+            .table-recap th,
+            .table-recap td,
+            .table-recap tr {
+                display: block !important;
+            }
+            .table-recap {
+                width: 295px !important;
+            }
+            .table-recap tr td,
+            .conf_body td {
+                text-align: center !important;
+            }
+
+        }
+
+        @media only screen and(min-width: 501px) and(max-width: 768px) {
+            body {
+                width: 478px !important;
+                margin: auto !important;
+            }
+            .table {
+                width: 450px !important;
+                margin: auto !important;
+            }
+            .logo,
+            .titleblock,
+            .linkbelow,
+            .box,
+            .footer,
+            .space_footer {
+                width: auto !important;
+                display: block !important;
+            }
+        }
+
+
+        /* Mobile */
+
+        @media only screen and(max-device-width: 480px) {
+            body {
+                width: 308px !important;
+                margin: auto !important;
+            }
+            .table {
+                width: 285px;
+                margin: auto !important;
+            }
+            .logo,
+            .titleblock,
+            .linkbelow,
+            .box,
+            .footer,
+            .space_footer {
+                width: auto !important;
+                display: block !important;
+            }
+
+            .table-recap {
+                width: 295px !important;
+            }
+            .table-recap tr td,
+            .conf_body td {
+                text-align: center !important;
+            }
+            .address {
+                display: block !important;
+                margin-bottom: 10px !important;
+            }
+            .space_address {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff; width: 650px; margin: auto; font-family: 'Open-sans', sans-serif; color: #555454; font-size: 13px; line-height: 18px; -webkit-text-size-adjust: none;" bgcolor="#ffffff" width="650">
+<table class="table table-mail" style="width: 100%; margin-top: 10px; -moz-box-shadow: 0 0 5px #afafaf; -webkit-box-shadow: 0 0 5px #afafaf; -o-box-shadow: 0 0 5px #afafaf; box-shadow: 0 0 5px #afafaf; filter: progid:DXImageTransform.Microsoft.Shadow(color=#afafaf, Direction=134, Strength=5);" width="100%">
+    <tr>
+        <td id="header-left" class="space" style="width: 20px;" width="20"></td>
+        <td align="center">
+            <table class="table" bgcolor="#ffffff" style="width: 100%;" width="100%">
+                <tr>
+                    <td align="center" class="logo" style="border-bottom: 4px solid #333333">
+                        <a title="Ursuliah" href="#" test="" style="color: #337ff1;">
+                            <img src="{{ email.image('@images/logo.png') }}" alt="ursuliah">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="titleblock">
+                        <font size="2" face="Open-sans, sans-serif" color="#555454">
+                            <span class="title" style="font-weight: 500; font-size: 28px; text-transform: uppercase; line-height: 33px;">Bonjour,</span>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="space_footer" style="padding: 0 !important;"></td>
+                </tr>
+                <tr>
+                    <td class="box" style="background-color: #f8f8f8; border: 1px solid #D6D4D4;" bgcolor="#f8f8f8">
+                        <table class="table" style="width: 100%;" width="100%">
+                            <tr>
+                                <td width="10"></td>
+                                <td>
+                                    <font size="2" face="Open-sans, sans-serif" color="#555454">
+                                        <p style="margin: 3px 0 7px 0; text-transform: uppercase; font-weight: 500; font-size: 18px; padding-bottom: 10px; border-bottom: 1px solid #D6D4D4;">
+                                            Reset your password
+                                        </p>
+                                        <span style="color: #777777;">
+                                            <span style="color: #333333;">
+                                                <strong>
+                                                    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+                                                    <p>This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+                                                </strong>
+                                            </span>
+                                        </span>
+                                    </font>
+                                </td>
+                                <td width="10"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="space_footer" style="padding: 0 !important;"></td>
+                </tr>
+                <tr>
+                    <td class="space_footer" style="padding: 0 !important;"></td>
+                </tr>
+                <tr>
+                    <td class="footer" style="border-top: 4px solid #333333">
+								<span>
+									<a href="#" style="color: #337ff1;">Ursuliah</a>
+								</span>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td id="footer-right" class="space" style="width: 20px;" width="20"></td>
+    </tr>
+</table>
+</body>
+
+</html>
+{% endapply %}
+
 <h1>Hi!</h1>
 
 <p>To reset your password, please visit the following link</p>
