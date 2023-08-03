@@ -1,11 +1,9 @@
 import React from 'react';
-
+import timer from './Timer';
 
 class Message extends React.Component {
 
-    componentDidMount() {
-
-    }
+    componentDidMount() {}
 
     render() {
         let img = ``;
