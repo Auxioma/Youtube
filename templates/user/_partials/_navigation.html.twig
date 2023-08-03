@@ -5,12 +5,13 @@
             <li><a href="{{ path('user_profile_new') }}">Mon profile</a></li>
             <li><a href="{{ path('user_forfait') }}">Achat de minutes</a></li>
             <li><a href="{{ path('app_mes_paiements') }}">Mes paiement</a></li>
-            <li class=""><a class="" role="button" id="dropdownMenuLink002" data-bs-toggle="dropdown" aria-expanded="false">Mes Consultation</a>
+            <li class=""><a class="" role="button" id="dropdownMenuLink002" data-bs-toggle="dropdown" aria-expanded="false">Consultations Email</a>
                 <ul class="dropdown-menu position-relative" aria-labelledby="dropdownMenuLink002">
                     <li><a href="{{ path('user_prix_consultation_par_email') }}">Consultation par Email</a></li>
                     <li><a href="{{ path('user_consultation_email_list') }}">Toutes les consultations par Email</a></li>
                 </ul>
             </li>
+            <li><a href="{{ path('tchat') }}">Consultation Chat</a></li>
 
             {#  si le role_admin alors connection au back office #}
             {% if is_granted('ROLE_ADMIN') %}

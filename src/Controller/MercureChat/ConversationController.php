@@ -31,7 +31,7 @@ class ConversationController extends AbstractController
         $this->conversationRepository = $conversationRepository;
     }
 
-    #[Route('/{id}', name: 'newConversations', methods: ['POST'])]
+    #[Route('/', name: 'newConversations', methods: ['POST'])]
     public function index(Request $request): JsonResponse
     {
         $otherUser = $request->get('otherUser', 0);
