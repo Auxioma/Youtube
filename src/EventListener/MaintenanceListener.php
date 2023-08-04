@@ -28,7 +28,6 @@ class MaintenanceListener{
         }
 
         // Le fichier existe
-
         // On définit la réponse
         $event->setResponse(
             new Response(
