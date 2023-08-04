@@ -4,20 +4,19 @@
 {% endblock %}
 
 {% block body %}
-	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+	<div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/img/breadcrum/aboutus.png') }}" data-overlay="black" data-opacity="7">
 		<div class="container">
 			<div class="breadcumb-content text-center">
-				<h1 class="breadcumb-title">About Us</h1>
+				<h1 class="breadcumb-title">Qui suis-je?</h1>
 				<ul class="breadcumb-menu">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="{{ path('app_main') }}">Accueil</a>
 					</li>
-					<li>About Us</li>
+					<li>Qui suis-je?</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 	<div class="overflow-hidden overflow-hidden space" id="about-sec">
 		<div class="container">
 			<div class="row">
