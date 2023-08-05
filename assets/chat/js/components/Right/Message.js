@@ -5,10 +5,6 @@ class Message extends React.Component {
     componentDidMount() {}
 
     render() {
-        let img = ``;
-        if (!this.props.message.mine) {
-            img = <img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user" width="50" className="rounded-circle" />;
-        }
         return (
 
             <li className={`${this.props.message.mine ? `sender` : `repaly`}`} >

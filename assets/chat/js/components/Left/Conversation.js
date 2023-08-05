@@ -8,7 +8,7 @@ class Conversation extends React.Component {
             <Link to={"/conversation/" + this.props.conversation.conversationId} className="d-flex align-items-center">
                 
                 <div className="flex-shrink-0">
-                    <img src="https://mehedihtml.com/chatbox/assets/img/user.png" alt="user" className="img-fluid"/>
+                <img src={`/assets/img/profile/${this.props.conversation.imageName}`} alt="" height="45" width="45" className="img-fluid rounded-circle" />
                     <span className="active"></span>
                 </div>
 
