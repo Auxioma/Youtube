@@ -4,7 +4,7 @@ import * as actionCreators from '../../actions/conversation'
 
 import Input from "./Input";
 import Message from "./Message";
-import Timer from './Timer';
+import Timer from './Timer/Timer';
 
 const mapStateToProps = (state) => {
     return state;
@@ -58,7 +58,7 @@ class Right extends React.Component {
                     });
                     this.eventSource.onmessage = function (event) {
                         const data = JSON.parse(event.data);
-                        debugger
+                        // debugger
                         _t.props.postMessage(data, data.conversation.id);
                     }
                 }

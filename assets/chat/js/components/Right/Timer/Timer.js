@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
-  const initialTime =  2 * 60; // 10 minutes en secondes
+  const initialTime =  1 * 60; // 10 minutes en secondes
   const [remainingTime, setRemainingTime] = useState(initialTime);
 
   useEffect(() => {
