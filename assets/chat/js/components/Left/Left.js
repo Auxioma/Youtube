@@ -63,7 +63,7 @@ class Left extends React.Component {
 
                                                         this.props.items
                                                             .sort((a, b) => {
-                                                                return a.createdAt < b.createdAt;
+                                                                return a.CreatedAt < b.CreatedAt;
                                                             })
                                                             .map((conversation, index) => {
                                                                 return (
