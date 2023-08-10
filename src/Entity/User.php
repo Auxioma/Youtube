@@ -15,8 +15,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-#[ORM\HasLifecycleCallbacks]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cet email')]
+#[ORM\Table(name: '`user`')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFactorInterface
 {
     use CreatedAtTrait;
@@ -45,7 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'User', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private ?Profile $profile = null;
 
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: TarifConsultation::class)]

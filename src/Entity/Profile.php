@@ -33,7 +33,7 @@ class Profile
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $DateDeNaissance = null;
 
-    #[ORM\Column(length: 11)]
+    #[ORM\Column(length: 20)]
     private ?string $NumeroTelephone = null;
 
     #[ORM\Column(length: 255)]
@@ -57,7 +57,7 @@ class Profile
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
 
-    #[ORM\OneToOne(inversedBy: 'profile', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'profile', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private ?User $User = null;
 
     #[ORM\OneToMany(mappedBy: 'Customer', targetEntity: TicketPaiement::class)]
