@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleBlogRepository;
 use App\Repository\ModeDeConsultationRepository;
 use App\Repository\SliderRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +13,8 @@ class MainController extends AbstractController
 {
     public function __construct(
         private SliderRepository $SliderRepository,
-        private ModeDeConsultationRepository $ModeDeConsultationRepository
+        private ModeDeConsultationRepository $ModeDeConsultationRepository,
+        private ArticleBlogRepository $ArticleBlog
     )
     {}
 
@@ -23,6 +25,7 @@ class MainController extends AbstractController
             'sliders' => $this->SliderRepository->findBy(['IsActive' => true]),
             'modeDeConsultations' => $this->ModeDeConsultationRepository->findAll(),
             'horoscopes' => ['belier', 'taureau','gemeaux', 'cancer', 'lion', 'vierge', 'balance','scorpion', 'sagittaire','capricorne',  'verseau', 'poissons'],
+            'articleBlogs' => $this->ArticleBlog->findBy(['IsActive' => true], ['id' => 'DESC'], 3)
         ]);
     }
 }

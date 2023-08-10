@@ -11,8 +11,6 @@ class AboutusController extends AbstractController
     #[Route('/aboutus', name: 'app_aboutus')]
     public function index(): Response
     {
-        return $this->render('aboutus/index.html.twig', [
-            'controller_name' => 'AboutusController',
-        ]);
+        return $this->render('aboutus/index.html.twig');
     }
 }
