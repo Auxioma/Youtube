@@ -20,5 +20,5 @@ jobs:
 
     - name: Deploy over SSH
       run:
-        sshpass -e ssh -o StrictHostKeyChecking=no -p 5022 ${{ secrets.USER }}@${{ secrets.HOST }}
+        sshpass -e ssh -o StrictHostKeyChecking=no -p 22 ${{ secrets.USER }}@${{ secrets.HOST }}
         "cd /var/www/websites/ursuliah.com && git pull"
