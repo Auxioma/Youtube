@@ -38,6 +38,7 @@ const LinksComponent = () => {
 
   const getStatusClassName = (id) => {
     const status = data.find(item => item.id === id)?.OnLine;
+    console.log(data.find(item => item.id === id)?.id);
     if (status === '0') {
       return 'th-btn_status-on-line';
     } else if (status === '1') {
@@ -51,15 +52,15 @@ const LinksComponent = () => {
 
   return (
     <div>
-      <a href="#" className={getStatusClassName(2)}>
+      <a href="#" className={getStatusClassName(70)}>
         <i className="fa-solid fa-phone"></i>
       </a>
 
-      <a href="#" className={getStatusClassName(1)}>
+      <a href="#" className={getStatusClassName(71)}>
         <i className="fa-regular fa-envelope"></i>
       </a>
 
-      <a href="#" className={getStatusClassName(3)}>
+      <a href="#" className={getStatusClassName(72)}>
         <i className="fa-brands fa-rocketchat"></i>
       </a>
     </div>
