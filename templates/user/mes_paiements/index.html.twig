@@ -51,7 +51,7 @@
                                     {{ ticket.TotalPaidTTC }}
                                 </td>
                                 <td class="product-action">
-                                    <a href="#" class="button">Télécharger la facture</a>
+                                    <a href="{{ path('pdf_paiement', {'id': ticket.id}) }}" class="button">Télécharger la facture</a>
                                 </td>
                             </tr>
                             {% endfor %}
