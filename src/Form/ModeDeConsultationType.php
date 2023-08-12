@@ -16,7 +16,6 @@ class ModeDeConsultationType extends AbstractType
         $builder
             ->add('Titre')
             ->add('Description')
-            ->add('Slug')
             ->add('GrandeDescription', CKEditorType::class, [
                 'config' => [
                     'uiColor' => '#ffffff',
