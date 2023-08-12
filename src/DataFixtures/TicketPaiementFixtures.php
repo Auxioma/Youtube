@@ -4,11 +4,12 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\TicketPaiement;
 use App\Entity\Profile;
+use App\Entity\TicketPaiement;
+use App\Entity\SoldeCompteClient;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Persistence\ObjectManager;
 
 class TicketPaiementFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -24,6 +25,11 @@ class TicketPaiementFixtures extends Fixture implements DependentFixtureInterfac
         $ticketPaiement->setCreatedAt(new \DateTime());
         $profile = $this->getReference('profile1');
         $ticketPaiement->setCustomer($profile);
+            $soldeCompteClient = new SoldeCompteClient();
+            $soldeCompteClient->setPrixRestant('100.00');
+            $soldeCompteClient->setCustomer($profile);
+            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable());
+            $manager->persist($soldeCompteClient);
         $manager->persist($ticketPaiement);
 
         $ticketPaiement = new TicketPaiement();
@@ -35,6 +41,11 @@ class TicketPaiementFixtures extends Fixture implements DependentFixtureInterfac
         $ticketPaiement->setCreatedAt(new \DateTime());
         $profile = $this->getReference('profile2');
         $ticketPaiement->setCustomer($profile);
+            $soldeCompteClient = new SoldeCompteClient();
+            $soldeCompteClient->setPrixRestant('100.00');
+            $soldeCompteClient->setCustomer($profile);
+            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable());
+            $manager->persist($soldeCompteClient);
         $manager->persist($ticketPaiement);
 
         $ticketPaiement = new TicketPaiement();
@@ -46,6 +57,11 @@ class TicketPaiementFixtures extends Fixture implements DependentFixtureInterfac
         $ticketPaiement->setCreatedAt(new \DateTime());
         $profile = $this->getReference('profile3');
         $ticketPaiement->setCustomer($profile);
+            $soldeCompteClient = new SoldeCompteClient();
+            $soldeCompteClient->setPrixRestant('100.00');
+            $soldeCompteClient->setCustomer($profile);
+            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable());
+            $manager->persist($soldeCompteClient);
         $manager->persist($ticketPaiement);
 
 

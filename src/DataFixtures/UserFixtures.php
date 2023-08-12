@@ -30,6 +30,7 @@ class UserFixtures extends Fixture
         $user1->setRoles(['ROLE_ADMIN']);
         $user1->setPassword($this->userPasswordHasher->hashPassword($user1, '0000'));
         $user1->setIsVerified(true);
+        $this->addReference('user-1', $user1);
             $profile1 = new Profile();
             $profile1->setPseudo($faker->userName);
             $profile1->setNom($faker->name);
@@ -43,6 +44,7 @@ class UserFixtures extends Fixture
             $profile1->setUser($user1);
             $profile1->setCreatedAt(new \DateTimeImmutable());
             $profile1->setUpdatedAt(new \DateTimeImmutable());
+            $profile1->setImageName('admin.jpg');
             $this->addReference('profile1', $profile1);
             $manager->persist($profile1);
         $manager->persist($user1);
@@ -66,6 +68,7 @@ class UserFixtures extends Fixture
             $profile2->setUser($user2);
             $profile2->setCreatedAt(new \DateTimeImmutable());
             $profile2->setUpdatedAt(new \DateTimeImmutable());
+            $profile1->setImageName('guillaume.png');
             $this->addReference('profile2', $profile2);
             $manager->persist($profile2);
         $manager->persist($user2);
@@ -89,6 +92,7 @@ class UserFixtures extends Fixture
             $profile3->setUser($user3);
             $profile3->setCreatedAt(new \DateTimeImmutable());
             $profile3->setUpdatedAt(new \DateTimeImmutable());
+            $profile1->setImageName('admin.jpg');
             $this->addReference('profile3', $profile3);
             $manager->persist($profile3);
         $manager->persist($user3);
