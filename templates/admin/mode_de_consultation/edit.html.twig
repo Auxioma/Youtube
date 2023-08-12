@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit ModeDeConsultation{% endblock %}
+
+{% block body %}
+	<div class="container-fluid pt-4 px-4">
+		<h1>Modification forfait</h1>
+		<div class="row g-4">
+    {{ include('admin/mode_de_consultation/_form.html.twig', {'button_label': 'Update'}) }}
+		</div>
+	</div>
+{% endblock %}

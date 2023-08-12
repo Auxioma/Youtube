@@ -1,0 +1,36 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}ModeDeConsultation index{% endblock %}
+
+{% block body %}
+	<div class="container-fluid pt-4 px-4">
+		<h1>Mode de consultation</h1>
+		<div class="bg-light text-center rounded p-4">
+			<div class="table-responsive">
+				<table class="table text-start align-middle table-bordered table-hover mb-0">
+					<thead>
+            <tr>
+                <th>Titre</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th> 
+            </tr>
+        </thead>
+        <tbody>
+        {% for mode_de_consultation in mode_de_consultations %}
+            <tr>
+                <td>{{ mode_de_consultation.Titre }}</td>
+                <td>{{ mode_de_consultation.CreatedAt ? mode_de_consultation.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ mode_de_consultation.UpdatedAt ? mode_de_consultation.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_mode_de_consultation_edit', {'id': mode_de_consultation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

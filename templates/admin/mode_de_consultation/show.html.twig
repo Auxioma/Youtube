@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ModeDeConsultation{% endblock %}
+
+{% block body %}
+    <h1>ModeDeConsultation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mode_de_consultation.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ mode_de_consultation.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ mode_de_consultation.Description }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ mode_de_consultation.Slug }}</td>
+            </tr>
+            <tr>
+                <th>GrandeDescription</th>
+                <td>{{ mode_de_consultation.GrandeDescription }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ mode_de_consultation.imageName }}</td>
+            </tr>
+            <tr>
+                <th>IsOnline</th>
+                <td>{{ mode_de_consultation.IsOnline }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ mode_de_consultation.CreatedAt ? mode_de_consultation.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ mode_de_consultation.UpdatedAt ? mode_de_consultation.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_mode_de_consultation_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_mode_de_consultation_edit', {'id': mode_de_consultation.id}) }}">edit</a>
+
+    {{ include('admin/mode_de_consultation/_delete_form.html.twig') }}
+{% endblock %}
