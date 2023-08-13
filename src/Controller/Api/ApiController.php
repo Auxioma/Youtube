@@ -47,13 +47,17 @@ class ApiController extends AbstractController
         $isTelephoneActive = $data['telephone'];
         $isTchatActive = $data['tchat'];
 
-        $settings = $entityManager->getRepository(ModeDeConsultation::class)->findAll();
-       
-        $settings[0]->setIsOnline($isEmailActive);
-        $settings[1]->setIsOnline($isTelephoneActive);
-        $settings[2]->setIsOnline($isTchatActive);
+        $Email = $entityManager->getRepository(ModeDeConsultation::class)->findBy(['id' => '1']);
+        $Email->setIsOnline($isEmailActive);
+
+        $Telephone = $entityManager->getRepository(ModeDeConsultation::class)->findBy(['id' => '2']);
+        $Telephone->setIsOnline($isTelephoneActive);
+
+        $Tchat = $entityManager->getRepository(ModeDeConsultation::class)->findBy(['id' => '3']);
+        $Tchat->setIsOnline($isTchatActive);
+
         $entityManager->flush();
- dd($entityManager->getRepository(ModeDeConsultation::class)->findAll());
+
         // Répondre avec un message de succès ou d'erreur
         return new JsonResponse(['success' => true]);
     }
