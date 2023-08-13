@@ -19,10 +19,10 @@ class ApiController extends AbstractController
     {
         $consultations = $consultation->findAll();
         $tarifs = $tarif->findAll();
-dd($tarifs);       
-        $chat   = $tarifs[5]->getPrice();
+      
+        $chat   = $tarifs[1]->getPrice();
         $telephone  = $tarifs[0]->getPrice();
-        $email      = $tarifs[3]->getPrice();
+        $email      = $tarifs[2]->getPrice();
 
         $data = [];
         foreach ($consultations as $consultation) {
