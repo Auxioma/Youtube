@@ -55,9 +55,9 @@
 						{{modedeconsultations[0].IsOnline}}
 						-
 						{% if modedeconsultations[0].IsOnline == 1 %}
-							Désactive Téléphone
+							Désactive: {{modedeconsultations[0].Titre}}
 						{% else %}
-							Active Téléphone
+							Active: {{modedeconsultations[0].Titre}}
 						{% endif %}
 					</label>
 				</div>
@@ -67,9 +67,9 @@
 						{{modedeconsultations[2].IsOnline}}
 						-
 						{% if modedeconsultations[2].IsOnline == 1 %}
-							Désactive Email
+							Désactive: {{modedeconsultations[2].Titre}}
 						{% else %}
-							Active Email
+							Active: {{modedeconsultations[2].Titre}}
 						{% endif %}
 					</label>
 				</div>
@@ -79,9 +79,9 @@
 						{{modedeconsultations[1].IsOnline}}
 						-
 						{% if modedeconsultations[1].IsOnline == 1 %}
-							Désactive tchat
+							Désactive: {{modedeconsultations[1].Titre}}
 						{% else %}
-							Active tchat
+							Active: {{modedeconsultations[0].Titre}}
 						{% endif %}
 					</label>
 				</div>
