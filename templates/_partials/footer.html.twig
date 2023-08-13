@@ -9,6 +9,7 @@
 								<a href="{{ path('app_main') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Ruffer"></a>
 							</div>
 							<p class="about-text">However, in general, a roofing company is Business that specializes in installing, Repairing, and maintaining roofs for website should be focused.</p>
+							{#
 							<div class="th-social">
 								<a href="https://www.facebook.com/">
 									<i class="fab fa-facebook-f"></i>
@@ -23,46 +24,11 @@
 									<i class="fab fa-whatsapp"></i>
 								</a>
 							</div>
+							#}
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 col-xl-auto">
-					<div class="widget widget_nav_menu footer-widget">
-						<h3 class="widget_title">Nos categories</h3>
-						<div class="menu-all-pages-container">
-							<ul class="menu">
-								<li>
-									<a href="{{ path('app_main') }}">Accueil</a>
-								</li>
-								<li>
-									<a href="{{ path('app_aboutus') }}">Qui suis-je</a>
-								</li>
-								<li>
-									<a href="{{ path('app_forfait') }}">Nos forfaits</a>
-								</li>
-								<li>
-									<a href="{{ path('app_forfait') }}">Voyance immediate</a>
-								</li>
-								<li>
-									<a href="{{ path('app_horoscope_list') }}">Horoscope</a>
-								</li>
-								<li>
-									<a href="{{ path('app_blog') }}">Blog</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-xl-auto">
-					<div class="widget footer-widget">
-						<h3 class="widget_title">Notre Blog</h3>
-						<div class="recent-post-wrap">
 
-						{{ render(controller('App\\Controller\\BlogController::recentPost')) }}
-
-						</div>
-					</div>
-				</div>
 				<div class="col-md-6 col-xl-auto">
 					<div class="widget widget_nav_menu footer-widget">
 						<h3 class="widget_title">therme légal</h3>

@@ -52,15 +52,15 @@ const LinksComponent = () => {
 
   return (
     <div>
-      <a href="#" className={getStatusClassName(70)}>
+      <a href="#" className={getStatusClassName(88)}>
         <i className="fa-solid fa-phone"></i>
       </a>
 
-      <a href="#" className={getStatusClassName(71)}>
+      <a href="#" className={getStatusClassName(89)}>
         <i className="fa-regular fa-envelope"></i>
       </a>
 
-      <a href="#" className={getStatusClassName(72)}>
+      <a href="#" className={getStatusClassName(90)}>
         <i className="fa-brands fa-rocketchat"></i>
       </a>
     </div>

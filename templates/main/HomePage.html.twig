@@ -36,17 +36,17 @@
 
 	<section class="">
 		<div class="container">
-			<div class="row slider-shadow th-carousel service-slider3" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1">
+			<div class="row slider-shadow th-carousel service-slider3" data-slide-show="6" data-lg-slide-show="5" data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1">
 
 				{% for horoscope in horoscopes %}
 
 					<div class="col-md-6 col-lg-4">
 						<div class="service-box" style="height:200px">
 							<div class="service-bg-shape">
-								<img src="assets/img/service/service_box_shape1.jpg" alt="img">
+								<img src="{{ asset('assets/img/service/service_box_shape1.jpg') }}" alt="img">
 							</div>
 							<div class="service-box_content">
-								<div class="service-default-icon">
+								<div class="service-default-icon {{horoscope}}">
 									<img src="{{ asset('assets/img/horoscope/svg/' ~ horoscope ~ '.svg') }}" height="50" width="50" alt="Icon">
 								</div>
 								<h3 class="box-title">
@@ -77,30 +77,43 @@
 
 				<div class="col-xl-5 order-xl-1">
 					<div class="title-area mb-35">
-						<span class="sub-title">Qui suis-je</span>
-						<h2 class="sec-title">Guide vers la voyance et l'épanouissement personnel</h2>
+						<span class="sub-title mb-3">Qui suis-je</span>
+						<div class="mb-3">
+						Xavier Médium: 
+						<i class="fa-regular fa-star"></i>
+						<i class="fa-regular fa-star"></i>
+						<i class="fa-regular fa-star"></i>
+						<i class="fa-regular fa-star"></i>
+						<i class="fa-regular fa-star"></i>
+						</div>
+						<h6>Astologue, Cartomancien, Voyant & médium, Numérologue, Tarologue</h6>
+						<p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
 					</div>
-					<p class="mt-n2 mb-30">Médium, tarologue, numérologue, astrologue. Pour une voyance, claire et précise. Pour que nous puissions trouver ensemble des solutions à  vos problèmes sentimentaux et professionnels.</p>
-					<div class="btn-group">
-						<a href="{{ path('app_aboutus') }}" class="th-btn">En savoir plus<i class="fa-regular fa-arrow-right ms-2"></i>
-						</a>
-						<div class="about-profile">
-							<div class="avater">
-								<img src="{{ asset('assets/img/normal/about_author1.png') }}" alt="avater">
+					<div class="btn-group" style="gap: 15px">
+						<div style="padding:21.5px 4px;width:auto">
+							<div>
+								9.99e
 							</div>
-							<div class="media-body">
-								<h4 class="title">Xarox</h4>
-								<span class="desig">Voyance en ligne</span>
+							<div>
+								<a href="#" class="th-btn"><i class="fa-solid fa-phone"></i> Telephone</a>
 							</div>
 						</div>
-					</div>
-					<div class="about-grid2">
-						<h3 class="about-grid_year" data-bg-src="{{ asset('assets/img/normal/text-mask-img.png') }}">
-							<span class="counter-number">25</span>+</h3>
-						<span class="about-grid_text">
-							Votre chemin vers la clarté<br>
-							et la sérénité
-						</span>
+						<div style="padding:21.5px 4px;width:auto">
+							<div>
+								9.99e
+							</div>
+							<div>
+								<a href="#" class="th-btn"><i class="fa-regular fa-envelope"></i> Email</a>
+							</div>
+						</div>
+						<div style="padding:21.5px 4px;width:auto">
+							<div>
+								9.99e
+							</div>
+							<div>
+								<a href="#" class="th-btn" style="padding:21.5px 4px;width:auto"><i class="fa-brands fa-rocketchat"></i> Chat</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -165,18 +178,18 @@
 		</div>
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-xl-6">
-					<div class="experience-thumb">
-						<img src="{{ asset('assets/img/normal/experience-thumb.png') }}" alt="img">
-						<div class="customer-wrap">
-							<h2 class="customer-wrap-title">
-								<span class="counter-number">96</span>%</h2>
-							<p class="customer-wrap-text">Customers
-								<br>
-								Satisfaction</p>
-							<div class="customer-wrap-icon"><img src="{{ asset('assets/img/icon/customer-check-icon.svg') }}" alt="icon"></div>
-						</div>
+				<div class="col-xl-5 order-xl-1">
+					<div class="title-area mb-35">
+						<span class="sub-title">Qui suis-je</span>
+						<h2 class="sec-title">Guide vers la voyance et l'épanouissement personnel</h2>
 					</div>
+					<p class="mt-n2 mb-30">Médium, tarologue, numérologue, astrologue. Pour une voyance, claire et précise. Pour que nous puissions trouver ensemble des solutions à  vos problèmes sentimentaux et professionnels.</p>
+					<div class="btn-group">
+						<a href="{{ path('app_aboutus') }}" class="th-btn">En savoir plus<i class="fa-regular fa-arrow-right ms-2"></i>
+						</a>
+						
+					</div>
+					
 				</div>
 				<div class="col-xl-6">
 					<div class="title-area mb-35">
@@ -215,86 +228,7 @@
 			</div>
 		</div>
 	</div>
-	<!--==============================
-	Blog Area  
-	==============================-->
-	<section class="space">
-		<div class="container">
-			<div class="title-area text-center">
-				<span class="sub-title">voyance, astrologie, spiritualité, développement personnel</span>
-				<h2 class="sec-title">Votre blog d'information</h2>
-			</div>
-			<div class="row gx-30 gy-30">
-				<div class="col-xl-6">
-					<div class="blog-card style3">
-						<div class="blog-img">
-							<img src="{{ asset('assets/img/blog/' ~ articleBlogs[0].imageName) }}" alt="{{ articleBlogs[0].Titre }}">
-						</div>
-						<div class="blog-content">
-							<div class="blog-meta">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[0].Categorie.Slug, 'id': articleBlogs[0].Slug}) }}">
-									<i class="fal fa-calendar-days"></i>{{ articleBlogs[0].CreatedAt | date('d-m-Y') }}</a>
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[0].Categorie.Slug, 'id': articleBlogs[0].Slug}) }}">
-									<i class="fal fa-user"></i>Ursuliah</a>
-							</div>
-							<h3 class="blog-title">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[0].Categorie.Slug, 'id': articleBlogs[0].Slug}) }}">{{ articleBlogs[0].Titre }}</a>
-							</h3>
-							<p class="blog-text">{{ articleBlogs[0].Article }}</p>
-							<div class="blog-bottom">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[0].Categorie.Slug, 'id': articleBlogs[0].Slug}) }}" class="link-btn">Read More<i class="fa-solid fa-arrow-up-right ms-2"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6">
-					<div class="blog-grid-card">
-						<div class="blog-img">
-							<img src="{{ asset('assets/img/blog/' ~ articleBlogs[1].imageName) }}" height="267" width="270" alt="{{ articleBlogs[1].Titre }}" style="height:267px;width:270px">
-						</div>
-						<div class="blog-content">
-							<div class="blog-meta">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[1].Categorie.Slug, 'id': articleBlogs[1].Slug}) }}">
-									<i class="fal fa-calendar-days"></i>{{ articleBlogs[1].CreatedAt | date('d-m-Y') }}</a>
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[1].Categorie.Slug, 'id': articleBlogs[1].Slug}) }}">
-									<i class="fal fa-user"></i>Ursuliah</a>
-							</div>
-							<h3 class="blog-title">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[1].Categorie.Slug, 'id': articleBlogs[1].Slug}) }}">{{ articleBlogs[1].Titre }}</a>
-							</h3>
-							<p class="blog-text">{{ articleBlogs[1].Article }}</p>
-							<div class="blog-bottom">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[1].Categorie.Slug, 'id': articleBlogs[1].Slug}) }}" class="link-btn">Read More<i class="fa-solid fa-arrow-up-right ms-2"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="blog-grid-card mt-30">
-						<div class="blog-img">
-							<img src="{{ asset('assets/img/blog/' ~ articleBlogs[2].imageName) }}" height="267" width="270" alt="{{ articleBlogs[1].Titre }}" style="height:267px;width:270px">
-						</div>
-						<div class="blog-content">
-							<div class="blog-meta">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[2].Categorie.Slug, 'id': articleBlogs[2].Slug}) }}">
-									<i class="fal fa-calendar-days"></i>{{ articleBlogs[1].CreatedAt | date('d-m-Y') }}</a>
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[2].Categorie.Slug, 'id': articleBlogs[2].Slug}) }}">
-									<i class="fal fa-user"></i>Ursuliah</a>
-							</div>
-							<h3 class="blog-title">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[2].Categorie.Slug, 'id': articleBlogs[2].Slug}) }}">{{ articleBlogs[2].Titre }}</a>
-							</h3>
-							<p class="blog-text">{{ articleBlogs[2].Article }}</p>
-							<div class="blog-bottom">
-								<a href="{{ path('app_blog_show_article', {'Slug': articleBlogs[2].Categorie.Slug, 'id': articleBlogs[2].Slug}) }}" class="link-btn">Read More<i class="fa-solid fa-arrow-up-right ms-2"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+
 	{# integration avec Mailshimp #}
 	<section class="newsletter-area bg-theme" data-bg-src="{{ asset('assets/img/bg/newsletter-bg.png') }}">
 		<div class="newsletter-thumb shape-mockup d-lg-block d-none" data-top="0" data-left="0"><img src="assets/img/bg/newsletter-bg1.png" alt="img"></div>
