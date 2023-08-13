@@ -48,6 +48,7 @@ class ApiController extends AbstractController
         $isTchatActive = $data['tchat'];
 
         $settings = $entityManager->getRepository(ModeDeConsultation::class)->findAll();
+        dd($settings);
         $settings[0]->setIsOnline($isEmailActive);
         $settings[1]->setIsOnline($isTelephoneActive);
         $settings[2]->setIsOnline($isTchatActive);
