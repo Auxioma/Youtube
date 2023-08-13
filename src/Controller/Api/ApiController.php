@@ -48,12 +48,12 @@ class ApiController extends AbstractController
         $isTchatActive = $data['tchat'];
 
         $settings = $entityManager->getRepository(ModeDeConsultation::class)->findAll();
-        dd($settings);
+       
         $settings[0]->setIsOnline($isEmailActive);
         $settings[1]->setIsOnline($isTelephoneActive);
         $settings[2]->setIsOnline($isTchatActive);
         $entityManager->flush();
-
+ dd($entityManager->getRepository(ModeDeConsultation::class)->findAll());
         // Répondre avec un message de succès ou d'erreur
         return new JsonResponse(['success' => true]);
     }
