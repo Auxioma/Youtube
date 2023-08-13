@@ -38,7 +38,7 @@ const LinksComponent = () => {
 
   const getStatusClassName = (id) => {
     const status = data.find(item => item.id === id)?.OnLine;
-    console.log(data.find(item => item.id === id)?.id);
+    console.log(data);
     if (status === '0') {
       return 'th-btn_status-on-line';
     } else if (status === '1') {

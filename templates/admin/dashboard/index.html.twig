@@ -11,7 +11,8 @@
 				<div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
 					<i class="fa fa-chart-line fa-3x text-primary"></i>
 					<div class="ms-3">
-						<p class="mb-2">Total des vente: {{ 'now' | date('M Y') }}</p>
+						<p class="mb-2">Total des vente:
+							{{ 'now' | date('M Y') }}</p>
 						<h6 class="mb-0">$1234</h6>
 					</div>
 				</div>
@@ -44,21 +45,23 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-sm-12 col-xl-6">
-		<div class="bg-light rounded h-100 p-4">
-			<h6 class="mb-4">Visibilité des consultation</h6>
-			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="telephone">
-				<label class="form-check-label" for="telephone">Active / Desavtive Téléphone</label>
-			</div>
-			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="Email">
-				<label class="form-check-label" for="Email">Active / Desavtive Email </label>
-			</div>
-			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="tchat">
-				<label class="form-check-label" for="tchat">Active / Desavtive Tchat</label>
+
+		<div class="col-sm-12 col-xl-6 pt-3">
+			<div class="bg-light rounded h-100 p-4">
+				<h6 class="mb-4">Visibilité des consultation</h6>
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" role="switch" id="telephone" {% if modedeconsultations[0].IsOnline == 1 %} checked  {% endif %}>
+					<label class="form-check-label" for="telephone">({{modedeconsultations[0].Id}}) - {% if modedeconsultations[0].IsOnline == 1 %} Désactive Téléphone {% else %} Active Téléphone {% endif %}</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" role="switch" id="Email" {% if modedeconsultations[2].IsOnline == 1 %} checked  {% endif %}>
+					<label class="form-check-label" for="Email">({{modedeconsultations[2].Id}}) {% if modedeconsultations[2].IsOnline == 1 %} Désactive Email {% else %} Active Email {% endif %}
+					</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" role="switch" id="tchat" {% if modedeconsultations[1].IsOnline == 1 %} checked  {% endif %}>
+					<label class="form-check-label" for="tchat">({{modedeconsultations[1].Id}}) {% if modedeconsultations[1].IsOnline == 1 %} Désactive tchat {% else %} Active tchat {% endif %}</label>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -67,42 +70,34 @@
 {% block javascript %}
 	<script>
 		// Fonction qui envoie les données du formulaire au contrôleur Symfony via AJAX
-		function updateSettingsInDatabase() {
-
-			// transformer les constante true ou false en 1 ou 0
-			const isTelephoneActive = document.getElementById('telephone').checked ? 1 : 0;
-			const isEmailActive = document.getElementById('Email').checked ? 1 : 0;
-			const isTchatActive = document.getElementById('tchat').checked ? 1 : 0;
+function updateSettingsInDatabase() { // transformer les constante true ou false en 1 ou 0
+const isTelephoneActive = document.getElementById('telephone').checked ? 1 : 0;
+const isEmailActive = document.getElementById('Email').checked ? 1 : 0;
+const isTchatActive = document.getElementById('tchat').checked ? 1 : 0;
 
 
-			fetch('/api/bouton/update/settings', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				telephone: isTelephoneActive,
-				email: isEmailActive,
-				tchat: isTchatActive,
-			}),
-			})
-			.then(response => response.json())
-			.then(data => {
-				// Le contrôleur Symfony renverra une réponse JSON avec { success: true } en cas de succès
-				if (data.success) {
-				console.log('Mise à jour réussie en base de données.');
-				} else {
-				console.error('Erreur lors de la mise à jour en base de données.');
-				}
-			})
-			.catch(error => {
-				console.error('Une erreur s\'est produite :', error);
-			});
-		}
+fetch('/api/bouton/update/settings', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify(
+{telephone: isTelephoneActive, email: isEmailActive, tchat: isTchatActive}
+)
+}).then(response => response.json()).then(data => { // Le contrôleur Symfony renverra une réponse JSON avec { success: true } en cas de succès
+if (data.success) {
+console.log('Mise à jour réussie en base de données.');
+} else {
+console.error('Erreur lors de la mise à jour en base de données.');
+}
+}).catch(error => {
+console.error('Une erreur s\'est produite :', error);
+});
+}
 
-		// Ajouter un gestionnaire d'événements à chaque case à cocher pour appeler la fonction d'envoi des données
-		document.getElementById('telephone').addEventListener('change', updateSettingsInDatabase);
-		document.getElementById('Email').addEventListener('change', updateSettingsInDatabase);
-		document.getElementById('tchat').addEventListener('change', updateSettingsInDatabase);
+// Ajouter un gestionnaire d'événements à chaque case à cocher pour appeler la fonction d'envoi des données
+document.getElementById('telephone').addEventListener('change', updateSettingsInDatabase);
+document.getElementById('Email').addEventListener('change', updateSettingsInDatabase);
+document.getElementById('tchat').addEventListener('change', updateSettingsInDatabase);
 	</script>
 {% endblock %}
