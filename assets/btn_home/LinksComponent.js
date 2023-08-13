@@ -39,14 +39,14 @@ const LinksComponent = () => {
   const getStatusClassName = (id) => {
     const status = data.find(item => item.id === id)?.OnLine;
     if (status === '0') {
-      return 'on-line';
-    } else if (status === '1') {
-      return 'on-Busy';
-    } else if (status === '2') {
       return 'off-line';
+    } else if (status === '1') {
+      return 'on-line';
+    } else if (status === '2') {
+      return 'on-Busy';
     }
     // Handle unknown status or return a default class
-    return 'on-line';
+    return 'off-line';
   };
 
   return (
@@ -56,7 +56,7 @@ const LinksComponent = () => {
           {data[2].telephone}
         </div>
         <div>
-          <a href="#" className={`th-btn ${getStatusClassName(90)}`}>
+          <a href="#" className={`th-btn ${getStatusClassName(2)}`}>
             <i className="fa-solid fa-phone"></i> Telephone
           </a>
         </div>
@@ -67,7 +67,7 @@ const LinksComponent = () => {
             {data[2].email}
           </div>
           <div>
-            <a href="#" className={`th-btn ${getStatusClassName(89)}`}>
+            <a href="#" className={`th-btn ${getStatusClassName(1)}`}>
               <i className="fa-regular fa-envelope"></i> Email
             </a>
           </div>
@@ -79,8 +79,8 @@ const LinksComponent = () => {
             {data[2].chat}
           </div>
           <div>
-            <a href="#" className={`th-btn ${getStatusClassName(88)}`}>
-              <i className="fa-regular fa-envelope"></i> Chat
+            <a href="#" className={`th-btn ${getStatusClassName(3)}`}>
+              <i className="fa-brands fa-rocketchat"></i> Chat
             </a>
           </div>
         </div>

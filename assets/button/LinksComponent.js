@@ -39,27 +39,27 @@ const LinksComponent = () => {
   const getStatusClassName = (id) => {
     const status = data.find(item => item.id === id)?.OnLine;
     if (status === '0') {
-      return 'th-btn_status-on-line';
-    } else if (status === '1') {
-      return 'th-btn_status-on-Busy';
-    } else if (status === '2') {
       return 'th-btn_status-off-line';
+    } else if (status === '1') {
+      return 'th-btn_status-on-line';
+    } else if (status === '2') {
+      return 'th-btn_status-on-Busy';
     }
     // Handle unknown status or return a default class
-    return 'th-btn_status-on-line';
+    return 'th-btn_status-off-line';
   };
 
   return (
     <div>
-      <a href="#" className={getStatusClassName(88)}>
+      <a href="#" className={getStatusClassName(2)}>
         <i className="fa-solid fa-phone"></i>
       </a>
 
-      <a href="#" className={getStatusClassName(89)}>
+      <a href="#" className={getStatusClassName(1)}>
         <i className="fa-regular fa-envelope"></i>
       </a>
 
-      <a href="#" className={getStatusClassName(90)}>
+      <a href="#" className={getStatusClassName(3)}>
         <i className="fa-brands fa-rocketchat"></i>
       </a>
     </div>
