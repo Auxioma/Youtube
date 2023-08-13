@@ -50,8 +50,8 @@
 			<div class="bg-light rounded h-100 p-4">
 				<h6 class="mb-4">Visibilité des consultation</h6>
 				<div class="form-check form-switch">
-					<input class="form-check-input" type="checkbox" role="switch" id="telephone" {% if modedeconsultations[0].IsOnline == 1 %} checked {% endif %}>
-					<label class="form-check-label" for="telephone">({{modedeconsultations[0].Id}})
+					<input class="form-check-input" type="checkbox" role="switch" id="Email" {% if modedeconsultations[0].IsOnline == 1 %} checked {% endif %}>
+					<label class="form-check-label" for="Email">({{modedeconsultations[0].Id}})
 						{{modedeconsultations[0].IsOnline}}
 						-
 						{% if modedeconsultations[0].IsOnline == 1 %}
@@ -62,8 +62,8 @@
 					</label>
 				</div>
 				<div class="form-check form-switch">
-					<input class="form-check-input" type="checkbox" role="switch" id="Email" {% if modedeconsultations[2].IsOnline == 1 %} checked {% endif %}>
-					<label class="form-check-label" for="Email">({{modedeconsultations[2].Id}})
+					<input class="form-check-input" type="checkbox" role="switch" id="telephone" {% if modedeconsultations[2].IsOnline == 1 %} checked {% endif %}>
+					<label class="form-check-label" for="telephone">({{modedeconsultations[2].Id}})
 						{{modedeconsultations[2].IsOnline}}
 						-
 						{% if modedeconsultations[2].IsOnline == 1 %}
