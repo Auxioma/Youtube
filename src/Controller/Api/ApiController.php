@@ -8,20 +8,29 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ModeDeConsultationRepository;
+use App\Repository\TarifConsultationRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ApiController extends AbstractController
 {
    #[Route('/api/bouton/show/setting', name: 'api_bouton')]
-    public function index(ModeDeConsultationRepository $consultation): JsonResponse
+    public function index(ModeDeConsultationRepository $consultation, TarifConsultationRepository $tarif): JsonResponse
     {
         $consultations = $consultation->findAll();
+        $tarifs = $tarif->findAll();
+        $chat   = $tarifs[4]->getPrice();
+        $telephone  = $tarifs[3]->getPrice();
+        $email      = $tarifs[0]->getPrice();
+
         $data = [];
         foreach ($consultations as $consultation) {
             $data[] = [
                 'id' => $consultation->getId(),
                 'OnLine' => $consultation->getIsOnline(),
+                'chat' => $chat,
+                'telephone' => $telephone,
+                'email' => $email,
             ];
         }
         return new JsonResponse($data);

@@ -7322,7 +7322,8 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment .comment-content
 }
 
 .hero-style3 {
-  padding: calc(160px + 173px) 0 270px;
+  /*padding: calc(160px + 173px) 0 270px;*/
+  padding: calc(160px + 100px) 0 150px;
 }
 
 .hero-style4 {
@@ -16628,6 +16629,15 @@ span.select2-selection.select2-selection--single:focus {
   background-color: #ff6600;
 }
 
+.home-btn .on-Busy {
+  background-color: #ff6600!important;
+} 
+.home-btn .on-line {
+  background-color: #4fc031!important;
+} 
+.home-btn .off-line {
+  background-color: #70726E!important;
+} 
 
 /* *******************************
 message-area
