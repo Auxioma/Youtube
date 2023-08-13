@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/tarif')]
+#[Route('/admin/tarif')] 
 #[IsGranted('ROLE_ADMIN', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
 class TarifConsultationCRUDController extends AbstractController
 {
@@ -33,7 +33,7 @@ class TarifConsultationCRUDController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $tarifConsultationRepository->save($tarifConsultation, true);
 
-            return $this->redirectToRoute('app_admin_tarif_consultation_c_r_u_d_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_tarif_consultation_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/tarif_consultation_crud/new.html.twig', [
@@ -51,7 +51,7 @@ class TarifConsultationCRUDController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $tarifConsultationRepository->save($tarifConsultation, true);
 
-            return $this->redirectToRoute('app_admin_tarif_consultation_c_r_u_d_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_tarif_consultation_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/tarif_consultation_crud/edit.html.twig', [
@@ -67,6 +67,6 @@ class TarifConsultationCRUDController extends AbstractController
             $tarifConsultationRepository->remove($tarifConsultation, true);
         }
 
-        return $this->redirectToRoute('app_admin_tarif_consultation_c_r_u_d_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_tarif_consultation_index', [], Response::HTTP_SEE_OTHER);
     }
 }
