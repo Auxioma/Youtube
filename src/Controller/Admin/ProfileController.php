@@ -22,26 +22,6 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_admin_profile_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $profile = new Profile();
-        $form = $this->createForm(Profile1Type::class, $profile);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($profile);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_admin_profile_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('admin/profile/new.html.twig', [
-            'profile' => $profile,
-            'form' => $form,
-        ]);
-    }
-
     #[Route('/{id}', name: 'app_admin_profile_show', methods: ['GET'])]
     public function show(Profile $profile): Response
     {
@@ -68,14 +48,4 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_admin_profile_delete', methods: ['POST'])]
-    public function delete(Request $request, Profile $profile, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$profile->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($profile);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_admin_profile_index', [], Response::HTTP_SEE_OTHER);
-    }
 }

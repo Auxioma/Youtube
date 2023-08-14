@@ -31,11 +31,11 @@ class ConversationController extends AbstractController
         $this->conversationRepository = $conversationRepository;
     }
 
-    #[Route('/ooo/{id}', name: 'newConversations', methods: ['GET'])]
-    public function index(Request $request, $id): JsonResponse
+    #[Route('/', name: 'newConversations', methods: ['POST'])]
+    public function index(Request $request): JsonResponse
     {
         $otherUser = $request->get('otherUser', 0);
-        $otherUser = $this->profileRepository->find($id);
+        $otherUser = $this->profileRepository->find($otherUser );
 
         if (is_null($otherUser)) {
             throw new \Exception("The user was not found");
