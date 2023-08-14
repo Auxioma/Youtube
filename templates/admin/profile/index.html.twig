@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile index{% endblock %}
+
+{% block body %}
+    <h1>Profile index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>DateDeNaissance</th>
+                <th>NumeroTelephone</th>
+                <th>Adresse</th>
+                <th>CodePostal</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>OptIn</th>
+                <th>ImageName</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profile in profiles %}
+            <tr>
+                <td>{{ profile.id }}</td>
+                <td>{{ profile.Pseudo }}</td>
+                <td>{{ profile.Nom }}</td>
+                <td>{{ profile.DateDeNaissance ? profile.DateDeNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ profile.NumeroTelephone }}</td>
+                <td>{{ profile.Adresse }}</td>
+                <td>{{ profile.CodePostal }}</td>
+                <td>{{ profile.Ville }}</td>
+                <td>{{ profile.Pays }}</td>
+                <td>{{ profile.OptIn ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.imageName }}</td>
+                <td>{{ profile.CreatedAt ? profile.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ profile.UpdatedAt ? profile.UpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_profile_show', {'id': profile.id}) }}">show</a>
+                    <a href="{{ path('app_admin_profile_edit', {'id': profile.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_profile_new') }}">Create new</a>
+{% endblock %}

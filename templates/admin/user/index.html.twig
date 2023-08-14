@@ -34,6 +34,7 @@
 								</td>
 								<td>
 									<a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
+									<a class="btn" href="{{ path('app_admin_profile_edit', {'id': user.Profile.id}) }}">Voir le profile</a>
 								</td>
 							</tr>
 						{% else %}
