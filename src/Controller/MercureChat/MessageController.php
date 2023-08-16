@@ -99,8 +99,9 @@ class MessageController extends AbstractController
     public function newMessage(Request $request, Conversation $conversation, SerializerInterface $serializer)
     {
      
-        $user = $this->profileRepository->findoneBy(['id' => 1]);
+        // $user = $this->profileRepository->findoneBy(['id' => 1]);
 
+        $user =  $this->getUser()->getProfile();
 
         $recipient = $this->participantRepository->findParticipantByConverstionIdAndUserId(
             $conversation->getId(),
