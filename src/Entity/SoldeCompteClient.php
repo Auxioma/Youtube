@@ -25,6 +25,15 @@ class SoldeCompteClient
     #[ORM\ManyToOne(inversedBy: 'soldeCompteClients')]
     private ?Profile $Customer = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $BonusByAdmin = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $TypeDeConsultation = null;
+
+    #[ORM\OneToOne(mappedBy: 'Client', cascade: ['persist', 'remove'])]
+    private ?Avis $avis = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,4 +62,46 @@ class SoldeCompteClient
 
         return $this;
     }
+
+    public function getBonusByAdmin(): ?string
+    {
+        return $this->BonusByAdmin;
+    }
+
+    public function setBonusByAdmin(?string $BonusByAdmin): static
+    {
+        $this->BonusByAdmin = $BonusByAdmin;
+
+        return $this;
+    }
+
+    public function getTypeDeConsultation(): ?string
+    {
+        return $this->TypeDeConsultation;
+    }
+
+    public function setTypeDeConsultation(?string $TypeDeConsultation): static
+    {
+        $this->TypeDeConsultation = $TypeDeConsultation;
+
+        return $this;
+    }
+
+    public function getAvis(): ?Avis
+    {
+        return $this->avis;
+    }
+
+    public function setAvis(Avis $avis): static
+    {
+        // set the owning side of the relation if necessary
+        if ($avis->getClient() !== $this) {
+            $avis->setClient($this);
+        }
+
+        $this->avis = $avis;
+
+        return $this;
+    }
+
 }

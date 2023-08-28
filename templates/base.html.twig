@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block css %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
     </head>
     <body>

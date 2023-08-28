@@ -17210,6 +17210,21 @@ button:focus {
       border-top-right-radius: 6px;
       border-bottom-left-radius: 6px;
   }
+}
+  .icoprofile {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .icoprofile::before {
+    font-size: 55px;
+  }
 
 /* rouge : belier, lion, satitaire */
 /* vert  : cancer, scorpion, poisson */

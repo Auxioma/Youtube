@@ -2,7 +2,12 @@
 <aside class="sidebar-area col-3">
     <div class="widget widget_categories">
         <div class="text-center">
+            {% if app.user.profile.imageName is not null %}
             <img src="{{ asset('assets/img/profile/' ~ app.user.profile.imageName) }}" height="75" width="75" alt="image" class="img-fluid">
+            {% else %}
+
+            <i class="icoprofile fa-solid fa-{{app.user.profile.Pseudo|first}}"></i>
+            {% endif %}
             <h3 class="widget_title">Bonjour, {{ app.user.profile.Pseudo }}</h3>
             {# j'affiche le solde du client qui est le dernierID de la table soldeCompteClients #}
             <p>Solde : {{ app.user.profile.soldeCompteClients.last.PrixRestant | format_currency('EUR', {rounding_mode: 'floor'}) }}  </p>

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Temoiniage</h1>
+                <ul class="breadcumb-menu">
+                    <li>
+                        <a href="index.html">Profile</a>
+                    </li>
+                    <li>Temoiniage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="th-checkout-wrapper space-top space-extra-bottom">
+        <div class="container">
+            <div class="row">
+                {% include 'user/_partials/_navigation.html.twig' %}
+                <div class="col-9">
+                    <div class="container">
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="woocommerce-message">Vos témoiniage</div>
+                        </div>
+                        <table class="tinvwl-table-manage-list">
+                            <thead>
+                            <tr>
+                                <th class="product-price">Date de consultation</th>
+                                <th class="product-date">Type de Consultation</th>
+                                <th class="product-stock">Solde</th>
+                                <th class="product-stock"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for review in reviews %}
+
+                            <tr class="wishlist_item">
+                                <td class="product-price">
+                                   {{ review.CreatedAt | date('d-m-Y h:i:s') }}
+                                </td>
+                                <td class="product-date">
+                                    {{ review.TypeDeConsultation }}
+                                </td>
+                                <td class="product-stock">
+                                    {{ review.PrixRestant }}
+                                </td>
+                                <td class="product-stock">
+                                    {% if review.Avis == null %}
+                                        <a href="{{ path('user_review', {'id': review.id}) }}" class="">Donner votre avis</a>
+                                    {% else %}
+                                        <a>Avis déjà donner</a>
+                                    {% endif %}
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

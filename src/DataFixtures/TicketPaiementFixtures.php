@@ -28,7 +28,7 @@ class TicketPaiementFixtures extends Fixture implements DependentFixtureInterfac
             $soldeCompteClient = new SoldeCompteClient();
             $soldeCompteClient->setPrixRestant('100.00');
             $soldeCompteClient->setCustomer($profile);
-            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable());
+            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable('2023-08-05 12:29:34'));
             $manager->persist($soldeCompteClient);
         $manager->persist($ticketPaiement);
 
@@ -44,7 +44,7 @@ class TicketPaiementFixtures extends Fixture implements DependentFixtureInterfac
             $soldeCompteClient = new SoldeCompteClient();
             $soldeCompteClient->setPrixRestant('100.00');
             $soldeCompteClient->setCustomer($profile);
-            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable());
+            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable('2023-08-05 12:29:34'));
             $manager->persist($soldeCompteClient);
         $manager->persist($ticketPaiement);
 
@@ -60,7 +60,7 @@ class TicketPaiementFixtures extends Fixture implements DependentFixtureInterfac
             $soldeCompteClient = new SoldeCompteClient();
             $soldeCompteClient->setPrixRestant('100.00');
             $soldeCompteClient->setCustomer($profile);
-            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable());
+            $soldeCompteClient->setCreatedAt(new \DateTimeImmutable('2023-08-05 12:29:34'));
             $manager->persist($soldeCompteClient);
         $manager->persist($ticketPaiement);
 

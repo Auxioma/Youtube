@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+		<div class="container">
+			<div class="breadcumb-content text-center">
+				<h1 class="breadcumb-title">Votre témoiniage</h1>
+				<ul class="breadcumb-menu">
+					<li>
+						<a href="index.html">Accueil</a>
+					</li>
+					<li>Votre témoiniage</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="th-checkout-wrapper space-top space-extra-bottom">
+		<div class="container">
+			<div class="row">
+				{% include 'user/_partials/_navigation.html.twig' %}
+				<div class="col-9">
+					{{ form_start(form, { 'attr' : {'class': 'woocommerce-form-login'} }) }}
+					<div class="row">
+						<div class="col-12">
+							<div class="woocommerce-form-login-toggle">
+								<div class="woocommerce-info">Votre témoiniage</div>
+							</div>
+							<div class="form-group">
+								<label>Ecrire votre commentaire</label>
+								{{ form_widget(form.Comment) }}
+							</div>
+							<div class="form-group">
+								<label>Quel est la note de votre consultation ?</label>
+								<div class="stars">
+									<i class="lar la-star" data-value="1"></i>
+									<i class="lar la-star" data-value="2"></i>
+									<i class="lar la-star" data-value="3"></i>
+									<i class="lar la-star" data-value="4"></i>
+									<i class="lar la-star" data-value="5"></i>
+								</div>
+								{{ form_widget(form.Note) }}
+							</div>
+						</div>
+						<div class="form-group mt-5">
+							<button type="submit" class="th-btn">Enregistez vous</button>
+						</div>
+					</div>
+					{{ form_end(form) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block css %}
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+	<style>
+		.stars {
+			font-size: 2rem;
+		}
+	</style>
+{% endblock %}
+{% block javascripts %}
+	<script>
+		window.onload = () => { // On va chercher toutes les étoiles
+const stars = document.querySelectorAll(".la-star");
+
+// On va chercher l'input
+const note = document.querySelector("#review_Note");
+
+// On boucle sur les étoiles pour le ajouter des écouteurs d'évènements
+for (star of stars) { // On écoute le survol
+star.addEventListener("mouseover", function () {
+resetStars();
+this.style.color = "yellow";
+this.classList.add("las");
+this.classList.remove("lar");
+// L'élément précédent dans le DOM (de même niveau, balise soeur)
+let previousStar = this.previousElementSibling;
+
+while (previousStar) { // On passe l'étoile qui précède en rouge
+previousStar.style.color = "yellow";
+previousStar.classList.add("las");
+previousStar.classList.remove("lar");
+// On récupère l'étoile qui la précède
+previousStar = previousStar.previousElementSibling;
+}
+});
+
+// On écoute le clic
+star.addEventListener("click", function () {
+note.value = this.dataset.value;
+});
+
+star.addEventListener("mouseout", function () {
+resetStars(note.value);
+});
+}
+
+/**
+     * Reset des étoiles en vérifiant la note dans l'input caché
+     * @param {number} note 
+     */
+function resetStars(note = 0) {
+for (star of stars) {
+if (star.dataset.value > note) {
+star.style.color = "black";
+star.classList.add("lar");
+star.classList.remove("las");
+} else {
+star.style.color = "red";
+star.classList.add("las");
+star.classList.remove("lar");
+}
+}
+}
+}
+	</script>
+{% endblock %}
