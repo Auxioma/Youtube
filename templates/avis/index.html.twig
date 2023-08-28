@@ -27,115 +27,48 @@ Testimonial Area
                 <span class="sub-title">Testimonial</span>
                 <h2 class="sec-title">What Clients Say About Us</h2>
             </div>
-            <div class="row slider-shadow th-carousel arrow-style2" data-slide-show="2" data-lg-slide-show="2" data-md-slide-show="1" data-arrows="true">
-                <div class="col-lg-6">
+            <div class="row">
+
+                {% for avis in avis %}
+
+                <div class="col-lg-6 mb-3">
                     <div class="testi-card style2">
                         <div class="testi-card_profile">
                             <div class="media-left">
                                 <div class="testi-card_avater">
-                                    <img src="assets/img/testimonial/testi_2_1.jpg" alt="testimonial">
+                                    {% if avis.Client.Customer.imageName is not null %}
+                                            <img src="{{ asset('assets/img/profile/' ~ avis.Client.Customer.imageName) }}" height="100" width="100" alt="image" class="img-fluid">
+                                            {% else %}
+                                            <i class="icoprofile fa-solid fa-{{avis.Client.Customer.Pseudo|first}}"></i>
+                                            {% endif %}
                                 </div>
                                 <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
+                                    <i class="fa-solid fa-star-sharp" {% if avis.Note > 4 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if avis.Note > 3 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if avis.Note > 2 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if avis.Note > 1 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if avis.Note > 0 %} style="color:yellow" {% endif %}></i>
                                 </div>
                             </div>
                             <div class="media-body">
-                                <p class="testi-card_text">They took the time to thoroughly inspect my roof and identify all of the issues, and then came up with a comprehensive plan to address them. The team was skilled and efficient, and completed the job.</p>
+                                <p class="testi-card_text">
+                                    {{ avis.comment }}
+                                </p>
                                 <div class="media">
                                     <div class="testi-box_quote">
                                         <img src="assets/img/icon/blog-quote2.svg" alt="quote">
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="testi-card_name">Ronald Richards</h3>
-                                        <span class="testi-card_desig">Founder CEO</span>
+                                        <h3 class="testi-card_name">{{ avis.Client.Customer.Pseudo }}</h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="testi-card style2">
-                        <div class="testi-card_profile">
-                            <div class="media-left">
-                                <div class="testi-card_avater">
-                                    <img src="assets/img/testimonial/testi_2_2.jpg" alt="testimonial">
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <p class="testi-card_text">The team was professional & efficient. The quality of work was outstanding & I would to recommend them to anyone in need of roofing services. Highly recommend this company for any roofing needs.</p>
-                                <div class="media">
-                                    <div class="testi-box_quote">
-                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="testi-card_name">Ralph Edwards</h3>
-                                        <span class="testi-card_desig">Regular Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testi-card style2">
-                        <div class="testi-card_profile">
-                            <div class="media-left">
-                                <div class="testi-card_avater">
-                                    <img src="assets/img/testimonial/testi_2_1.jpg" alt="testimonial">
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <p class="testi-card_text">They took the time to thoroughly inspect my roof and identify all of the issues, and then came up with a comprehensive plan to address them. The team was skilled and efficient, and completed the job.</p>
-                                <div class="media">
-                                    <div class="testi-box_quote">
-                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="testi-card_name">Ronald Richards</h3>
-                                        <span class="testi-card_desig">Founder CEO</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testi-card style2">
-                        <div class="testi-card_profile">
-                            <div class="media-left">
-                                <div class="testi-card_avater">
-                                    <img src="assets/img/testimonial/testi_2_2.jpg" alt="testimonial">
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <p class="testi-card_text">The team was professional & efficient. The quality of work was outstanding & I would to recommend them to anyone in need of roofing services. Highly recommend this company for any roofing needs.</p>
-                                <div class="media">
-                                    <div class="testi-box_quote">
-                                        <img src="assets/img/icon/blog-quote2.svg" alt="quote">
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="testi-card_name">Ralph Edwards</h3>
-                                        <span class="testi-card_desig">Regular Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                {% endfor %}
+
             </div>
         </div>
     </section>

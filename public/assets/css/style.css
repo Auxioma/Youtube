@@ -11842,7 +11842,7 @@ span.select2-selection.select2-selection--single:focus {
   position: absolute;
   height: 42px;
   width: 35px;
-  background: #C61A07;
+  background: var(--theme-color);
   left: 80px;
   border-radius: 30px 30px 30px 25px;
   -webkit-transform: none;

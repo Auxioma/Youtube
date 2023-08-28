@@ -5,7 +5,6 @@
             {% if app.user.profile.imageName is not null %}
             <img src="{{ asset('assets/img/profile/' ~ app.user.profile.imageName) }}" height="75" width="75" alt="image" class="img-fluid">
             {% else %}
-
             <i class="icoprofile fa-solid fa-{{app.user.profile.Pseudo|first}}"></i>
             {% endif %}
             <h3 class="widget_title">Bonjour, {{ app.user.profile.Pseudo }}</h3>
