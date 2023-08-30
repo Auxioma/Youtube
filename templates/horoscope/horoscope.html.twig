@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ horoscope.titre }}{% endblock %}
+{% block description %}Bienvenue dans l'Univers du Signe du Zodiaque : Découvrez les Mystères et les Traits de Personnalité de {{ app.request.attributes.get('_route_params') | first }}{% endblock %}
+
 {% block body %}
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="black" data-opacity="7">
+
+    <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/img/breadcrum/zodiaque.png') }}" data-overlay="black" data-opacity="7">
         <div class="container">
             <div class="breadcumb-content text-center">
-                <h1 class="breadcumb-title">Services Details</h1>
+                <h1 class="breadcumb-title">Horoscope {{ app.request.attributes.get('_route_params') | first }}</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Services Details</li>
+                    <li><a href="{{ path('app_main') }}">Accueil</a></li>
+                    <li><a href="{{ path('app_horoscope_list') }}">Signe du Zodiaque</a></li>
+                    <li>Horoscope {{ app.request.attributes.get('_route_params') | first }}</li>
                 </ul>
             </div>
         </div>
@@ -17,9 +22,12 @@
             <div class="row">
                 <div class="col-xxl-8 col-lg-8">
                     <div class="page-single">
+                    {#
                         <div class="page-img mb-30">
                             <img src="{{ asset('assets/img/service/service-details.png') }}" alt="Service Image">
                         </div>
+                    #}
+
                         <div class="page-content">
                             <h2 class="h3 page-title" style="line-height: 1;">{{ horoscope.titre | replace({'(': '<br><span style="font-size: 16px;">', ')': "</span>"}) | raw }}</h2>
                             <p class="mb-30">{{ horoscope.description[0] | replace({'Amour': '<strong>Amour</strong>'}) | raw }}</p>
