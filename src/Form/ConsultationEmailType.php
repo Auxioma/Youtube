@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\ConsultationEmail;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +13,7 @@ class ConsultationEmailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Message', textareaType::class, [
+            ->add('Message', CKEditorType::class, [
                 'attr' => [
                     'placeholder' => 'Votre message',
                 ],
@@ -25,6 +25,6 @@ class ConsultationEmailType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ConsultationEmail::class,
-        ]);
+        ]); 
     }
 }
