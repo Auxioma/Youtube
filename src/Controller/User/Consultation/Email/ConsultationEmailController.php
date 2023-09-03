@@ -55,7 +55,7 @@ class ConsultationEmailController extends AbstractController
 
         }
 
-        return $this->render('User/consultation_email/consultation_e_mail.html.twig', [
+        return $this->render('user/consultation_email/consultation_e_mail.html.twig', [
             'form' => $form->createView(),
         ]);
     }

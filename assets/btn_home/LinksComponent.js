@@ -37,7 +37,7 @@ const LinksComponent = () => {
   }
 
   const getStatusClassName = (id) => {
-    const status = data.find(item => item.id === id)?.OnLine;
+    const status = data.find(item => item.id === id)?.OnLine; 
     if (status === '0') {
       return 'off-line';
     } else if (status === '1') {

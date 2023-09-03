@@ -14,7 +14,7 @@ class PrixConsultationParEmailController extends AbstractController
     #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function index(TarifConsultationRepository $tarifConsultationRepository): Response
     {
-        return $this->render('User/consultation_email/PrixConsultationParEmail.html.twig', [
+        return $this->render('user/consultation_email/PrixConsultationParEmail.html.twig', [
             'tarifConsultations' => $tarifConsultationRepository->findBy(['ModeDeConsultation' => 'Email']),
         ]);
     }

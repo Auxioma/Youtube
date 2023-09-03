@@ -6,6 +6,7 @@
 parameters:
     mercure_secret_key: '%env(MERCURE_JWT_SECRET)%'
     maintenanceFilePath: '%kernel.project_dir%/public/.maintenance'
+    
 services:
     # default configuration for services in *this* file
     _defaults:
