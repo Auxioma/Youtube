@@ -31,12 +31,16 @@
                         <div class="widget widget_categories  ">
                             <h3 class="widget_title">Voyance en ligne</h3>
                             <ul>
-                                <li><a href="service-details.html">Voyance Tchat</a></li>
-                                <li><a href="service-details.html">Voyance par Email</a> </li>
-                                <li><a href="service-details.html">Voyance par téléphone</a></li>
+                                <li><a href="{{ path('app_voyance_immediate', {'Slug': 'voyance-par-tchat'}) }}">Voyance Tchat</a></li>
+                                <li><a href="{{ path('app_voyance_immediate', {'Slug': 'voyance-par-email'}) }}">Voyance par Email</a> </li>
+                                <li><a href="{{ path('app_voyance_immediate', {'Slug': 'voyance-par-telephone'}) }}">Voyance par téléphone</a></li>
                             </ul>
                         </div>
+                        
+                        <div id="btn-home" class="btn-group" style="gap: 1px; text-align:center"></div>
+
                     </aside>
+                    
                 </div>
             </div>
         </div>

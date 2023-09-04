@@ -53,12 +53,14 @@ const LinksComponent = () => {
     <>
       <div className="home-btn">
         <div>
-          {data[2].telephone}
-        </div>
-        <div>
-          <a href="#" className={`th-btn ${getStatusClassName(2)}`}>
-            <i className="fa-solid fa-phone"></i> Telephone
-          </a>
+          <div>
+            {data[2].chat}
+          </div>
+          <div>
+            <a href="#" className={`th-btn ${getStatusClassName(3)}`}>
+              <i className="fa-brands fa-rocketchat"></i> Chat
+            </a>
+          </div>
         </div>
       </div>
       <div className="home-btn"> 
@@ -75,17 +77,14 @@ const LinksComponent = () => {
       </div>
       <div className="home-btn">
         <div>
-          <div>
-            {data[2].chat}
-          </div>
-          <div>
-            <a href="#" className={`th-btn ${getStatusClassName(3)}`}>
-              <i className="fa-brands fa-rocketchat"></i> Chat
-            </a>
-          </div>
+          {data[2].telephone}
         </div>
-      </div>
-
+        <div>
+          <a href="#" className={`th-btn ${getStatusClassName(2)}`}>
+            <i className="fa-solid fa-phone"></i> Telephone
+          </a>
+        </div>
+      </div>      
     </>
   );
 };
