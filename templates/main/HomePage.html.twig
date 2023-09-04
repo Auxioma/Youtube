@@ -80,11 +80,11 @@
 						<span class="sub-title mb-3">Qui suis-je</span>
 						<div class="mb-3">
 							Xavier Médium:
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-regular fa-star"></i>
-							<i class="fa-regular fa-star"></i>
+                                    <i class="fa-solid fa-star-sharp" {% if moyenne > 0 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if moyenne > 1 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if moyenne > 2 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if moyenne > 3 %} style="color:yellow" {% endif %}></i>
+                                    <i class="fa-solid fa-star-sharp" {% if moyenne > 4 %} style="color:yellow" {% endif %}></i>
 						</div>
 						<h6>Astologue, Cartomancien, Voyant & médium, Numérologue, Tarologue</h6>
 						<p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
@@ -174,29 +174,29 @@
 					<div class="skill-feature">
 						<h5 class="skill-feature_title">Tres satisfait</h5>
 						<div class="progress">
-							<div class="progress-bar" style="width: 75%;">
-								<div class="progress-value">75%</div>
+							<div class="progress-bar" style="width: {{moyenneAvis.tresSatisfait}}%;">
+								<div class="progress-value">{{moyenneAvis.tresSatisfait}}%</div>
 							</div>
 						</div>
 					</div>
 					<div class="skill-feature mt-30">
 						<h5 class="skill-feature_title">satisfait</h5>
 						<div class="progress">
-							<div class="progress-bar" style="width: 85%;">
-								<div class="progress-value">85%</div>
+							<div class="progress-bar" style="width: {{moyenneAvis.pasSatisfait}}%;">
+								<div class="progress-value">{{moyenneAvis.pasSatisfait}}%</div>
 							</div>
 						</div>
 					</div>
 					<div class="skill-feature mt-30">
 						<h5 class="skill-feature_title">peut satisfait</h5>
 						<div class="progress">
-							<div class="progress-bar" style="width: 85%;">
-								<div class="progress-value">85%</div>
+							<div class="progress-bar" style="width: {{moyenneAvis.pasDuToutSatisfait}}%;">
+								<div class="progress-value">{{moyenneAvis.pasDuToutSatisfait}}%</div>
 							</div>
 						</div>
 					</div>
 					<div class="btn-wrap mt-50">
-						<a href="contact.html" class="th-btn">Voir les avis clients<i class="fa-regular fa-arrow-right ms-2"></i>
+						<a href="{{ path('app_avis') }}" class="th-btn">Voir les avis clients<i class="fa-regular fa-arrow-right ms-2"></i>
 						</a>
 					</div>
 				</div>
