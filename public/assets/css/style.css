@@ -17225,8 +17225,33 @@ button:focus {
   .icoprofile::before {
     font-size: 55px;
   }
+.signe-belier, .signe-lion, .signe-sagittaire {
+  background: #FD0000;
+}
+.signe-belier::after, .signe-lion::after, .signe-sagittaire::after {
+  border-bottom: solid 38px #FD0000;
+}
 
-/* rouge : belier, lion, satitaire */
-/* vert  : cancer, scorpion, poisson */
-/* orange : tauraux, vierge, capricorne */
-/* Bleu: genaux, balance, versau */
+.signe-taureau, .signe-vierge, .signe-capricorne {
+  background: #FF6600;
+}
+
+.signe-taureau::after, .signe-vierge::after, .signe-capricorne::after {
+  border-bottom: solid 38px #FF6600;
+}
+
+.signe-gemeaux, .signe-balance, .signe-verseau {
+  background: blue;
+}
+
+.signe-gemeaux::after, .signe-balance::after, .signe-verseau::after {
+  border-bottom: solid 38px blue;
+}
+
+.signe-cancer, .signe-scorpion, .signe-poisson {
+  background: #4FC031;
+}
+
+.signe-cancer::after, .signe-scorpion::after, .signe-poisson::after {
+  border-bottom: solid 38px #4FC031;
+}

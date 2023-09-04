@@ -24,7 +24,7 @@ class ReviewClientController extends AbstractController
         $this->avis = $avis;
     }
     
-    #[Route('/usedr/review', name: 'app_user_review_client')]
+    #[Route('/user/review', name: 'app_user_review_client')]
     public function index(SoldeCompteClientRepository $avis): Response
     {
         $user = $this->getUser()->getProfile();
