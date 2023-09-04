@@ -28,9 +28,7 @@ Testimonial Area
                 <h2 class="sec-title">Les avis clients</h2>
             </div>
             <div class="row">
-
                 {% for avis in avis %}
-
                 <div class="col-lg-6 mb-3">
                     <div class="testi-card style2">
                         <div class="testi-card_profile">
@@ -60,13 +58,13 @@ Testimonial Area
                                     </div>
                                     <div class="media-body">
                                         <h3 class="testi-card_name">{{ avis.Client.Customer.Pseudo }}</h3>
+                                        <p>Consultation par {{ avis.Client.TypeDeConsultation }} le {{ avis.Client.CreatedAt | date('d m Y') }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 {% endfor %}
 
             </div>
