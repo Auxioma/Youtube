@@ -19,7 +19,7 @@ class ConsultationEmailController extends AbstractController
     public function index(ConsultationEmailRepository $consultationEmailRepository): Response
     {
         return $this->render('admin/consultation_email/index.html.twig', [
-            'consultation_emails' => $consultationEmailRepository->findAll(),
+            'consultation_emails' => $consultationEmailRepository->findBy(['Reponse' => null]),
         ]);
     }
 

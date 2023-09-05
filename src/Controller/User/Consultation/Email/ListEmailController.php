@@ -24,7 +24,7 @@ class ListEmailController  extends AbstractController
     public function show(ConsultationEmailRepository $consultationEmailRepository, $id): Response
     {
         return $this->render('user/consultation_email/show.html.twig', [
-            'consultation' => $consultationEmailRepository->findOneBy(['id' => $id, 'User' => $this->getUser()->getProfile()]),
+            'consultation' => $consultationEmailRepository->findOneBy(['Reponse' => $id]),
         ]);
     }
 }

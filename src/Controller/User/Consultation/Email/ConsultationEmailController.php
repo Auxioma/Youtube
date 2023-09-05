@@ -5,8 +5,11 @@ namespace App\Controller\User\Consultation\Email;
 use App\Entity\ConsultationEmail;
 use App\Entity\SoldeCompteClient;
 use App\Entity\TarifConsultation;
+use Symfony\Component\Mime\Email;
 use App\Form\ConsultationEmailType;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\ConsultationEmailRepository;
 use App\Repository\SoldeCompteClientRepository;
@@ -16,6 +19,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ConsultationEmailController extends AbstractController
 {
+    public function __construct(
+        private MailerInterface $mailer
+    ){}
+    
     #[Route('/user/consultation-email/{Slug}', name: 'user_consultation_email')]
     #[IsGranted('ROLE_USER', message: 'Vous devez vous connecter pour accéder à cette page', statusCode: 404, exceptionCode: '404')]
     public function index(
@@ -48,7 +55,19 @@ class ConsultationEmailController extends AbstractController
             $SoldeCompteClient = new SoldeCompteClient();
             $SoldeCompteClient->setCustomer($this->getUser()->getProfile());
             $SoldeCompteClient->setPrixRestant($paiement);
+            $SoldeCompteClient->setTypeDeConsultation('Email');
             $soldeCompteClientRepository->save($SoldeCompteClient, true);
+
+            // envoie d'un mail pour prévenir l'administrateur
+            $email = (new Email())
+                ->from('no-reply@ursuliah.com')
+                ->to($_ENV['EMAIL_FROM'])
+                ->priority(Email::PRIORITY_HIGH)
+                ->subject('Nouvelle consultation par Email')
+                ->text('Nouvelle consultation par Email')
+                ->html('<p>Xavier, tu as une neouvelle consultation par Email.</p>');
+            $this->mailer->send($email);
+
 
             $this->addFlash('success', 'Votre consultation a été enregistrée avec succès');
             return $this->redirectToRoute('user_consultation_email_list');
