@@ -26,3 +26,9 @@ vich_uploader:
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
             delete_on_remove: true
             delete_on_update: false
+        specialite:
+            uri_prefix: /assets/img/icon
+            upload_destination: '%kernel.project_dir%/assets/img/icon'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            delete_on_remove: true
+            delete_on_update: false

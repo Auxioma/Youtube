@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\SpecialiteVoyanceRepository;
 use App\Services\HoroscopeServices;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,7 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HoroscopeController extends AbstractController
 {
     public function __construct(
-        private HoroscopeServices $HoroscopeServices
+        private HoroscopeServices $HoroscopeServices,
+        private SpecialiteVoyanceRepository $SpecialiteVoyanceRepository
     )
     {}
 
@@ -19,6 +21,7 @@ class HoroscopeController extends AbstractController
     {
        return $this->render('horoscope/list.html.twig', [
             'horoscopes' => $this->HoroscopeServices->list(),
+            'specialites' => $this->SpecialiteVoyanceRepository->findAll(),
         ]);
     }
 

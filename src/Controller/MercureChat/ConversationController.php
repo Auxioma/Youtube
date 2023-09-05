@@ -6,6 +6,8 @@ use App\Entity\Conversation;
 use App\Entity\Participant;
 use App\Repository\ConversationRepository;
 use App\Repository\ProfileRepository;
+use App\Repository\SoldeCompteClientRepository;
+use App\Repository\TarifConsultationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,15 +22,22 @@ class ConversationController extends AbstractController
     private ProfileRepository $profileRepository;
     private EntityManagerInterface $entityManager;
     private ConversationRepository $conversationRepository;
+    private SoldeCompteClientRepository $soldeCompteClientRepository;
+    private TarifConsultationRepository $tarifConsultationRepository;
+
 
     public function __construct(
         ProfileRepository $profileRepository,
         EntityManagerInterface $entityManager,
-        ConversationRepository $conversationRepository
+        ConversationRepository $conversationRepository,
+        SoldeCompteClientRepository $soldeCompteClientRepository,
+        TarifConsultationRepository $tarifConsultationRepository
     ) {
         $this->profileRepository = $profileRepository;
         $this->entityManager = $entityManager;
         $this->conversationRepository = $conversationRepository;
+        $this->soldeCompteClientRepository = $soldeCompteClientRepository;
+        $this->tarifConsultationRepository = $tarifConsultationRepository;
     }
 
     #[Route('/', name: 'newConversations', methods: ['POST'])]
@@ -92,7 +101,22 @@ class ConversationController extends AbstractController
     {
         $conversations = $this->conversationRepository->findConversationsByUser($this->getUser()->getProfile()->getId());
 
-        //dd($conversations);
+        // je vais prendre le tarif de la consultation par tchat
+        $TarifChat = $this->tarifConsultationRepository->findOneBy(['ModeDeConsultation' => 'Tchat']);
+        $TarifChat = $TarifChat->getPrice();
+
+        // je vais prendre le solde du compte client
+        $SoldeCompteClient = $this->soldeCompteClientRepository->findOneBy(['Customer' => $this->getUser()->getProfile()->getId()], ['id' => 'DESC']);
+        $SoldeCompteClient = $SoldeCompteClient->getPrixRestant();
+        $conversations[0] = [
+            'Pseudo' => $conversations[0]['Pseudo'],
+            'imageName' => $conversations[0]['imageName'],
+            'conversationId' => $conversations[0]['conversationId'],
+            'content' => $conversations[0]['content'],
+            'CreatedAt' => $conversations[0]['CreatedAt'],
+            'TarifChat' => $TarifChat,
+            'SoldeCompteClient' => $SoldeCompteClient
+        ];
 
         $hubUrl = $this->getParameter('mercure.default_hub');
         $this->addLink($request, new Link('mercure', $hubUrl));

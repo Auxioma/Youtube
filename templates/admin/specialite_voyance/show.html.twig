@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}SpecialiteVoyance{% endblock %}
+
+{% block body %}
+    <h1>SpecialiteVoyance</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ specialite_voyance.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ specialite_voyance.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Svg</th>
+                <td>{{ specialite_voyance.Svg }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_specialite_voyance_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_specialite_voyance_edit', {'id': specialite_voyance.id}) }}">edit</a>
+
+    {{ include('admin/specialite_voyance/_delete_form.html.twig') }}
+{% endblock %}

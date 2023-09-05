@@ -1,0 +1,44 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}SpecialiteVoyance index{% endblock %}
+
+{% block body %}
+	<div class="container-fluid pt-4 px-4">
+		<h1>Specialite Voyance</h1>
+		<a href="{{ path('app_admin_specialite_voyance_new') }}">Create new</a>
+		<div class="bg-light text-center rounded p-4">
+			<div class="table-responsive">
+				<table class="table text-start align-middle table-bordered table-hover mb-0">
+					<thead>
+						<tr class="text-dark">
+							<th scope="col">Id</th>
+							<th scope="col">Title</th>
+							<th scope="col">SVG</th>
+							<th colspan="2" scope="col">actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for specialite_voyance in specialite_voyances %}
+							<tr>
+								<td>{{ specialite_voyance.id }}</td>
+								<td>{{ specialite_voyance.Titre }}</td>
+								<td>{{ specialite_voyance.Svg }}</td>
+								<td>
+                                    <a href="{{ path('app_admin_specialite_voyance_edit', {'id': specialite_voyance.id}) }}">edit</a>
+								</td>
+								<td>
+									{{ include('admin/specialite_voyance/_delete_form.html.twig') }}
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
