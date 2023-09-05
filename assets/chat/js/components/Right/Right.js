@@ -96,8 +96,8 @@ class Right extends React.Component {
                                         </div>
                                         <div className="flex-grow-1 ms-3">
                                             
-                                            <h3>Mehedi Hasan</h3>
-                                            <Timer />
+                                        <h3>Consultation avec: {this.props.items[0].Pseudo}</h3>
+                                            <Timer solde={this.props.items[0].SoldeCompteClient} coutchat={this.props.items[0].TarifChat}  />
                                         </div>
                                     </div>
                                 </div>

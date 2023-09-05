@@ -1,21 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Timer = () => {
-  const initialTime =  1 * 60; // 10 minutes en secondes
-  const [remainingTime, setRemainingTime] = useState(initialTime);
+class Timer extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    const cout = props.coutchat;
+    const solde = props.solde;
 
-  useEffect(() => {
+    // Je vais calculer le cout de la consultation en seconde
+    const CoutMinutes = solde / cout;
+    const CoutSecondes = CoutMinutes * 60;
+    const CoutSeconde = CoutSecondes.toFixed(0);
+    this.state = {
+      remainingTime: CoutSeconde
+    };
+  }
+
+  componentDidMount() {
     let interval;
 
     // Démarre le compte à rebours
     const startCountdown = () => {
       interval = setInterval(() => {
-        setRemainingTime(prevRemainingTime => {
-          if (prevRemainingTime > 0) {
-            return prevRemainingTime - 1;
+        this.setState(prevState => {
+          if (prevState.remainingTime > 0) {
+            return { remainingTime: prevState.remainingTime - 1 };
           } else {
             clearInterval(interval); // Arrête le compte à rebours lorsque le temps atteint 0
-            return 0;
+            return { remainingTime: 0 };
           }
         });
       }, 1000); // Mettre à jour le temps toutes les 1000 ms (1 seconde)
@@ -25,24 +37,33 @@ const Timer = () => {
     startCountdown();
 
     // Arrêter le compte à rebours quand le composant est démonté
-    return () => clearInterval(interval);
-  }, []);
+    this.interval = interval;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   // Convertir le temps en minutes et secondes pour l'affichage
-  const minutes = Math.floor(remainingTime / 60);
-  const seconds = remainingTime % 60;
 
-  return (
-    // Afficher le temps restant, et le le temps = 0, afficher le message
-    // "Temps écoulé"
-    <div>
-      {remainingTime === 0 ? (
-        <p>Temps écoulé !</p>
-      ) : (
-        <p>Temps restant: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</p>
-      )}
-    </div>
-  );
-};
+  render() {
+    const minutes = Math.floor(this.state.remainingTime / 60);
+    const seconds = this.state.remainingTime % 60;
+
+    return (
+      // Afficher le temps restant, et le le temps = 0, afficher le message
+      // "Temps écoulé"
+      <div>
+        {this.state.remainingTime === 0 ? (
+          <p>Temps écoulé !</p>
+        ) : (
+          <p>
+            Temps restant: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+          </p>
+        )}
+      </div>
+    );
+  }
+}
 
 export default Timer;
