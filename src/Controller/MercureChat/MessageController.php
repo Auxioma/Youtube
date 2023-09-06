@@ -150,10 +150,8 @@ class MessageController extends AbstractController
             */
         );
         
-  
         $this->publisher->__invoke($update);
      
-       
         $message->setMine(true);
 
         
