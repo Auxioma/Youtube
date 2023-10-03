@@ -73,7 +73,7 @@ class CartController extends AbstractController
         }
 
         $session = \Stripe\Checkout\Session::create([
-            'payment_method_types' => ['card', 'sepa_debit'],
+            'payment_method_types' => ['card'],
             'line_items' => $lineItems,
             'mode' => 'payment',
             'success_url' => "https://ursuliah.com/user/success?session_id={CHECKOUT_SESSION_ID}",
