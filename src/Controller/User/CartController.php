@@ -76,7 +76,7 @@ class CartController extends AbstractController
             'payment_method_types' => ['card', 'sepa_debit'],
             'line_items' => $lineItems,
             'mode' => 'payment',
-            'success_url' => "https://127.0.0.1:8000/user/success?session_id={CHECKOUT_SESSION_ID}",
+            'success_url' => "https://ursuliah.com/user/success?session_id={CHECKOUT_SESSION_ID}",
             'cancel_url' => $this->generateUrl('user_panier_show', [], UrlGeneratorInterface::ABSOLUTE_URL),
         ]);
 
